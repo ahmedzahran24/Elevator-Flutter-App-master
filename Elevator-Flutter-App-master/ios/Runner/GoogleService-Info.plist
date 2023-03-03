@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>406771243329-b07c8i8r8a1cj9ngii195ge1uc5pc792.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.406771243329-b07c8i8r8a1cj9ngii195ge1uc5pc792</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCV33p7nG5xjz_RbfP6PvoEcwpG16LXmxU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>406771243329</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.test2</string>
+	<key>PROJECT_ID</key>
+	<string>robohand-8c86e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>robohand-8c86e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:406771243329:ios:c4c19f45d6586d1b44e9c0</string>
+	<key>DATABASE_URL</key>
+	<string>https://robohand-8c86e-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

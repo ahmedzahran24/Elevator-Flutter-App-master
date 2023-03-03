@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "406771243329",
+    "firebase_url": "https://robohand-8c86e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "robohand-8c86e",
+    "storage_bucket": "robohand-8c86e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406771243329:android:dadcf1ca3e5b3eaa44e9c0",
+        "android_client_info": {
+          "package_name": "com.example.test2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406771243329-8q4sijoksltf5ubjcslnjjavuisj3n8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm-O8tSP_NEr67pOB4SwXgzeHugkfzxrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406771243329-8q4sijoksltf5ubjcslnjjavuisj3n8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
