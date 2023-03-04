@@ -5,7 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 
-//zahran sharrmoot
+//zahran
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -194,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           'GO Back',
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 17),
+                                              fontSize: 16),
                                         ),
                                       ],
                                     ),
@@ -204,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Padding(
                                 padding: const EdgeInsets.fromLTRB(
-                                    50, 8.0, 8.0, 8.0),
+                                    30, 8.0, 8.0, 8.0),
                                 child: Container(
                                   width: 160,
                                   height: 60,
@@ -236,7 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             'Get Started',
                                             style: TextStyle(
                                                 color: Colors.white,
-                                                fontSize: 15),
+                                                fontSize: 14),
                                           ),
                                           Icon(
                                             Icons.arrow_forward,
