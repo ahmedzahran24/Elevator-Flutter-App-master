@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:test2/login.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,36 +20,71 @@ class HomeScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Image.asset(
-                      'image/2.png',
-                      height: 200,
-                      width: 200,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
                   SingleChildScrollView(
-                    child: Column(
+                    child: Row(
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SingleChildScrollView(
-                              child: Container(
-                                child: Text(
-                                  'Welcome to the Elevator App',
-                                  style: TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Image.asset(
+                                'image/2.png',
+                                height: 150,
+                                width: 200,
                               ),
                             ),
-                          ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 20),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Welcome to the Elevator Application',
+                                  style: new TextStyle(
+                                    fontSize: 25.0,
+                                    fontWeight: FontWeight.bold,
+                                    foreground: Paint()
+                                      ..shader = LinearGradient(
+                                        colors: <Color>[
+                                          Colors.pinkAccent,
+                                          Colors.deepPurpleAccent,
+                                          Colors.red
+                                          //add more color here.
+                                        ],
+                                      ).createShader(
+                                        Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+                                      ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  'An Application to Control the Elevator Designed by the MAS Team ',
+                                  style: new TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold,
+                                    foreground: Paint()
+                                      ..shader = LinearGradient(
+                                        colors: <Color>[
+                                          Color.fromARGB(255, 0, 0, 0),
+                                          Color.fromARGB(255, 0, 0, 0),
+                                          Color.fromARGB(255, 0, 0, 0)
+                                          //add more color here.
+                                        ],
+                                      ).createShader(
+                                        Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+                                      ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -271,6 +307,54 @@ class HomeScreen extends StatelessWidget {
                                     color: Colors.black54),
                               ],
                               borderRadius: BorderRadius.circular(40),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 8.0, 8.0, 8.0),
+                        child: Container(
+                          width: 160,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(80),
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color.fromARGB(255, 255, 0, 0),
+                                Color.fromARGB(255, 204, 29, 235)
+                              ],
+                            ),
+                          ),
+                          child: MaterialButton(
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            shape: StadiumBorder(),
+                            onPressed: () {
+                              SystemNavigator.pop();
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 30, right: 30),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text(
+                                    'Exit',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
+                                  Icon(
+                                    Icons.exit_to_app,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
