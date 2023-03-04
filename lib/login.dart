@@ -181,7 +181,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 HomeScreen()));
                                   },
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.only(
+                                        right: 10, left: 10),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -191,10 +192,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: Colors.white,
                                         ),
                                         Text(
-                                          'GO Back',
+                                          'Go Back',
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 16),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -236,7 +238,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           'Get Started',
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 14),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                         Icon(
                                           Icons.arrow_forward,
