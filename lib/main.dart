@@ -5,6 +5,7 @@ import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login.dart';
 import 'firebase_options.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
