@@ -54,9 +54,9 @@ dev_dependencies:
   flutter_splash_screen: ^1.0.0+6
 
 flutter_native_splash:
-  color: "#42a5f5"
-  image: image/5.png
-  android_gravity: fill
+  color: "#000000"
+  image: image/8.png
+  # android_gravity: fill
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
