@@ -5,7 +5,7 @@ import 'package:test2/login.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ism1 = MediaQuery.of(context).size.width >= 400;
+    final ism1 = MediaQuery.of(context).size.width >= 340;
     // final ism2 = MediaQuery.of(context).size.width > 500;
     return Scaffold(
       body: Stack(
@@ -35,20 +35,35 @@ class HomeScreen extends StatelessWidget {
                     SingleChildScrollView(
                       child: Row(
                         children: [
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 50, left: 10),
-                                child: Image.asset(
-                                  'image/2.png',
-                                  height: 150,
-                                  width: 200,
+                          ism1
+                              ? Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 50, left: 10),
+                                      child: Image.asset(
+                                        'image/2.png',
+                                        height: 150,
+                                        width: 200,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 50, left: 10),
+                                      child: Image.asset(
+                                        'image/2.png',
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
                           ism1
                               ? Expanded(
                                   flex: 2,
@@ -109,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                                         Text(
                                           'Welcome to the Elevator Application',
                                           style: new TextStyle(
-                                            fontSize: 20.0,
+                                            fontSize: 15.0,
                                             fontWeight: FontWeight.bold,
                                             foreground: Paint()
                                               ..shader = LinearGradient(
@@ -159,46 +174,39 @@ class HomeScreen extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                LoginScreen()));
-                                  },
-                                  child: Container(
-                                    height: 200,
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Expanded(
-                                              flex: 1,
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 10,
-                                                    top: 40,
-                                                    left: 20),
-                                                child: Container(
-                                                  width: 100,
-                                                  height: 100,
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: AssetImage(
-                                                          'image/3.png'),
-                                                    ),
-                                                  ),
-                                                ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                            },
+                            child: Container(
+                              height: 200,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 10, top: 40, left: 20),
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image:
+                                                    AssetImage('image/3.png'),
                                               ),
                                             ),
-                                            Expanded(
-                                              flex: 2,
+                                          ),
+                                        ),
+                                      ),
+                                      ism1
+                                          ? SingleChildScrollView(
                                               child: Column(
                                                 children: [
                                                   Padding(
@@ -247,170 +255,260 @@ class HomeScreen extends StatelessWidget {
                                                 ],
                                               ),
                                             )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          colors: [
-                                            Colors.orange,
-                                            Colors.orangeAccent,
-                                            Colors.red,
-                                            Colors.redAccent
-                                            //add more colors for gradient
-                                          ],
-                                          begin: Alignment
-                                              .topLeft, //begin of the gradient color
-                                          end: Alignment
-                                              .bottomRight, //end of the gradient color
-                                          stops: [
-                                            0,
-                                            0.2,
-                                            0.5,
-                                            0.8
-                                          ] //stops for individual color
-                                          //set the stops number equal to numbers of color
-                                          ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            offset: Offset(0, 25),
-                                            blurRadius: 25,
-                                            color: Colors.black54),
-                                      ],
-                                      borderRadius: BorderRadius.circular(40),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                LoginScreen()));
-                                  },
-                                  child: Container(
-                                    height: 200,
-                                    child: Expanded(
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 10,
-                                                    top: 40,
-                                                    left: 20),
-                                                child: Expanded(
-                                                  flex: 1,
-                                                  child: Container(
-                                                    width: 100,
-                                                    height: 100,
-                                                    decoration: BoxDecoration(
-                                                      image: DecorationImage(
-                                                        image: AssetImage(
-                                                            'image/4.png'),
+                                          : SingleChildScrollView(
+                                              child: Column(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 50),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Admin Control Panel',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Special for the responsible for',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'problems and malfunctions',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              Expanded(
-                                                child: Column(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 50),
-                                                      child: Container(
-                                                        child: Text(
-                                                          'Members Dashboard',
-                                                          style: TextStyle(
-                                                              fontSize: 25,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                        top: 20,
-                                                      ),
-                                                      child: Container(
-                                                        child: Text(
-                                                          'Users can follow the elevator',
-                                                          style: TextStyle(
-                                                            fontSize: 15,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                        top: 20,
-                                                      ),
-                                                      child: Container(
-                                                        child: Text(
-                                                          'and control it remotely',
-                                                          style: TextStyle(
-                                                            fontSize: 15,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          colors: [
-                                            Colors.orange,
-                                            Colors.orangeAccent,
-                                            Colors.red,
-                                            Colors.redAccent
-                                            //add more colors for gradient
-                                          ],
-                                          begin: Alignment
-                                              .topLeft, //begin of the gradient color
-                                          end: Alignment
-                                              .bottomRight, //end of the gradient color
-                                          stops: [
-                                            0,
-                                            0.2,
-                                            0.5,
-                                            0.8
-                                          ] //stops for individual color
-                                          //set the stops number equal to numbers of color
-                                          ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            offset: Offset(0, 25),
-                                            blurRadius: 25,
-                                            color: Colors.black54),
-                                      ],
-                                      borderRadius: BorderRadius.circular(40),
-                                    ),
+                                            )
+                                    ],
                                   ),
-                                ),
+                                ],
                               ),
-                            ],
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Colors.orange,
+                                      Colors.orangeAccent,
+                                      Colors.red,
+                                      Colors.redAccent
+                                      //add more colors for gradient
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
+                                boxShadow: [
+                                  BoxShadow(
+                                      offset: Offset(0, 25),
+                                      blurRadius: 25,
+                                      color: Colors.black54),
+                                ],
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                            },
+                            child: Container(
+                              height: 200,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 10, top: 40, left: 20),
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image:
+                                                    AssetImage('image/4.png'),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      ism1
+                                          ? SingleChildScrollView(
+                                              child: Column(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 50),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Members Dashboard',
+                                                        style: TextStyle(
+                                                            fontSize: 25,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Users can follow the elevator',
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'and control it remotely',
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          : SingleChildScrollView(
+                                              child: Column(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 50),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Members Dashboard',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'Users can follow the elevator',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                      top: 20,
+                                                    ),
+                                                    child: Container(
+                                                      child: Text(
+                                                        'and control it remotely',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Colors.orange,
+                                      Colors.orangeAccent,
+                                      Colors.red,
+                                      Colors.redAccent
+                                      //add more colors for gradient
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
+                                boxShadow: [
+                                  BoxShadow(
+                                      offset: Offset(0, 25),
+                                      blurRadius: 25,
+                                      color: Colors.black54),
+                                ],
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(
