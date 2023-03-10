@@ -5,7 +5,7 @@ import 'package:test2/login.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ism1 = MediaQuery.of(context).size.width >= 390;
+    final ism1 = MediaQuery.of(context).size.width >= 400;
     // final ism2 = MediaQuery.of(context).size.width > 500;
     return Scaffold(
       body: Stack(
@@ -178,16 +178,21 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         Row(
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 10, top: 40, left: 20),
-                                              child: Container(
-                                                width: 100,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                        'image/3.png'),
+                                            Expanded(
+                                              flex: 1,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    right: 10,
+                                                    top: 40,
+                                                    left: 20),
+                                                child: Container(
+                                                  width: 100,
+                                                  height: 100,
+                                                  decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                      image: AssetImage(
+                                                          'image/3.png'),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -304,13 +309,16 @@ class HomeScreen extends StatelessWidget {
                                                     right: 10,
                                                     top: 40,
                                                     left: 20),
-                                                child: Container(
-                                                  width: 100,
-                                                  height: 100,
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: AssetImage(
-                                                          'image/4.png'),
+                                                child: Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    width: 100,
+                                                    height: 100,
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: AssetImage(
+                                                            'image/4.png'),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
