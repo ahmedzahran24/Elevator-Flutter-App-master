@@ -5,7 +5,7 @@ import 'package:test2/login.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ism1 = MediaQuery.of(context).size.width >= 400;
+    final ism1 = MediaQuery.of(context).size.width >= 350;
     // final ism2 = MediaQuery.of(context).size.width > 500;
     return Scaffold(
       body: Stack(

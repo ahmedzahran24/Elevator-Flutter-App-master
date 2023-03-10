@@ -270,16 +270,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: <Widget>[
-                                                  Expanded(
-                                                    flex: 2,
-                                                    child: Text(
-                                                      'Get Started',
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
+                                                  Text(
+                                                    'Get Started',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                                   ),
                                                   Expanded(
                                                     flex: 1,
