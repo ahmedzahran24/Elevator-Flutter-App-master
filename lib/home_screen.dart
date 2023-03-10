@@ -266,7 +266,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'Admin Control Panel',
                                                         style: TextStyle(
-                                                            fontSize: 15,
+                                                            fontSize: 18,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
@@ -282,7 +282,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'Special for the responsible for',
                                                         style: TextStyle(
-                                                          fontSize: 10,
+                                                          fontSize: 13,
                                                         ),
                                                       ),
                                                     ),
@@ -296,7 +296,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'problems and malfunctions',
                                                         style: TextStyle(
-                                                          fontSize: 10,
+                                                          fontSize: 13,
                                                         ),
                                                       ),
                                                     ),
@@ -436,7 +436,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'Members Dashboard',
                                                         style: TextStyle(
-                                                            fontSize: 15,
+                                                            fontSize: 18,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
@@ -452,7 +452,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'Users can follow the elevator',
                                                         style: TextStyle(
-                                                          fontSize: 10,
+                                                          fontSize: 13,
                                                         ),
                                                       ),
                                                     ),
@@ -466,7 +466,7 @@ class HomeScreen extends StatelessWidget {
                                                       child: Text(
                                                         'and control it remotely',
                                                         style: TextStyle(
-                                                          fontSize: 10,
+                                                          fontSize: 13,
                                                         ),
                                                       ),
                                                     ),
