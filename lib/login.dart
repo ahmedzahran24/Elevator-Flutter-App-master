@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ism1 = MediaQuery.of(context).size.width >= 350;
+    final ism1 = MediaQuery.of(context).size.width >= 400;
     return Scaffold(
       body: Stack(
         children: [
