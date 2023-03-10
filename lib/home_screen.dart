@@ -10,16 +10,24 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          Positioned(
+            width: MediaQuery.of(context).size.width * 1.8,
+            left: 90,
+            bottom: 90,
+            child: Image.asset(
+              "assets/Backgrounds/Spline.png",
+            ),
+          ),
           Container(
             height: 900,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 52, 145, 238),
-                  Color.fromARGB(255, 23, 180, 227)
-                ],
-              ),
-            ),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //     colors: [
+            //       Color.fromARGB(255, 52, 145, 238),
+            //       Color.fromARGB(255, 23, 180, 227)
+            //     ],
+            //   ),
+            // ),
             child: SingleChildScrollView(
               child: Center(
                 child: Column(
@@ -32,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                             child: Container(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 20, left: 10),
+                                    const EdgeInsets.only(top: 50, left: 10),
                                 child: Image.asset(
                                   'image/2.png',
                                   height: 150,
@@ -45,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                               ? Expanded(
                                   flex: 2,
                                   child: Container(
-                                    margin: EdgeInsets.only(top: 20, left: 10),
+                                    margin: EdgeInsets.only(top: 50, left: 10),
                                     child: Column(
                                       children: [
                                         Text(
