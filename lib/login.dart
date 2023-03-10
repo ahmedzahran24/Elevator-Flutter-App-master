@@ -57,220 +57,253 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 10,
-                width: 50,
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Image.asset(
-                    'image/1.png',
-                    height: 100,
+      body: Stack(
+        children: [
+          Positioned(
+            width: MediaQuery.of(context).size.width * 1.8,
+            left: 90,
+            bottom: 90,
+            child: Image.asset(
+              "assets/Backgrounds/Spline.png",
+            ),
+          ),
+          SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 60,
+                    width: 50,
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 40, bottom: 40, right: 40),
+                      child: Image.asset(
+                        'image/1.png',
+                        height: 250,
+                      ),
+                    ),
+                  ),
 
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  SingleChildScrollView(
+                    child: Column(
                       children: [
-                        Text(
-                          'SIGN IN',
-                          style: TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'Welcome to the Elevator User Login Interface',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromARGB(255, 7, 141, 225),
-                              Color.fromARGB(255, 124, 206, 235)
-                            ],
-                          ),
-                        ),
-                        child: TextFormField(
-                          controller: emailCont,
-                          decoration: InputDecoration(
-                              labelText: 'User Name',
-                              prefixIcon: Icon(Icons.person),
-                              border: UnderlineInputBorder(
-                                  borderSide: BorderSide.none)),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromARGB(255, 7, 141, 225),
-                              Color.fromARGB(255, 124, 206, 235)
-                            ],
-                          ),
-                        ),
-                        child: TextFormField(
-                          controller: passCont,
-                          obscureText: true,
-                          keyboardType: TextInputType.visiblePassword,
-                          decoration: InputDecoration(
-                              labelText: 'Password',
-                              prefixIcon: Icon(Icons.lock),
-                              border: UnderlineInputBorder(
-                                  borderSide: BorderSide.none)),
-                        ),
-                      ),
-                    ),
-                    SingleChildScrollView(
-                      child: Container(
-                        child: Row(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                  10.0, 8.0, 8.0, 8.0),
-                              child: Container(
-                                width: 150,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                  gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [
-                                      Color.fromARGB(171, 224, 24, 24),
-                                      Color(0xff8F93EA)
-                                    ],
-                                  ),
-                                ),
-                                child: MaterialButton(
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  shape: StadiumBorder(),
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                HomeScreen()));
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 10, left: 10),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.arrow_back,
-                                          color: Colors.white,
-                                        ),
-                                        Text(
-                                          'Go Back',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            Text(
+                              'SIGN IN',
+                              style: TextStyle(
+                                  fontSize: 40, fontWeight: FontWeight.bold),
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(30, 8.0, 8.0, 8.0),
-                              child: Container(
-                                width: 160,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                  gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [
-                                      Color.fromARGB(171, 224, 24, 24),
-                                      Color(0xff8F93EA)
-                                    ],
-                                  ),
-                                ),
-                                child: MaterialButton(
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  shape: StadiumBorder(),
-                                  onPressed: () {
-                                    _completeLogin();
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Text(
-                                          'Get Started',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Icon(
-                                          Icons.arrow_forward,
-                                          color: Colors.white,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                            Text(
+                              'Welcome to the Elevator User Login Interface',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            )
                           ],
                         ),
-                      ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(255, 7, 141, 225),
+                                  Color.fromARGB(255, 124, 206, 235)
+                                ],
+                              ),
+                            ),
+                            child: TextFormField(
+                              controller: emailCont,
+                              decoration: InputDecoration(
+                                  labelText: 'User Name',
+                                  prefixIcon: Icon(Icons.person),
+                                  border: UnderlineInputBorder(
+                                      borderSide: BorderSide.none)),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(255, 7, 141, 225),
+                                  Color.fromARGB(255, 124, 206, 235)
+                                ],
+                              ),
+                            ),
+                            child: TextFormField(
+                              controller: passCont,
+                              obscureText: true,
+                              keyboardType: TextInputType.visiblePassword,
+                              decoration: InputDecoration(
+                                  labelText: 'Password',
+                                  prefixIcon: Icon(Icons.lock),
+                                  border: UnderlineInputBorder(
+                                      borderSide: BorderSide.none)),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        SingleChildScrollView(
+                          child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      10.0, 8.0, 8.0, 8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 60,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(80),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          Color.fromARGB(171, 224, 24, 24),
+                                          Color(0xff8F93EA)
+                                        ],
+                                      ),
+                                    ),
+                                    child: MaterialButton(
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      shape: StadiumBorder(),
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomeScreen()));
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 1, left: 5),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Expanded(
+                                              flex: 1,
+                                              child: Icon(
+                                                Icons.arrow_back,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 2,
+                                              child: Text(
+                                                'Go Back',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      30, 8.0, 8.0, 8.0),
+                                  child: Container(
+                                    width: 160,
+                                    height: 60,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(80),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          Color.fromARGB(171, 224, 24, 24),
+                                          Color(0xff8F93EA)
+                                        ],
+                                      ),
+                                    ),
+                                    child: MaterialButton(
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      shape: StadiumBorder(),
+                                      onPressed: () {
+                                        _completeLogin();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Expanded(
+                                              flex: 2,
+                                              child: Text(
+                                                'Get Started',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              flex: 1,
+                                              child: Icon(
+                                                Icons.arrow_forward,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
 
-              Column(
-                children: [Text(_message)],
+                  Column(
+                    children: [Text(_message)],
+                  ),
+                  // Column(
+                  //   children: [
+                  //     Text('Username: ${userData?['username'] ?? ""}'),
+                  //     Text('password: ${userData?['password'] ?? ""}'),
+                  //   ],
+                  // )
+                ],
               ),
-              // Column(
-              //   children: [
-              //     Text('Username: ${userData?['username'] ?? ""}'),
-              //     Text('password: ${userData?['password'] ?? ""}'),
-              //   ],
-              // )
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

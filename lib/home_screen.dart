@@ -5,6 +5,8 @@ import 'package:test2/login.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ism1 = MediaQuery.of(context).size.width >= 390;
+    // final ism2 = MediaQuery.of(context).size.width > 500;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -28,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                           flex: 1,
                           child: Container(
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.only(top: 20, left: 10),
                               child: Image.asset(
                                 'image/2.png',
                                 height: 150,
@@ -37,55 +39,109 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            margin: EdgeInsets.only(top: 20),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Welcome to the Elevator Application',
-                                  style: new TextStyle(
-                                    fontSize: 25.0,
-                                    fontWeight: FontWeight.bold,
-                                    foreground: Paint()
-                                      ..shader = LinearGradient(
-                                        colors: <Color>[
-                                          Colors.pinkAccent,
-                                          Colors.deepPurpleAccent,
-                                          Colors.red
-                                          //add more color here.
-                                        ],
-                                      ).createShader(
-                                        Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+                        ism1
+                            ? Expanded(
+                                flex: 2,
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20, left: 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'Welcome to the Elevator Application',
+                                        style: new TextStyle(
+                                          fontSize: 25.0,
+                                          fontWeight: FontWeight.bold,
+                                          foreground: Paint()
+                                            ..shader = LinearGradient(
+                                              colors: <Color>[
+                                                Colors.pinkAccent,
+                                                Colors.deepPurpleAccent,
+                                                Colors.red
+                                                //add more color here.
+                                              ],
+                                            ).createShader(
+                                              Rect.fromLTWH(
+                                                  0.0, 0.0, 200.0, 100.0),
+                                            ),
+                                        ),
                                       ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        'An Application to Control the Elevator Designed by the MAS Team ',
+                                        style: new TextStyle(
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold,
+                                          foreground: Paint()
+                                            ..shader = LinearGradient(
+                                              colors: <Color>[
+                                                Color.fromARGB(255, 0, 0, 0),
+                                                Color.fromARGB(255, 0, 0, 0),
+                                                Color.fromARGB(255, 0, 0, 0)
+                                                //add more color here.
+                                              ],
+                                            ).createShader(
+                                              Rect.fromLTWH(
+                                                  0.0, 0.0, 200.0, 100.0),
+                                            ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'An Application to Control the Elevator Designed by the MAS Team ',
-                                  style: new TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                    foreground: Paint()
-                                      ..shader = LinearGradient(
-                                        colors: <Color>[
-                                          Color.fromARGB(255, 0, 0, 0),
-                                          Color.fromARGB(255, 0, 0, 0),
-                                          Color.fromARGB(255, 0, 0, 0)
-                                          //add more color here.
-                                        ],
-                                      ).createShader(
-                                        Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+                              )
+                            : Expanded(
+                                flex: 2,
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 20, left: 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'Welcome to the Elevator Application',
+                                        style: new TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                          foreground: Paint()
+                                            ..shader = LinearGradient(
+                                              colors: <Color>[
+                                                Colors.pinkAccent,
+                                                Colors.deepPurpleAccent,
+                                                Colors.red
+                                                //add more color here.
+                                              ],
+                                            ).createShader(
+                                              Rect.fromLTWH(
+                                                  0.0, 0.0, 200.0, 100.0),
+                                            ),
+                                        ),
                                       ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        'An Application to Control the Elevator Designed by the MAS Team ',
+                                        style: new TextStyle(
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.bold,
+                                          foreground: Paint()
+                                            ..shader = LinearGradient(
+                                              colors: <Color>[
+                                                Color.fromARGB(255, 0, 0, 0),
+                                                Color.fromARGB(255, 0, 0, 0),
+                                                Color.fromARGB(255, 0, 0, 0)
+                                                //add more color here.
+                                              ],
+                                            ).createShader(
+                                              Rect.fromLTWH(
+                                                  0.0, 0.0, 200.0, 100.0),
+                                            ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
+                              ),
                       ],
                     ),
                   ),
@@ -105,68 +161,75 @@ class HomeScreen extends StatelessWidget {
                           },
                           child: Container(
                             height: 200,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 10, top: 40, left: 20),
-                                      child: Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage('image/3.png'),
+                            child: Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 10, top: 40, left: 20),
+                                        child: Container(
+                                          width: 100,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage('image/3.png'),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 50),
-                                          child: Container(
-                                            child: Text(
-                                              'Admin Control Panel',
-                                              style: TextStyle(
-                                                  fontSize: 25,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 20,
-                                          ),
-                                          child: Container(
-                                            child: Text(
-                                              'Special for the responsible for',
-                                              style: TextStyle(
-                                                fontSize: 15,
+                                      Expanded(
+                                        flex: 2,
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 50),
+                                              child: Container(
+                                                child: Text(
+                                                  'Admin Control Panel',
+                                                  style: TextStyle(
+                                                      fontSize: 25,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 20,
-                                          ),
-                                          child: Container(
-                                            child: Text(
-                                              'problems and malfunctions',
-                                              style: TextStyle(
-                                                fontSize: 15,
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 20,
+                                              ),
+                                              child: Container(
+                                                child: Text(
+                                                  'Special for the responsible for',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 20,
+                                              ),
+                                              child: Container(
+                                                child: Text(
+                                                  'problems and malfunctions',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -215,68 +278,75 @@ class HomeScreen extends StatelessWidget {
                           },
                           child: Container(
                             height: 200,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 10, top: 40, left: 20),
-                                      child: Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage('image/4.png'),
+                            child: Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 10, top: 40, left: 20),
+                                        child: Container(
+                                          width: 100,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage('image/4.png'),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Column(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 50),
-                                          child: Container(
-                                            child: Text(
-                                              'Members Dashboard',
-                                              style: TextStyle(
-                                                  fontSize: 25,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 20,
-                                          ),
-                                          child: Container(
-                                            child: Text(
-                                              'Users can follow the elevator',
-                                              style: TextStyle(
-                                                fontSize: 15,
+                                      Expanded(
+                                        flex: 2,
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 50),
+                                              child: Container(
+                                                child: Text(
+                                                  'Members Dashboard',
+                                                  style: TextStyle(
+                                                      fontSize: 25,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 20,
-                                          ),
-                                          child: Container(
-                                            child: Text(
-                                              'and control it remotely',
-                                              style: TextStyle(
-                                                fontSize: 15,
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 20,
+                                              ),
+                                              child: Container(
+                                                child: Text(
+                                                  'Users can follow the elevator',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                top: 20,
+                                              ),
+                                              child: Container(
+                                                child: Text(
+                                                  'and control it remotely',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                             width: double.infinity,
                             decoration: BoxDecoration(
