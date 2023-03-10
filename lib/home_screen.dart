@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test2/login.dart';
+import 'package:test2/login_admin.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -183,7 +184,8 @@ class HomeScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginScreen()));
+                                      builder: (context) =>
+                                          LoginScreenAdmin()));
                             },
                             child: Container(
                               height: 200,
