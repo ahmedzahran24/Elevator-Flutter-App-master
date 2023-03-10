@@ -73,13 +73,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 60,
+                    height: 70,
                     width: 50,
                   ),
                   SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.only(
-                          left: 40, bottom: 40, right: 40),
+                        left: 40,
+                        bottom: 40,
+                        right: 40,
+                      ),
                       child: Image.asset(
                         'image/1.png',
                         height: 250,
@@ -111,14 +114,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Container(
+                            height: 65,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(80),
                               gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                                 colors: [
-                                  Color.fromARGB(255, 7, 141, 225),
-                                  Color.fromARGB(255, 124, 206, 235)
+                                  Color.fromARGB(211, 255, 1, 1),
+                                  Color.fromARGB(255, 110, 116, 232)
                                 ],
                               ),
                             ),
@@ -138,14 +142,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
+                            height: 65,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(80),
                               gradient: LinearGradient(
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                                 colors: [
-                                  Color.fromARGB(255, 7, 141, 225),
-                                  Color.fromARGB(255, 124, 206, 235)
+                                  Color.fromARGB(211, 255, 1, 1),
+                                  Color.fromARGB(255, 110, 116, 232)
                                 ],
                               ),
                             ),
@@ -162,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 30,
                         ),
                         SingleChildScrollView(
                           child: Container(
@@ -181,8 +186,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                         colors: [
-                                          Color.fromARGB(171, 224, 24, 24),
-                                          Color(0xff8F93EA)
+                                          Color.fromARGB(211, 255, 1, 1),
+                                          Color.fromARGB(255, 110, 116, 232)
                                         ],
                                       ),
                                     ),
@@ -240,8 +245,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                         colors: [
-                                          Color.fromARGB(171, 224, 24, 24),
-                                          Color(0xff8F93EA)
+                                          Color.fromARGB(211, 255, 1, 1),
+                                          Color.fromARGB(255, 110, 116, 232)
                                         ],
                                       ),
                                     ),
