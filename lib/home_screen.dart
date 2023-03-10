@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                                   child: Container(
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 50, left: 10),
+                                          top: 50, left: 1),
                                       child: Image.asset(
                                         'image/2.png',
                                         height: 100,
@@ -118,13 +118,15 @@ class HomeScreen extends StatelessWidget {
                                 )
                               : Expanded(
                                   child: Container(
-                                    margin: EdgeInsets.only(top: 20, left: 10),
+                                    margin: EdgeInsets.only(
+                                      top: 30,
+                                    ),
                                     child: Column(
                                       children: [
                                         Text(
                                           'Welcome to the Elevator Application',
                                           style: new TextStyle(
-                                            fontSize: 15.0,
+                                            fontSize: 18.0,
                                             fontWeight: FontWeight.bold,
                                             foreground: Paint()
                                               ..shader = LinearGradient(
@@ -146,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                                         Text(
                                           'An Application to Control the Elevator Designed by the MAS Team ',
                                           style: new TextStyle(
-                                            fontSize: 10.0,
+                                            fontSize: 13.0,
                                             fontWeight: FontWeight.bold,
                                             foreground: Paint()
                                               ..shader = LinearGradient(
