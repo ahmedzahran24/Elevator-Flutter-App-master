@@ -6,7 +6,6 @@ import 'package:rive/rive.dart';
 import 'package:test2/btm_nav_item.dart';
 import 'package:test2/constants.dart';
 import 'package:test2/homePage.dart';
-import 'package:test2/home_screen2.dart';
 import 'package:test2/menu.dart';
 import 'package:test2/menu_btn.dart';
 import 'package:test2/rive_utils.dart';
