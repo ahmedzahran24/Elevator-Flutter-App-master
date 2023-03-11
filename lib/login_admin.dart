@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 
@@ -46,7 +47,7 @@ class _LoginScreenAdminState extends State<LoginScreenAdmin> {
         emailCont.text == userData['username']) {
       debugPrint("if is True ");
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => HomePage()));
+          MaterialPageRoute(builder: (BuildContext context) => EntryPoint()));
     } else {
       setState(() {
         _message = 'Invalid username or password.';
