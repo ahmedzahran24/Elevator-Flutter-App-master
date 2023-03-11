@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:test2/course_card.dart';
+import 'package:test2/course.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,18 +10,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   var dataR;
 
-  final CollectionReference usersCollectionR = FirebaseFirestore.instance.collection('dataR');
-
+  final CollectionReference usersCollectionR =
+      FirebaseFirestore.instance.collection('dataR');
 
   Future<DocumentSnapshot<Map<String, dynamic>>> getRdata() async {
     final DocumentSnapshot<Map<String, dynamic>> documentSnapshotR =
-    await usersCollectionR.doc('v8IImhYTLHvd8rVbYjTJ').get() as DocumentSnapshot<Map<String, dynamic>>;
+        await usersCollectionR.doc('v8IImhYTLHvd8rVbYjTJ').get()
+            as DocumentSnapshot<Map<String, dynamic>>;
 
     return documentSnapshotR;
   }
+
   @override
   void initState() {
     super.initState();
@@ -38,28 +41,60 @@ class _HomePageState extends State<HomePage> {
         leading: Icon(Icons.menu),
         title: Text('elvator'),
       ),
-
-      body: Column(
-        children: [
-          Container(
-            height: 100.0,
-            width: double.infinity,
-            color: Colors.green,
-            child: const Text(
-              'test1',
-              style: TextStyle(color: Colors.red, fontSize: 30),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                "Elevator management",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineMedium!
+                    .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Container(
-            height: 100.0,
-            width: double.infinity,
-            color: Colors.redAccent,
-            child: dataR != null ? Text(
-              dataR['state'],
-              style: TextStyle(color: Colors.blue, fontSize: 30),
-            ) : CircularProgressIndicator(),
-          ),
-        ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: courses
+                    .map(
+                      (course) => Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: CourseCard(
+                          title: course.title,
+                          iconSrc: course.iconSrc,
+                          color: course.color,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ),
+            Container(
+              height: 100.0,
+              width: double.infinity,
+              color: Colors.green,
+              child: const Text(
+                'test1',
+                style: TextStyle(color: Colors.red, fontSize: 30),
+              ),
+            ),
+            Container(
+              height: 100.0,
+              width: double.infinity,
+              color: Colors.redAccent,
+              child: dataR != null
+                  ? Text(
+                      dataR['state'],
+                      style: TextStyle(color: Colors.blue, fontSize: 30),
+                    )
+                  : CircularProgressIndicator(),
+            ),
+          ],
+        ),
       ),
     );
   }
