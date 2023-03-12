@@ -3,9 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:test2/course.dart';
-
-import 'secondary_course_card.dart';
+import 'package:test2/login.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -205,102 +203,111 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            Container(
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 20),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 24),
-                                      height: 280,
-                                      width: 260,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF7553F6),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(30)),
-                                      ),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 6, right: 8),
-                                              child: GestureDetector(
-                                                child: Column(
-                                                  children: [
-                                                    Text(
-                                                      'Elevator Problems',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .titleLarge!
-                                                          .copyWith(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 12,
-                                                              bottom: 8),
-                                                      child: Text(
-                                                        "adel",
-                                                        style: TextStyle(
-                                                          color: Colors.white38,
+                            SingleChildScrollView(
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, bottom: 20),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 24),
+                                        height: 280,
+                                        width: 260,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF7553F6),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(30)),
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 6, right: 8),
+                                                child: GestureDetector(
+                                                  child: Column(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Container(
+                                                          child: Text(
+                                                            'Elevator Problems',
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .titleLarge!
+                                                                .copyWith(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                    // database ############################33#3#3####33##############
-                                                    Container(
-                                                      height: 100.0,
-                                                      width: double.infinity,
-                                                      color: Colors.green,
-                                                      child: const Text(
-                                                        'test1',
-                                                        style: TextStyle(
-                                                            color: Colors.red,
-                                                            fontSize: 30),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 12,
+                                                                bottom: 8),
+                                                        child: Text(
+                                                          "adel",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.white38,
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Spacer(),
-                                                    Row(
-                                                      children: List.generate(
-                                                        3,
-                                                        (index) =>
-                                                            Transform.translate(
-                                                          offset: Offset(
-                                                              (-10 * index)
-                                                                  .toDouble(),
-                                                              0),
-                                                          child: CircleAvatar(
-                                                            radius: 20,
-                                                            backgroundImage:
-                                                                AssetImage(
-                                                              "assets/avaters/Avatar ${index + 1}.jpg",
+                                                      // database ############################33#3#3####33##############
+                                                      Container(
+                                                        height: 100.0,
+                                                        width: double.infinity,
+                                                        color: Colors.green,
+                                                        child: const Text(
+                                                          'test1',
+                                                          style: TextStyle(
+                                                              color: Colors.red,
+                                                              fontSize: 30),
+                                                        ),
+                                                      ),
+                                                      Spacer(),
+                                                      Row(
+                                                        children: List.generate(
+                                                          3,
+                                                          (index) => Transform
+                                                              .translate(
+                                                            offset: Offset(
+                                                                (-10 * index)
+                                                                    .toDouble(),
+                                                                0),
+                                                            child: CircleAvatar(
+                                                              radius: 20,
+                                                              backgroundImage:
+                                                                  AssetImage(
+                                                                "assets/avaters/Avatar ${index + 1}.jpg",
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          SvgPicture.asset(
-                                              'assets/icons/ios.svg'),
-                                        ],
+                                            SvgPicture.asset(
+                                                'assets/icons/ios.svg'),
+                                          ],
+                                        ),
                                       ),
+                                      // color: course.color,
                                     ),
-                                    // color: course.color,
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -325,17 +332,127 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.bold),
                         ),
                       ),
-                      ...recentCourses
-                          .map((course) => Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20, right: 20, bottom: 20),
-                                child: SecondaryCourseCard(
-                                  title: course.title,
-                                  iconsSrc: course.iconSrc,
-                                  colorl: course.color,
+                      // con1####################################################3#3
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 20),
+                            decoration: BoxDecoration(
+                                color: Color(0xFF9CC5FF),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(20))),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'title',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!
+                                            .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      const Text(
+                                        "it",
+                                        style: TextStyle(
+                                          color: Colors.white60,
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ))
-                          .toList(),
+                                const SizedBox(
+                                  height: 40,
+                                  child: VerticalDivider(
+                                    // thickness: 5,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                SvgPicture.asset('assets/icons/code.svg')
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // con1################################################################
+
+                      // con2####################################################3#3
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 20),
+                            decoration: BoxDecoration(
+                                color: Color(0xFF9CC5FF),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(20))),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'title',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!
+                                            .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      const Text(
+                                        "it",
+                                        style: TextStyle(
+                                          color: Colors.white60,
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                  child: VerticalDivider(
+                                    // thickness: 5,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                SvgPicture.asset('assets/icons/code.svg')
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // con2################################################################
                     ],
                   ),
                 ),

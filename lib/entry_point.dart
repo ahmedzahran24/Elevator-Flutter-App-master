@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-import 'package:test2/constants.dart';
 import 'package:test2/homePage.dart';
 
 import 'package:test2/menu_btn.dart';
@@ -54,7 +53,7 @@ class _EntryPointState extends State<EntryPoint>
     return Scaffold(
       extendBody: true,
       resizeToAvoidBottomInset: false,
-      backgroundColor: backgroundColor2,
+      backgroundColor: Color(0xFF17203A),
       body: Stack(
         children: [
           AnimatedPositioned(
