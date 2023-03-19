@@ -165,18 +165,18 @@ packages:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
-      sha256: c645fec50b0391aa878288f58fa4fe9762c271380c457aedf5c7c9b718604f68
+      sha256: "98e4a414db0e083a2cb8a24735bb57ef3a1ee40a1407a93513391b24ad6ffd5d"
       url: "https://pub.dev"
     source: hosted
-    version: "6.11.11"
+    version: "6.11.12"
   firebase_auth_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_auth_web
-      sha256: "2dcf2a36852b9091741b4a4047a02e1f2c43a62c6cacec7df573a793a6543e6d"
+      sha256: c6c559fd885e35d6256a4c4ad54c45bdce41cc275fbb7e735ee860095e854cbf
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.8"
+    version: "5.2.9"
   firebase_core:
     dependency: "direct main"
     description:
@@ -605,6 +605,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  video_player:
+    dependency: "direct main"
+    description:
+      name: video_player
+      sha256: "868a139229acb5018d22aded3eb9cb4767ff43a8216573c086b6c535a4957481"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.0"
+  video_player_android:
+    dependency: transitive
+    description:
+      name: video_player_android
+      sha256: dc31c60ae591aa3ccb2d460c3690ceceb86cbb826e73428d817a37650dc4e229
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.2"
+  video_player_avfoundation:
+    dependency: transitive
+    description:
+      name: video_player_avfoundation
+      sha256: "90468226c8687adf7b567d9bb42c25588783c4d30509af1fbd663b2dd049f700"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.2"
+  video_player_platform_interface:
+    dependency: transitive
+    description:
+      name: video_player_platform_interface
+      sha256: a8c4dcae2a7a6e7cc1d7f9808294d968eca1993af34a98e95b9bdfa959bec684
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.0"
+  video_player_web:
+    dependency: transitive
+    description:
+      name: video_player_web
+      sha256: fb3bbeaf0302cb0c31340ebd6075487939aa1fe3b379d1a8784ef852b679940e
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.15"
   win32:
     dependency: transitive
     description:
@@ -639,4 +679,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.19.2 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.3.0"

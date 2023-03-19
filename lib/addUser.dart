@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class addUser extends StatefulWidget {
   @override
   _addUser createState() => _addUser();
+
 }
 
 class _addUser extends State<addUser> {
