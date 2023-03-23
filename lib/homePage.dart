@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test2/addUser.dart';
 
 import 'package:test2/login.dart';
 
@@ -340,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
+                                    builder: (context) => addUser()));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -357,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'title',
+                                        'Create Account',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall!
@@ -368,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       const SizedBox(height: 4),
                                       const Text(
-                                        "it",
+                                        "Admin can create accounts",
                                         style: TextStyle(
                                           color: Colors.white60,
                                           fontSize: 16,
@@ -385,7 +386,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                SvgPicture.asset('assets/icons/code.svg')
+                                SvgPicture.asset(
+                                    'assets/assets/Avatar Default.jpg')
                               ],
                             ),
                           ),

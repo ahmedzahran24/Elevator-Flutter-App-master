@@ -76,7 +76,7 @@ class _EntryPointState extends State<EntryPoint>
               offset: Offset(animation.value * 265, 0),
               child: Transform.scale(
                 scale: scalAnimation.value,
-                child: addUser(),
+                child: HomePage(),
               ),
             ),
           ),

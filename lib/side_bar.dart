@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:test2/addUser.dart';
 import 'package:test2/home_screen.dart';
 
 import 'package:test2/rive_utils.dart';
@@ -48,56 +49,111 @@ class _SideBarState extends State<SideBar> {
               // 33#####################################
 
               SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
-                    },
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 24),
-                          child: Divider(color: Colors.white24, height: 1),
-                        ),
-                        Stack(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
+                        child: Column(
                           children: [
-                            AnimatedPositioned(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.fastOutSlowIn,
-                              width: 280,
-                              height: 56,
-                              left: 0,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: Color(0xFF6792FF),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                              ),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 24),
+                              child: Divider(color: Colors.white24, height: 1),
                             ),
-                            ListTile(
-                              leading: SizedBox(
-                                height: 36,
-                                width: 36,
-                                child: RiveAnimation.asset(
-                                  "assets/RiveAssets/icons.riv",
-                                  artboard: "HOME",
+                            Stack(
+                              children: [
+                                AnimatedPositioned(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.fastOutSlowIn,
+                                  width: 280,
+                                  height: 56,
+                                  left: 0,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFF6792FF),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              title: Text(
-                                'home',
-                                style: const TextStyle(color: Colors.white),
-                              ),
+                                ListTile(
+                                  leading: SizedBox(
+                                    height: 36,
+                                    width: 36,
+                                    child: RiveAnimation.asset(
+                                      "assets/RiveAssets/icons.riv",
+                                      artboard: "HOME",
+                                    ),
+                                  ),
+                                  title: Text(
+                                    'home',
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => addUser()));
+                        },
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(left: 24),
+                              child: Divider(color: Colors.white24, height: 1),
+                            ),
+                            Stack(
+                              children: [
+                                AnimatedPositioned(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.fastOutSlowIn,
+                                  width: 280,
+                                  height: 56,
+                                  left: 0,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFF6792FF),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  leading: SizedBox(
+                                    height: 36,
+                                    width: 36,
+                                    child: RiveAnimation.asset(
+                                      "assets/RiveAssets/12.riv",
+                                      artboard: "Create Account",
+                                    ),
+                                  ),
+                                  title: Text(
+                                    'Create Account',
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 

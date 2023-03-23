@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:test2/homePage.dart';
 
 //hello 2
 
@@ -219,10 +220,10 @@ class _addUser extends State<addUser> {
                                       MaterialTapTargetSize.shrinkWrap,
                                   shape: StadiumBorder(),
                                   onPressed: () {
-                                    writeData();
-                                    _incrementCounter();
-                                    debugPrint(emailCont.text);
-                                    debugPrint(passCont.text);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => HomePage()));
                                   },
                                   child: Center(
                                     child: Padding(
