@@ -14,39 +14,42 @@ class _addUser extends State<addUser> {
   var emailCont, passCont;
   late FirebaseFirestore firestore;
   var setdata;
-  int counter = 0;
+  int _counterVal = 0;
 
   @override
   void initState() {
     super.initState();
-    _loadCounter();
+    _getCounter();
     firestore = FirebaseFirestore.instance;
     emailCont = TextEditingController();
     passCont = TextEditingController();
     firestore = FirebaseFirestore.instance;
   }
 
-  void _loadCounter() async {
-    final prefs = await SharedPreferences.getInstance();
+
+
+  void _getCounter() async {
+    DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc('counter')
+        .get();
     setState(() {
-      counter = prefs.getInt('counter') ?? 0;
+      _counterVal = (documentSnapshot.data() as Map<String, dynamic>)['counterVal'] ?? 0;
     });
+  }
+  Future<void> _setCounter() async {
+    final DocumentReference<Map<String, dynamic>> documentReference =
+    FirebaseFirestore.instance.collection('users').doc('counter');
+    await documentReference.set({'counterVal': _counterVal+1});
   }
 
-  void _incrementCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      counter++;
-      prefs.setInt('counter', counter);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     CollectionReference users = firestore.collection('users');
 
     void writeData() {
-      final userRef = users.doc('user$counter');
+      final userRef = users.doc('user$_counterVal');
       userRef.set({
         'email': emailCont.text,
         'password': passCont.text,
@@ -166,7 +169,8 @@ class _addUser extends State<addUser> {
                                   shape: StadiumBorder(),
                                   onPressed: () {
                                     writeData();
-                                    _incrementCounter();
+                                    _getCounter();
+                                    _setCounter();
                                     debugPrint(emailCont.text);
                                     debugPrint(passCont.text);
                                   },
