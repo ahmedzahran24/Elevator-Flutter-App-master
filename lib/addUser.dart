@@ -53,125 +53,217 @@ class _addUser extends State<addUser> {
     }
 
     return Scaffold(
-        appBar: AppBar(),
-        body: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Text("Add Users"),
-              SizedBox(
-                height: 40.0,
+        body: Stack(
+      children: [
+        Positioned(
+          // width: MediaQuery.of(context).size.width * 1.8,
+          // left: 90,
+          // bottom: 90,
+          child: Image.asset(
+            "assets/images/background.png",
+          ),
+        ),
+        SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Image.asset(
+                'image/sign-up.png',
+                height: 140,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  height: 65,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(80),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color.fromARGB(255, 6, 122, 103),
-                        Color.fromARGB(255, 2, 109, 133),
-                      ],
-                    ),
-                  ),
-                  child: TextFormField(
-                    controller: emailCont,
-                    decoration: InputDecoration(
-                        labelText: 'User Name',
-                        prefixIcon: Icon(Icons.person),
-                        border:
-                            UnderlineInputBorder(borderSide: BorderSide.none)),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 65,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(80),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color.fromARGB(255, 6, 122, 103),
-                        Color.fromARGB(255, 2, 109, 133),
-                      ],
-                    ),
-                  ),
-                  child: TextFormField(
-                    controller: passCont,
-                    obscureText: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
-                        labelText: 'Password',
-                        prefixIcon: Icon(Icons.lock),
-                        border:
-                            UnderlineInputBorder(borderSide: BorderSide.none)),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
-                child: Container(
-                  width: 200,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(80),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color.fromARGB(255, 3, 144, 176),
-                        Color.fromARGB(255, 2, 155, 130)
-                      ],
-                    ),
-                  ),
-                  child: MaterialButton(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    shape: StadiumBorder(),
-                    onPressed: () {
-                      writeData();
-                      _incrementCounter();
-                      debugPrint(emailCont.text);
-                      debugPrint(passCont.text);
-                    },
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Create Account  ',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 400),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            height: 65,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(255, 115, 100, 182),
+                                  Color.fromARGB(255, 139, 128, 219),
+                                ],
+                              ),
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: Icon(
-                                Icons.add_circle_outline_sharp,
-                                color: Colors.white,
+                            child: TextFormField(
+                              controller: emailCont,
+                              decoration: InputDecoration(
+                                  labelText: 'User Name',
+                                  prefixIcon: Icon(Icons.person),
+                                  border: UnderlineInputBorder(
+                                      borderSide: BorderSide.none)),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 65,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(255, 115, 100, 182),
+                                  Color.fromARGB(255, 139, 128, 219),
+                                ],
+                              ),
+                            ),
+                            child: TextFormField(
+                              controller: passCont,
+                              obscureText: true,
+                              keyboardType: TextInputType.visiblePassword,
+                              decoration: InputDecoration(
+                                  labelText: 'Password',
+                                  prefixIcon: Icon(Icons.lock),
+                                  border: UnderlineInputBorder(
+                                      borderSide: BorderSide.none)),
+                            ),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
+                              child: Container(
+                                width: 200,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [
+                                      Color.fromARGB(255, 115, 100, 182),
+                                      Color.fromARGB(255, 139, 128, 219),
+                                    ],
+                                  ),
+                                ),
+                                child: MaterialButton(
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  shape: StadiumBorder(),
+                                  onPressed: () {
+                                    writeData();
+                                    _incrementCounter();
+                                    debugPrint(emailCont.text);
+                                    debugPrint(passCont.text);
+                                  },
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text(
+                                            'Create Account  ',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.add_circle_outline_sharp,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
+                              child: Container(
+                                width: 130,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [
+                                      Color.fromARGB(255, 115, 100, 182),
+                                      Color.fromARGB(255, 139, 128, 219),
+                                    ],
+                                  ),
+                                ),
+                                child: MaterialButton(
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  shape: StadiumBorder(),
+                                  onPressed: () {
+                                    writeData();
+                                    _incrementCounter();
+                                    debugPrint(emailCont.text);
+                                    debugPrint(passCont.text);
+                                  },
+                                  child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.arrow_back_ios,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Back ',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
-                        ),
-                      ),
+                        )
+                      ],
                     ),
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
-        ));
+        ),
+      ],
+    ));
 
 //Widgets and other code here
   }
