@@ -62,45 +62,113 @@ class _addUser extends State<addUser> {
               SizedBox(
                 height: 40.0,
               ),
-              TextFormField(
-                controller: emailCont,
-                decoration: InputDecoration(
-                    labelText: 'User Name',
-                    prefixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder()),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: 65,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(80),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 6, 122, 103),
+                        Color.fromARGB(255, 2, 109, 133),
+                      ],
+                    ),
+                  ),
+                  child: TextFormField(
+                    controller: emailCont,
+                    decoration: InputDecoration(
+                        labelText: 'User Name',
+                        prefixIcon: Icon(Icons.person),
+                        border:
+                            UnderlineInputBorder(borderSide: BorderSide.none)),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 65,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(80),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 6, 122, 103),
+                        Color.fromARGB(255, 2, 109, 133),
+                      ],
+                    ),
+                  ),
+                  child: TextFormField(
+                    controller: passCont,
+                    obscureText: true,
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                        labelText: 'Password',
+                        prefixIcon: Icon(Icons.lock),
+                        border:
+                            UnderlineInputBorder(borderSide: BorderSide.none)),
+                  ),
+                ),
               ),
               SizedBox(
                 height: 20.0,
               ),
-              TextFormField(
-                controller: passCont,
-                obscureText: true,
-                keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
-                    labelText: 'Password',
-                    prefixIcon: Icon(Icons.lock),
-                    border: OutlineInputBorder()),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Container(
-                  height: 40,
-                  color: Colors.blue,
-                  width: double.infinity,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
+                child: Container(
+                  width: 200,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(80),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [
+                        Color.fromARGB(255, 3, 144, 176),
+                        Color.fromARGB(255, 2, 155, 130)
+                      ],
+                    ),
+                  ),
                   child: MaterialButton(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    shape: StadiumBorder(),
                     onPressed: () {
                       writeData();
                       _incrementCounter();
                       debugPrint(emailCont.text);
                       debugPrint(passCont.text);
                     },
-                    child: Text('add the user',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                  )),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Create Account  ',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Icon(
+                                Icons.add_circle_outline_sharp,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ));

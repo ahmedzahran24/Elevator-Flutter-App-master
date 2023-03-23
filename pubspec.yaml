@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
   gradient_input_border: ^1.0.0
   firebase_core: ^2.7.0
   firebase_auth: ^4.2.9
@@ -46,10 +47,7 @@ dependencies:
   rive: ^0.9.1
   flutter_svg: ^1.1.6
   ionicons: ^0.2.2
-  
- 
-  
-
+  fancy_containers: ^0.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

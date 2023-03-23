@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:test2/addUser.dart';
 
 import 'package:test2/homePage.dart';
 
@@ -75,7 +76,7 @@ class _EntryPointState extends State<EntryPoint>
               offset: Offset(animation.value * 265, 0),
               child: Transform.scale(
                 scale: scalAnimation.value,
-                child: HomePage(),
+                child: addUser(),
               ),
             ),
           ),
