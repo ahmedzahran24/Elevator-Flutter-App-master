@@ -126,6 +126,13 @@ class _addUser extends State<addUser> {
                           height: 10.0,
                         ),
                         Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              donemassage,
+                              style:
+                                  TextStyle(color: Colors.green, fontSize: 20),
+                            )),
+                        Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Container(
                             height: 65,
@@ -288,22 +295,12 @@ class _addUser extends State<addUser> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 1.0,
-                            ),
                             Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   errorMessage,
                                   style: TextStyle(
                                       color: Colors.red, fontSize: 20),
-                                )),
-                                                            Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  donemassage,
-                                  style: TextStyle(
-                                      color: Colors.green, fontSize: 20),
                                 )),
                           ],
                         )
