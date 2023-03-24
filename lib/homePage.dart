@@ -386,8 +386,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                SvgPicture.asset(
-                                    'assets/assets/Avatar Default.jpg')
+                                SvgPicture.asset('assets/icons/code.svg')
                               ],
                             ),
                           ),
