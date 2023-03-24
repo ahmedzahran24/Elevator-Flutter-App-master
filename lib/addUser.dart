@@ -19,7 +19,7 @@ class _addUser extends State<addUser> {
   int _counterVal = 0;
   String errorMessage = '';
 
-  String errorMessage1 = '';
+  String donemassage = '';
 
   @override
   void initState() {
@@ -54,6 +54,7 @@ class _addUser extends State<addUser> {
           data['password'] == passCont.text) {
         setState(() {
           errorMessage = 'User Already Exists..';
+          donemassage = '';
         });
         debugPrint("Valid User");
         return;
@@ -64,7 +65,8 @@ class _addUser extends State<addUser> {
     _getCounter();
     _setCounter();
     setState(() {
-      errorMessage = 'User Added Successfully';
+      donemassage = 'User Added Successfully';
+      errorMessage = '';
     });
   }
 
@@ -295,6 +297,13 @@ class _addUser extends State<addUser> {
                                   errorMessage,
                                   style: TextStyle(
                                       color: Colors.red, fontSize: 20),
+                                )),
+                                                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  donemassage,
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 20),
                                 )),
                           ],
                         )
