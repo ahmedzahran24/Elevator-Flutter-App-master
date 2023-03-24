@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/home_screen.dart';
@@ -135,11 +136,10 @@ class _SideBarState extends State<SideBar> {
                                 ),
                                 ListTile(
                                   leading: SizedBox(
-                                    height: 36,
+                                    height: 30,
                                     width: 36,
-                                    child: RiveAnimation.asset(
-                                      "assets/RiveAssets/12.riv",
-                                      artboard: "Create Account",
+                                    child: SvgPicture.asset(
+                                      'assets/icons/User.svg',
                                     ),
                                   ),
                                   title: Text(
