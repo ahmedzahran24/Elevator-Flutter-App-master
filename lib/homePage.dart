@@ -39,31 +39,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: Color.fromARGB(255, 125, 119, 255),
         leading: Icon(Icons.menu),
         title: Text('Admin Management'),
       ),
       body: Stack(
         children: [
           Positioned(
-            width: MediaQuery.of(context).size.width * 1.8,
+            // width: MediaQuery.of(context).size.width * 1.1,
+            height: 490,
             // left: 90,
             // bottom: 90,
             child: Image.asset(
-              "assets/Backgrounds/10.png",
+              "assets/images/2.png",
             ),
           ),
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Text(
                     "Elevator Management",
                     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 SingleChildScrollView(
@@ -97,9 +98,29 @@ class _HomePageState extends State<HomePage> {
                                       height: 280,
                                       width: 260,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF7553F6),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(30)),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              Color.fromARGB(
+                                                  255, 168, 206, 231),
+                                              Color.fromARGB(
+                                                  255, 129, 135, 227),
+                                              Color.fromARGB(255, 74, 95, 229),
+                                              Color.fromARGB(255, 92, 85, 222)
+                                              //add more colors for gradient
+                                            ],
+                                            begin: Alignment
+                                                .topLeft, //begin of the gradient color
+                                            end: Alignment
+                                                .bottomRight, //end of the gradient color
+                                            stops: [
+                                              0,
+                                              0.2,
+                                              0.5,
+                                              0.8
+                                            ] //stops for individual color
+                                            //set the stops number equal to numbers of color
+                                            ),
+                                        borderRadius: BorderRadius.circular(40),
                                       ),
                                       child: Row(
                                         crossAxisAlignment:
@@ -130,26 +151,41 @@ class _HomePageState extends State<HomePage> {
                                                               top: 12,
                                                               bottom: 8),
                                                       child: Text(
-                                                        "adel",
+                                                        "****************************",
                                                         style: TextStyle(
                                                           color: Colors.white38,
                                                         ),
                                                       ),
                                                     ),
                                                     // database ############################33#3#3####33##############
-                                                    Container(
-                                                      height: 100.0,
-                                                      width: double.infinity,
-                                                      color: Colors.redAccent,
-                                                      child: dataR != null
-                                                          ? Text(
-                                                              dataR['state'],
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .blue,
-                                                                  fontSize: 30),
-                                                            )
-                                                          : CircularProgressIndicator(),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 60),
+                                                      child: Container(
+                                                        height: 100.0,
+                                                        width: double.infinity,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Colors.green,
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                      .all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          110)),
+                                                        ),
+                                                        child: dataR != null
+                                                            ? Text(
+                                                                dataR['state'],
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontSize:
+                                                                        30),
+                                                              )
+                                                            : CircularProgressIndicator(),
+                                                      ),
                                                     ),
                                                     Spacer(),
                                                     Row(
@@ -210,16 +246,37 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20),
+                                          left: 20, bottom: 20, right: 20),
                                       child: Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 16, vertical: 24),
                                         height: 280,
                                         width: 260,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF7553F6),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(30)),
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color.fromARGB(
+                                                    255, 168, 206, 231),
+                                                Color.fromARGB(
+                                                    255, 129, 135, 227),
+                                                Color.fromARGB(
+                                                    255, 74, 95, 229),
+                                                Color.fromARGB(255, 92, 85, 222)
+                                              ],
+                                              begin: Alignment
+                                                  .topLeft, //begin of the gradient color
+                                              end: Alignment
+                                                  .bottomRight, //end of the gradient color
+                                              stops: [
+                                                0,
+                                                0.2,
+                                                0.5,
+                                                0.8
+                                              ] //stops for individual color
+                                              //set the stops number equal to numbers of color
+                                              ),
+                                          borderRadius:
+                                              BorderRadius.circular(40),
                                         ),
                                         child: Row(
                                           crossAxisAlignment:
@@ -256,25 +313,57 @@ class _HomePageState extends State<HomePage> {
                                                                 top: 12,
                                                                 bottom: 8),
                                                         child: Text(
-                                                          "adel",
+                                                          "****************************",
                                                           style: TextStyle(
                                                             color:
-                                                                Colors.white38,
+                                                                Color.fromARGB(
+                                                                    96,
+                                                                    255,
+                                                                    255,
+                                                                    255),
                                                           ),
                                                         ),
                                                       ),
                                                       // database ############################33#3#3####33##############
-                                                      Container(
-                                                        height: 100.0,
-                                                        width: double.infinity,
-                                                        color: Colors.green,
-                                                        child: const Text(
-                                                          'test1',
-                                                          style: TextStyle(
-                                                              color: Colors.red,
-                                                              fontSize: 30),
+
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                left: 60,
+                                                                right: 1),
+                                                        child: SizedBox(
+                                                          child: Container(
+                                                            height: 100.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color:
+                                                                  Colors.green,
+                                                              borderRadius:
+                                                                  const BorderRadius
+                                                                          .all(
+                                                                      Radius.circular(
+                                                                          100)),
+                                                            ),
+                                                            width: 200,
+                                                            child: Center(
+                                                              child: const Text(
+                                                                'Good',
+                                                                style: TextStyle(
+                                                                    color: Color
+                                                                        .fromARGB(
+                                                                            255,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    fontSize:
+                                                                        30),
+                                                              ),
+                                                            ),
+                                                          ),
                                                         ),
                                                       ),
+
                                                       Spacer(),
                                                       Row(
                                                         children: List.generate(
@@ -333,6 +422,9 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.bold),
                         ),
                       ),
+                      SizedBox(
+                        height: 30,
+                      ),
                       // con1####################################################3#3
                       Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -347,7 +439,25 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 24, vertical: 20),
                             decoration: BoxDecoration(
-                                color: Color(0xFF9CC5FF),
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(255, 74, 95, 229),
+                                      Color.fromARGB(255, 92, 85, 222),
+                                      Color.fromARGB(255, 129, 135, 227),
+                                      Color.fromARGB(255, 129, 145, 209),
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(20))),
                             child: Row(
@@ -386,7 +496,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                SvgPicture.asset('assets/icons/code.svg')
+                                SvgPicture.asset('assets/icons/User.svg')
                               ],
                             ),
                           ),
@@ -408,7 +518,25 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 24, vertical: 20),
                             decoration: BoxDecoration(
-                                color: Color(0xFF9CC5FF),
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(255, 74, 95, 229),
+                                      Color.fromARGB(255, 92, 85, 222),
+                                      Color.fromARGB(255, 129, 135, 227),
+                                      Color.fromARGB(255, 129, 145, 209),
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(20))),
                             child: Row(
@@ -419,7 +547,7 @@ class _HomePageState extends State<HomePage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'title',
+                                        'Elevator camera',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall!
@@ -430,7 +558,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       const SizedBox(height: 4),
                                       const Text(
-                                        "it",
+                                        "You can see the Elevator",
                                         style: TextStyle(
                                           color: Colors.white60,
                                           fontSize: 16,
@@ -447,7 +575,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                SvgPicture.asset('assets/icons/code.svg')
+                                SvgPicture.asset('assets/icons/s.svg',
+                                    height: 28)
                               ],
                             ),
                           ),
