@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:test2/homePage.dart';
 
 //hello 2
@@ -11,47 +11,80 @@ class addUser extends StatefulWidget {
 }
 
 class _addUser extends State<addUser> {
-  var emailCont, passCont;
+  TextEditingController emailCont = TextEditingController();
+  TextEditingController passCont = TextEditingController();
+
   late FirebaseFirestore firestore;
   var setdata;
-  int counter = 0;
+  int _counterVal = 0;
+ String errorMessage = '';
 
   @override
   void initState() {
     super.initState();
-    _loadCounter();
+    _getCounter();
     firestore = FirebaseFirestore.instance;
     emailCont = TextEditingController();
     passCont = TextEditingController();
     firestore = FirebaseFirestore.instance;
   }
 
-  void _loadCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      counter = prefs.getInt('counter') ?? 0;
-    });
-  }
 
-  void _incrementCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      counter++;
-      prefs.setInt('counter', counter);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    CollectionReference users = firestore.collection('users');
+    
 
     void writeData() {
-      final userRef = users.doc('user$counter');
+      CollectionReference users = FirebaseFirestore.instance.collection('users');
+      final userRef = users.doc('user$_counterVal');
       userRef.set({
         'email': emailCont.text,
         'password': passCont.text,
       });
     }
+
+  void getUsers() async {
+    final CollectionReference usersRef = FirebaseFirestore.instance.collection('users');
+    final QuerySnapshot querySnapshot = await usersRef.get();
+
+    for (final QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
+      final data = documentSnapshot.data() as Map<String, dynamic>?;
+      if (data != null && data.containsKey('email') && data.containsKey('password') && data['email'] == emailCont.text && data['password'] == passCont.text) {
+        setState(() {
+          errorMessage = 'user already exists..';
+        });
+        debugPrint("valid user");
+        return;
+      }
+    }
+
+
+     writeData();
+     _getCounter();
+     _setCounter();
+        setState(() {
+       errorMessage = 'user added successfully';
+    });
+  }
+
+  void _getCounter() async {
+    DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc('counter')
+        .get();
+    setState(() {
+      _counterVal =
+          (documentSnapshot.data() as Map<String, dynamic>)['counterVal'] ?? 0;
+    });
+  }
+
+  Future<void> _setCounter() async {
+    final DocumentReference<Map<String, dynamic>> documentReference =
+        FirebaseFirestore.instance.collection('users').doc('counter');
+    await documentReference.set({'counterVal': _counterVal + 1});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
 
     return Scaffold(
         body: Stack(
@@ -165,8 +198,7 @@ class _addUser extends State<addUser> {
                                       MaterialTapTargetSize.shrinkWrap,
                                   shape: StadiumBorder(),
                                   onPressed: () {
-                                    writeData();
-                                    _incrementCounter();
+                                    getUsers();
                                     debugPrint(emailCont.text);
                                     debugPrint(passCont.text);
                                   },
@@ -245,6 +277,12 @@ class _addUser extends State<addUser> {
                                                 color: Colors.white,
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 30.0,
+                                           ),
+                                          Text(
+                                            errorMessage,
+                                            style: TextStyle(color: Colors.red),
                                           ),
                                         ],
                                       ),
