@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:test2/entry_point.dart';
 
 import 'package:test2/homePage.dart';
 
@@ -265,7 +266,8 @@ class _addUser extends State<addUser> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => HomePage()));
+                                            builder: (context) =>
+                                                EntryPoint()));
                                   },
                                   child: Center(
                                     child: Padding(
