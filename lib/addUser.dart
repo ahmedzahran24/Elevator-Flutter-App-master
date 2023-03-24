@@ -17,7 +17,9 @@ class _addUser extends State<addUser> {
   late FirebaseFirestore firestore;
   var setdata;
   int _counterVal = 0;
- String errorMessage = '';
+  String errorMessage = '';
+
+  String errorMessage1 = '';
 
   @override
   void initState() {
@@ -29,39 +31,40 @@ class _addUser extends State<addUser> {
     firestore = FirebaseFirestore.instance;
   }
 
-
-    
-
-    void writeData() {
-      CollectionReference users = FirebaseFirestore.instance.collection('users');
-      final userRef = users.doc('user$_counterVal');
-      userRef.set({
-        'email': emailCont.text,
-        'password': passCont.text,
-      });
-    }
+  void writeData() {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    final userRef = users.doc('user$_counterVal');
+    userRef.set({
+      'email': emailCont.text,
+      'password': passCont.text,
+    });
+  }
 
   void getUsers() async {
-    final CollectionReference usersRef = FirebaseFirestore.instance.collection('users');
+    final CollectionReference usersRef =
+        FirebaseFirestore.instance.collection('users');
     final QuerySnapshot querySnapshot = await usersRef.get();
 
     for (final QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
       final data = documentSnapshot.data() as Map<String, dynamic>?;
-      if (data != null && data.containsKey('email') && data.containsKey('password') && data['email'] == emailCont.text && data['password'] == passCont.text) {
+      if (data != null &&
+          data.containsKey('email') &&
+          data.containsKey('password') &&
+          data['email'] == emailCont.text &&
+          data['password'] == passCont.text) {
         setState(() {
-          errorMessage = 'user already exists..';
+          errorMessage = 'User Already Exists..';
         });
-        debugPrint("valid user");
+        debugPrint("Valid User");
         return;
       }
     }
 
-
-     writeData();
-     _getCounter();
-     _setCounter();
-        setState(() {
-       errorMessage = 'user added successfully';
+    writeData();
+    _getCounter();
+    _setCounter();
+    setState(() {
+      errorMessage = 'User Added Successfully';
     });
   }
 
@@ -84,8 +87,6 @@ class _addUser extends State<addUser> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
         body: Stack(
       children: [
@@ -278,12 +279,6 @@ class _addUser extends State<addUser> {
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold),
                                           ),
-                                          SizedBox(height: 30.0,
-                                           ),
-                                          Text(
-                                            errorMessage,
-                                            style: TextStyle(color: Colors.red),
-                                          ),
                                         ],
                                       ),
                                     ),
@@ -291,6 +286,16 @@ class _addUser extends State<addUser> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: 1.0,
+                            ),
+                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  errorMessage,
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 20),
+                                )),
                           ],
                         )
                       ],
