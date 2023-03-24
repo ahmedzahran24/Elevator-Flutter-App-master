@@ -150,13 +150,10 @@ class _HomePageState extends State<HomePage> {
                                                           const EdgeInsets.only(
                                                               top: 12,
                                                               bottom: 8),
-                                                      child: Expanded(
-                                                        child: Text(
-                                                          "******************",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Colors.white38,
-                                                          ),
+                                                      child: Text(
+                                                        "******************",
+                                                        style: TextStyle(
+                                                          color: Colors.white38,
                                                         ),
                                                       ),
                                                     ),
@@ -315,17 +312,15 @@ class _HomePageState extends State<HomePage> {
                                                                     .only(
                                                                 top: 12,
                                                                 bottom: 8),
-                                                        child: Expanded(
-                                                          child: Text(
-                                                            "******************",
-                                                            style: TextStyle(
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      96,
-                                                                      255,
-                                                                      255,
-                                                                      255),
-                                                            ),
+                                                        child: Text(
+                                                          "******************",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Color.fromARGB(
+                                                                    96,
+                                                                    255,
+                                                                    255,
+                                                                    255),
                                                           ),
                                                         ),
                                                       ),
