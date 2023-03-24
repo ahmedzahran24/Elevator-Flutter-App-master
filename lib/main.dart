@@ -36,6 +36,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         // home: OnbodingScreen(),
-        home: addUser());
+        home: OnbodingScreen(),
+        );
   }
 }
