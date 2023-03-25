@@ -91,7 +91,6 @@ class _LoginScreenAdminState extends State<LoginScreenAdmin> {
                       ),
                     ),
                   ),
-
                   SingleChildScrollView(
                     child: Column(
                       children: [
@@ -114,7 +113,7 @@ class _LoginScreenAdminState extends State<LoginScreenAdmin> {
                           ],
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -142,7 +141,7 @@ class _LoginScreenAdminState extends State<LoginScreenAdmin> {
                           ),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 10,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -172,202 +171,116 @@ class _LoginScreenAdminState extends State<LoginScreenAdmin> {
                           ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
-                        SingleChildScrollView(
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
                           child: Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 8.0, 8.0, 8.0),
-                                  child: Container(
-                                    width: 150,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(80),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color.fromARGB(211, 255, 1, 1),
-                                          Color.fromARGB(255, 110, 116, 232)
-                                        ],
+                            width: 160,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(211, 255, 1, 1),
+                                  Color.fromARGB(255, 110, 116, 232)
+                                ],
+                              ),
+                            ),
+                            child: MaterialButton(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              shape: StadiumBorder(),
+                              onPressed: () {
+                                _completeLogin();
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      'Started',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.white,
                                       ),
                                     ),
-                                    child: MaterialButton(
-                                      materialTapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      shape: StadiumBorder(),
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomeScreen()));
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 1, left: 5),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            Expanded(
-                                              flex: 1,
-                                              child: Icon(
-                                                Icons.arrow_back,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                            Expanded(
-                                              flex: 2,
-                                              child: Text(
-                                                'Go Back',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                  ],
                                 ),
-                                ism1
-                                    ? Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            10, 8.0, 8.0, 8.0),
-                                        child: Container(
-                                          width: 160,
-                                          height: 60,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(80),
-                                            gradient: LinearGradient(
-                                              begin: Alignment.centerLeft,
-                                              end: Alignment.centerRight,
-                                              colors: [
-                                                Color.fromARGB(211, 255, 1, 1),
-                                                Color.fromARGB(
-                                                    255, 110, 116, 232)
-                                              ],
-                                            ),
-                                          ),
-                                          child: MaterialButton(
-                                            materialTapTargetSize:
-                                                MaterialTapTargetSize
-                                                    .shrinkWrap,
-                                            shape: StadiumBorder(),
-                                            onPressed: () {
-                                              _completeLogin();
-                                            },
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: <Widget>[
-                                                  Text(
-                                                    'Get Started',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child: Icon(
-                                                      Icons.arrow_forward,
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    : Expanded(
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 45, right: 20),
-                                          child: Container(
-                                            width: 160,
-                                            height: 60,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(80),
-                                              gradient: LinearGradient(
-                                                begin: Alignment.centerLeft,
-                                                end: Alignment.centerRight,
-                                                colors: [
-                                                  Color.fromARGB(
-                                                      211, 255, 1, 1),
-                                                  Color.fromARGB(
-                                                      255, 110, 116, 232)
-                                                ],
-                                              ),
-                                            ),
-                                            child: MaterialButton(
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              shape: StadiumBorder(),
-                                              onPressed: () {
-                                                _completeLogin();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: <Widget>[
-                                                    Expanded(
-                                                      flex: 2,
-                                                      child: Text(
-                                                        'Get Started',
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Icon(
-                                                        Icons.arrow_forward,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 8.0, 8.0, 8.0),
+                          child: Container(
+                            width: 100,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Color.fromARGB(211, 255, 1, 1),
+                                  Color.fromARGB(255, 110, 116, 232)
+                                ],
+                              ),
+                            ),
+                            child: MaterialButton(
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                              shape: StadiumBorder(),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen()));
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
+                                    child: Icon(
+                                      Icons.arrow_back_ios,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Back',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
-
                   Column(
-                    children: [Text(_message)],
+                    children: [
+                      Text(
+                        _message,
+                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      )
+                    ],
                   ),
                   // Column(
                   //   children: [

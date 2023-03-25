@@ -8,7 +8,7 @@ import 'package:test2/addUser.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
-import 'package:test2/login.dart';
+
 import 'package:test2/start.dart';
 import 'package:test2/userMain.dart';
 import 'firebase_options.dart';
@@ -37,9 +37,9 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        // home: OnbodingScreen(),
-        home: OnbodingScreen(),
-        );
+      debugShowCheckedModeBanner: false,
+      // home: OnbodingScreen(),
+      home: LoginWidget(),
+    );
   }
 }
