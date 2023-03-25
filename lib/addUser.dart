@@ -51,8 +51,8 @@ class _addUser extends State<addUser> {
       if (data != null &&
           data.containsKey('email') &&
           data.containsKey('password') &&
-          data['email'] == emailCont.text &&
-          data['password'] == passCont.text) {
+          data['email'] == emailCont.text
+          ) {
         setState(() {
           errorMessage = 'User Already Exists..';
           donemassage = '';

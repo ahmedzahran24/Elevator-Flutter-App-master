@@ -14,6 +14,8 @@ import 'package:test2/userMain.dart';
 import 'firebase_options.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
+import 'normal_userLogin.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -37,7 +39,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         // home: OnbodingScreen(),
-        home: userMain(),
+        home: OnbodingScreen(),
         );
   }
 }

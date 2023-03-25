@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:test2/userMain.dart';
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         setState(() {
           errorMessage = '';
         });
-        debugPrint("valid user");
+        Navigator.push(context,MaterialPageRoute(builder: (context) => userMain()));
         return;
       }
     }
@@ -29,7 +30,6 @@ class _LoginWidgetState extends State<LoginWidget> {
     setState(() {
       errorMessage = 'Invalid email or password';
     });
-    debugPrint("error");
   }
 
   @override
