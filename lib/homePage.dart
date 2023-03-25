@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test2/addUser.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -35,6 +38,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // camra ############################################33
+    Future<void> _launchInWebViewWithoutJavaScript(Uri url) async {
+      if (!await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+        webViewConfiguration:
+            const WebViewConfiguration(enableJavaScript: true),
+      )) {
+        throw Exception('Could not launch $url');
+      }
+    }
+
+    // #######################33
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 125, 119, 255),
@@ -507,10 +523,8 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => LoginScreen()));
+                            _launchInWebViewWithoutJavaScript(
+                                Uri.parse('http://dtu.ddns.net:4747'));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
