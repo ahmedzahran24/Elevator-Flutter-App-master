@@ -38,8 +38,9 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: OnbodingScreen(),
-      home: LoginWidget(),
+      home: OnbodingScreen(),
+      //
+      // home: LoginWidget(),
     );
   }
 }
