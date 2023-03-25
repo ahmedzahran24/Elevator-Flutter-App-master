@@ -10,6 +10,7 @@ import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login.dart';
 import 'package:test2/start.dart';
+import 'package:test2/userMain.dart';
 import 'firebase_options.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
@@ -34,9 +35,9 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: OnbodingScreen(),
-      // home: addUser(),
-    );
+        debugShowCheckedModeBanner: false,
+        // home: OnbodingScreen(),
+        home: userMain(),
+        );
   }
 }
