@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     Future<void> _launchInWebViewWithoutJavaScript(Uri url) async {
       if (!await launchUrl(
         url,
-        mode: LaunchMode.externalApplication,
+        mode: LaunchMode.inAppWebView,
         webViewConfiguration:
             const WebViewConfiguration(enableJavaScript: true),
       )) {
@@ -523,8 +523,8 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(
                           onTap: () {
-                            _launchInWebViewWithoutJavaScript(
-                                Uri.parse('http://dtu.ddns.net:4747'));
+                            _launchInWebViewWithoutJavaScript(Uri.parse(
+                                'https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8'));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
