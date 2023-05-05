@@ -51,7 +51,7 @@ dependencies:
   ionicons: ^0.2.2
   fancy_containers: ^0.0.5
   flutter_mjpeg: ^2.0.3
-  flutter_webview_plugin: ^0.4.0
+
   
 dev_dependencies:
   flutter_test:
