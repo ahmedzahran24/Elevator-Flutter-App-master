@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test2/addUser.dart';
+import 'package:test2/cam.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -523,8 +524,10 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(
                           onTap: () {
-                            _launchInWebViewWithoutJavaScript(Uri.parse(
-                                'https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8'));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EspCameraScreen()));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
