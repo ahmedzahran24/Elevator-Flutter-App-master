@@ -248,7 +248,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                                       'Elevator Request ',
                                       style: TextStyle(
                                           color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 15s,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
