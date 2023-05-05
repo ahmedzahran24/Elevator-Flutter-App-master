@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/cam.dart';
+import 'package:test2/unlock.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -591,6 +592,86 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 const SizedBox(width: 8),
                                 SvgPicture.asset('assets/icons/s.svg',
+                                    height: 28)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // con2################################################################
+                      // con2####################################################3#3
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => unlock()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 20),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(255, 74, 95, 229),
+                                      Color.fromARGB(255, 92, 85, 222),
+                                      Color.fromARGB(255, 129, 135, 227),
+                                      Color.fromARGB(255, 129, 145, 209),
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(20))),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Elevator Unlock',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!
+                                            .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      const Text(
+                                        "You can unlock the Elevator",
+                                        style: TextStyle(
+                                          color: Colors.white60,
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                  child: VerticalDivider(
+                                    // thickness: 5,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                SvgPicture.asset(
+                                    'assets/icons/open-padlock.svg',
                                     height: 28)
                               ],
                             ),
