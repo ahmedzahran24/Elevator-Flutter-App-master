@@ -164,12 +164,6 @@ class _GetStartedState extends State<GetStarted>
             },
             child: SizedBox(
               height: 44,
-              child: !charactermoving
-                  ? Image.asset(
-                      'assets/images/left-and-right-arrows.png',
-                      color: Colors.white,
-                    )
-                  : const SizedBox(),
             ),
           ),
           const SizedBox(
