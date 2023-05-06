@@ -71,12 +71,12 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
           Align(
             alignment: Alignment.center,
             child: Text(
-                "Press the lock button to re-lock \nthe elevator and return to the unlock screen.",
+                "Press the lock button to re-lock \nelevator and return to the unlock screen.",
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .merge(const TextStyle(color: Colors.white))),
+                    .merge(const TextStyle(color: Colors.white, fontSize: 16))),
           ),
           const SizedBox(
             height: 20,
@@ -164,11 +164,11 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
               });
             },
             child: SizedBox(
-              height: 44,
+              height: 10,
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 5,
           ),
           Align(
             alignment: Alignment.center,
@@ -183,7 +183,7 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
                 );
               },
               child: Container(
-                width: res_width * 0.32,
+                width: res_width * 0.4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(

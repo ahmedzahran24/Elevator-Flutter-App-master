@@ -75,10 +75,10 @@ class _GetStartedState extends State<GetStarted>
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .merge(const TextStyle(color: Colors.white))),
+                    .merge(const TextStyle(color: Colors.white, fontSize: 16))),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           AnimatedContainer(
             duration: const Duration(seconds: 1),
@@ -163,11 +163,11 @@ class _GetStartedState extends State<GetStarted>
               });
             },
             child: SizedBox(
-              height: 44,
+              height: 10,
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 5,
           ),
           Builder(
             builder: (context) {
