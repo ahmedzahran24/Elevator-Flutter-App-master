@@ -11,7 +11,7 @@ void unlockelv() async {
   final CollectionReference usersRef =
       FirebaseFirestore.instance.collection('dataR');
   usersRef.doc('unlock').update({
-    'state': true,
+    'state': "true",
   });
 }
 

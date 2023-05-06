@@ -13,11 +13,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+
 void unlockelv() async {
   final CollectionReference usersRef =
       FirebaseFirestore.instance.collection('dataR');
   usersRef.doc('unlock').update({
-    'state': false,
+    'state': "false",
   });
 }
 

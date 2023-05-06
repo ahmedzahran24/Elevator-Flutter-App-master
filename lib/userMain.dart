@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/unlock.dart';
-
+import 'package:test2/unlouck/screens/getstarted.dart';
+import 'package:test2/unlouck/screens/lock.dart';
 import 'normal_userLogin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+
+
 
 class MyHomePageuser extends StatefulWidget {
   const MyHomePageuser({super.key});
@@ -14,6 +22,29 @@ class MyHomePageuser extends StatefulWidget {
 }
 
 class _MyHomePageuserState extends State<MyHomePageuser> {
+  String? userName;
+
+  @override
+  void initState() {
+    super.initState();
+    showDisplayName();
+  }
+
+  void showDisplayName() async {
+    var collection = FirebaseFirestore.instance.collection('dataR');
+    var docSnapshot = await collection.doc('unlock').get();
+
+    Map<String, dynamic> data = docSnapshot.data()!;
+    String name = data['state'];
+
+    // Update the state of the widget with the retrieved user name
+    setState(() {
+      userName = name;
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +63,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                 const SizedBox(height: 50),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text('Hello Zahran !',
+                  title: Text('Hello $userName Zahran !',
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
@@ -169,10 +200,18 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
                           onPressed: () {
+                            if(userName == "true"){
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => unlock()));
+                                    builder: (context) => lock()));
+                          }
+                           if(userName == "false"){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GetStarted()));
+                          }
                           },
                           child: Center(
                             child: Column(
