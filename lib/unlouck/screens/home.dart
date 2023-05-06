@@ -4,6 +4,15 @@ import 'package:just_audio/just_audio.dart';
 import 'package:test2/unlouck/helpers/colors.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/widgets/backgroundcircle.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+void unlockelv() async {
+  final CollectionReference usersRef = FirebaseFirestore.instance.collection('dataR');
+  usersRef.doc('unlock').update({
+  'state':false,
+});
+
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -108,6 +117,7 @@ class _HomeScreenState extends State<HomeScreen>
               onTap: () async {
                 // await _player.setAsset('assets/audio/success.m4a');
                 // _player.play();
+                unlockelv();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const GetStarted()),

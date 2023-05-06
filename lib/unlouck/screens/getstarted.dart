@@ -5,6 +5,15 @@ import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 import 'package:test2/unlouck/screens/home.dart';
 import 'package:test2/unlouck/widgets/backgroundcircle.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+void unlockelv() async {
+  final CollectionReference usersRef = FirebaseFirestore.instance.collection('dataR');
+  usersRef.doc('unlock').update({
+  'state':true,
+});
+
+}
 
 class GetStarted extends StatefulWidget {
   const GetStarted({super.key});
@@ -183,6 +192,7 @@ class _GetStartedState extends State<GetStarted>
                     onSubmit: () async {
                       // await _player.setAsset('assets/audio/chimeup.mp3');
                       // _player.play();
+                      unlockelv();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
