@@ -13,6 +13,7 @@ import 'package:test2/home_screen.dart';
 
 import 'package:test2/start.dart';
 import 'package:test2/unlock.dart';
+import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/userMain.dart';
 import 'firebase_options.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -48,9 +49,9 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnbodingScreen(),
+      // home: OnbodingScreen(),
 
-      // home: unlock(),
+      home: GetStarted(),
     );
   }
 }

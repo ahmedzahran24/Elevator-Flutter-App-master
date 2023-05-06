@@ -53,6 +53,9 @@ dependencies:
   flutter_mjpeg: ^2.0.3
   lite_rolling_switch: ^1.0.0
   load_switch: ^2.0.2
+  just_audio: ^0.9.32
+  slide_to_act: ^2.0.1
+  get: ^4.6.5
 
   
 dev_dependencies:
