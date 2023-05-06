@@ -6,6 +6,7 @@ import 'package:slide_to_act/slide_to_act.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/unlouck/widgets/backgroundcircle.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:test2/userMain.dart';
 
 void unlockelv() async {
   final CollectionReference usersRef =
@@ -57,12 +58,60 @@ class _GetStartedState extends State<GetStarted>
           const SizedBox(
             height: 20,
           ),
-          Align(
-            alignment: Alignment.center,
-            child: Text("Locked.",
-                style: Theme.of(context).textTheme.headline2!.merge(
-                    const TextStyle(
-                        color: Colors.white, fontFamily: 'UbuntuBold'))),
+          Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyHomePageuser()));
+                  },
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          Color.fromARGB(255, 27, 224, 198),
+                          Color.fromARGB(255, 57, 193, 227),
+                        ],
+                      ),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26, blurRadius: 5),
+                      ],
+                    ),
+                    height: 50,
+                    width: 50,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 40,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text("Locked.",
+                    style: Theme.of(context).textTheme.headline2!.merge(
+                        const TextStyle(
+                            color: Colors.white, fontFamily: 'UbuntuBold'))),
+              ),
+            ],
           ),
           const SizedBox(
             height: 20,
