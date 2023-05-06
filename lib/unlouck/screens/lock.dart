@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:slide_to_act/slide_to_act.dart';
+import 'package:test2/unlouck/helpers/colors.dart';
+import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/unlouck/widgets/backgroundcircle.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,19 +13,18 @@ void unlockelv() async {
   final CollectionReference usersRef =
       FirebaseFirestore.instance.collection('dataR');
   usersRef.doc('unlock').update({
-    'state': true,
+    'state': false,
   });
 }
 
-class GetStarted extends StatefulWidget {
-  const GetStarted({super.key});
+class lock extends StatefulWidget {
+  const lock({super.key});
 
   @override
-  State<GetStarted> createState() => _GetStartedState();
+  State<lock> createState() => _lockState();
 }
 
-class _GetStartedState extends State<GetStarted>
-    with SingleTickerProviderStateMixin {
+class _lockState extends State<lock> with SingleTickerProviderStateMixin {
   final _player = AudioPlayer();
 
   bool _isContainerVisible = false;
@@ -59,7 +60,7 @@ class _GetStartedState extends State<GetStarted>
           ),
           Align(
             alignment: Alignment.center,
-            child: Text("Locked.",
+            child: Text("UnLocked.",
                 style: Theme.of(context).textTheme.headline2!.merge(
                     const TextStyle(
                         color: Colors.white, fontFamily: 'UbuntuBold'))),
@@ -70,7 +71,7 @@ class _GetStartedState extends State<GetStarted>
           Align(
             alignment: Alignment.center,
             child: Text(
-                "The lock can be unlocked by moving \nthe button at the bottom of the screen.",
+                "Press the lock button to re-lock \nthe elevator and return to the unlock screen.",
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
@@ -136,7 +137,7 @@ class _GetStartedState extends State<GetStarted>
                             width: res_width * 1,
                             height: res_height * 0.5,
                             child: Image.asset(
-                              'assets/images/key1.png',
+                              'assets/images/key.png',
                               fit: BoxFit.fitHeight,
                             ),
                           ),
@@ -164,46 +165,61 @@ class _GetStartedState extends State<GetStarted>
             },
             child: SizedBox(
               height: 44,
-              child: !charactermoving
-                  ? Image.asset(
-                      'assets/images/left-and-right-arrows.png',
-                      color: Colors.white,
-                    )
-                  : const SizedBox(),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          Builder(
-            builder: (context) {
-              final GlobalKey<SlideActionState> _key = GlobalKey();
-              return Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  width: res_width * 0.8,
-                  child: SlideAction(
-                    text: "Drag To Unlock",
-                    textStyle: Theme.of(context)
-                        .textTheme
-                        .headline6!
-                        .merge(const TextStyle(color: Color(0xff28a5da))),
-                    key: _key,
-                    onSubmit: () async {
-                      // await _player.setAsset('assets/audio/chimeup.mp3');
-                      // _player.play();
-                      unlockelv();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const lock()),
-                      );
-                    },
-                    innerColor: Color(0xff28a5da),
-                    outerColor: Colors.white,
+          Align(
+            alignment: Alignment.center,
+            child: GestureDetector(
+              onTap: () async {
+                // await _player.setAsset('assets/audio/success.m4a');
+                // _player.play();
+                unlockelv();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const GetStarted()),
+                );
+              },
+              child: Container(
+                width: res_width * 0.32,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Color.fromARGB(255, 27, 224, 198),
+                      Color.fromARGB(255, 31, 236, 130),
+                    ],
+                  ),
+                  boxShadow: [
+                    BoxShadow(color: Colors.black26, blurRadius: 5),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(13.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.restart_alt,
+                        color: Color.fromARGB(255, 115, 8, 8),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text('Lock',
+                          style: Theme.of(context).textTheme.titleMedium!.merge(
+                              const TextStyle(
+                                  color: Color.fromARGB(255, 130, 11, 11),
+                                  fontSize: 20)))
+                    ],
                   ),
                 ),
-              );
-            },
+              ),
+            ),
           ),
         ],
       ),

@@ -7,11 +7,11 @@ import 'package:test2/unlouck/widgets/backgroundcircle.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void unlockelv() async {
-  final CollectionReference usersRef = FirebaseFirestore.instance.collection('dataR');
+  final CollectionReference usersRef =
+      FirebaseFirestore.instance.collection('dataR');
   usersRef.doc('unlock').update({
-  'state':false,
-});
-
+    'state': false,
+  });
 }
 
 class HomeScreen extends StatefulWidget {
