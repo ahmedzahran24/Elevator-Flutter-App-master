@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test2/entry_point.dart';
+import 'package:test2/unlock.dart';
 
 import 'normal_userLogin.dart';
 
@@ -171,7 +172,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => unlock()));
                           },
                           child: Center(
                             child: Column(
