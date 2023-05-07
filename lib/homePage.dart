@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/cam.dart';
 import 'package:test2/unlock.dart';
+import 'package:test2/unlouck/screens/lock.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -607,7 +608,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => unlock()));
+                                    builder: (context) => lock()));
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
