@@ -10,10 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
-
-
-
 class MyHomePageuser extends StatefulWidget {
   const MyHomePageuser({super.key});
 
@@ -42,8 +38,6 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
       userName = name;
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -200,18 +194,18 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
                           onPressed: () {
-                            if(userName == "true"){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => lock()));
-                          }
-                           if(userName == "false"){
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => GetStarted()));
-                          }
+                            if (userName == "true") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => lock()));
+                            }
+                            if (userName == "false") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GetStarted()));
+                            }
                           },
                           child: Center(
                             child: Column(

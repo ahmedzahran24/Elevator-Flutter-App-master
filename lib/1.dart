@@ -1,81 +1,47 @@
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:flutter/material.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const ExampleApp());
+}
 
-class MyApp extends StatelessWidget {
+const primaryColor = Color(0xFFE0E0E0);
+
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Example',
       debugShowCheckedModeBanner: false,
-      home: DemoApp(),
-      theme: ThemeData.dark(),
-    );
-  }
-}
-
-class DemoApp extends StatefulWidget {
-  @override
-  _DemoAppState createState() => _DemoAppState();
-}
-
-class _DemoAppState extends State<DemoApp> {
-  CountDownController _controller = CountDownController();
-  bool _isPause = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Timer'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: CircularCountDownTimer(
-          width: MediaQuery.of(context).size.width / 2,
-          height: MediaQuery.of(context).size.height / 2,
-          duration: 14,
-          fillColor: Colors.amber,
-          controller: _controller,
-          backgroundColor: Colors.white54,
-          strokeWidth: 10.0,
-          strokeCap: StrokeCap.round,
-          isTimerTextShown: true,
-          isReverse: false,
-          onComplete: () {
-            Alert(
-                    context: context,
-                    title: 'Done',
-                    style: AlertStyle(
-                      isCloseButton: true,
-                      isButtonVisible: false,
-                      titleStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30.0,
-                      ),
-                    ),
-                    type: AlertType.success)
-                .show();
-          },
-          textStyle: TextStyle(fontSize: 50.0, color: Colors.black),
-          ringColor: Colors.black,
+      home: Scaffold(
+        backgroundColor: primaryColor,
+        body: Center(
+          child: Container(
+            child: Text('data'),
+            width: 150,
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: primaryColor,
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(-20, -20),
+                  blurRadius: 60,
+                  color: Colors.white,
+                  inset: true,
+                ),
+                BoxShadow(
+                  offset: Offset(20, 20),
+                  blurRadius: 60,
+                  color: Color(0xFFBEBEBE),
+                  inset: true,
+                ),
+              ],
+            ),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          setState(() {
-            if (_isPause) {
-              _isPause = false;
-              _controller.resume();
-            } else {
-              _isPause = true;
-              _controller.pause();
-            }
-          });
-        },
-        icon: Icon(_isPause ? Icons.play_arrow : Icons.pause),
-        label: Text(_isPause ? 'Resume' : 'Pause'),
       ),
     );
   }
