@@ -1,5 +1,6 @@
 // @dart=2.9
 
+import 'package:advanced_splashscreen/advanced_splashscreen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/cam.dart';
+import 'package:test2/esp32.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
@@ -49,11 +51,14 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // home: OnbodingScreen(),
-      home: EspCameraScreen(),
-      //
-      // home: MyHomePageuser(),
-    );
+        debugShowCheckedModeBanner: false,
+        // home: OnbodingScreen(),
+        home: AdvancedSplashScreen(
+          child: WifiCheck(),
+          seconds: 3,
+          colorList: [Color(0xff0088e2), Color(0xff0075cd), Color(0xff0063b8)],
+          appTitle: "Dash Cam",
+          // appIcon: "images/dashcam_white.png",
+        ));
   }
 }
