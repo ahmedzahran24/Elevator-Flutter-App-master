@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:just_audio/just_audio.dart';
@@ -8,12 +10,15 @@ import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/unlouck/widgets/backgroundcircle.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 void unlockelv() async {
   final CollectionReference usersRef =
       FirebaseFirestore.instance.collection('dataR');
   usersRef.doc('unlock').update({
-    'state': false,
+    'state': "false",
   });
 }
 
@@ -36,6 +41,13 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    Timer(Duration(seconds: 17), () {
+      unlockelv();
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const GetStarted()),
+      );
+    });
     Future.delayed(Duration.zero, () {
       _updateSize();
     });
@@ -47,6 +59,8 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
     });
   }
 
+  CountDownController _controller = CountDownController();
+  bool _isPause = false;
   @override
   Widget build(BuildContext context) {
     final res_width = MediaQuery.of(context).size.width;
@@ -164,61 +178,41 @@ class _lockState extends State<lock> with SingleTickerProviderStateMixin {
               });
             },
             child: SizedBox(
-              height: 10,
+              height: 1,
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 1,
           ),
-          Align(
-            alignment: Alignment.center,
-            child: GestureDetector(
-              onTap: () async {
-                // await _player.setAsset('assets/audio/success.m4a');
-                // _player.play();
-                unlockelv();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const GetStarted()),
-                );
+          Center(
+            child: CircularCountDownTimer(
+              width: MediaQuery.of(context).size.width / 3.5,
+              height: MediaQuery.of(context).size.height / 8,
+              duration: 14,
+              fillColor: Colors.amber,
+              controller: _controller,
+              backgroundColor: Colors.white54,
+              strokeWidth: 10.0,
+              strokeCap: StrokeCap.round,
+              isTimerTextShown: true,
+              isReverse: false,
+              onComplete: () {
+                Alert(
+                        context: context,
+                        title: 'The Elevator is locked',
+                        style: AlertStyle(
+                          isCloseButton: true,
+                          isButtonVisible: false,
+                          titleStyle: TextStyle(
+                            color: Color.fromARGB(255, 43, 43, 43),
+                            fontSize: 30.0,
+                          ),
+                        ),
+                        type: AlertType.success)
+                    .show();
               },
-              child: Container(
-                width: res_width * 0.4,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color.fromARGB(255, 27, 224, 198),
-                      Color.fromARGB(255, 31, 236, 130),
-                    ],
-                  ),
-                  boxShadow: [
-                    BoxShadow(color: Colors.black26, blurRadius: 5),
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(13.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.restart_alt,
-                        color: Color.fromARGB(255, 115, 8, 8),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text('Lock',
-                          style: Theme.of(context).textTheme.titleMedium!.merge(
-                              const TextStyle(
-                                  color: Color.fromARGB(255, 130, 11, 11),
-                                  fontSize: 20)))
-                    ],
-                  ),
-                ),
-              ),
+              textStyle: TextStyle(fontSize: 50.0, color: Colors.black),
+              ringColor: Colors.black,
             ),
           ),
         ],
