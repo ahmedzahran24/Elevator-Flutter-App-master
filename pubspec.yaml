@@ -63,6 +63,7 @@ dependencies:
   rflutter_alert: ^2.0.4
   line_awesome_flutter: ^2.0.0
   flutter_inset_box_shadow: ^1.0.8
+  slide_digital_clock: ^1.0.3
 
   
 dev_dependencies:
