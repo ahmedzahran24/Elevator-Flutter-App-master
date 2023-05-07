@@ -50,14 +50,10 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
       // home: OnbodingScreen(),
-      home: ExampleApp(),
-=======
       home: OnbodingScreen(),
       //
-     // home: MyHomePageuser(),
->>>>>>> 1d6eb56ea962504e048282eb3ada0f4bc1e5424c
+      // home: MyHomePageuser(),
     );
   }
 }
