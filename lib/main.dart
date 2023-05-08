@@ -56,13 +56,10 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: OnbodingScreen(),
-<<<<<<< HEAD
-      home: TeamScreen(),
-=======
-      home:  Recall(),
+
+      home: Recall(),
       //
       // home: MyHomePageuser(),
->>>>>>> 5b97de3f890241dc50b63e9720aa62be1a64039d
     );
   }
 }
