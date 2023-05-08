@@ -1,4 +1,26 @@
 // import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mjpeg/flutter_mjpeg.dart';
+
+class EspCameraScreen extends StatelessWidget {
+  static const String routeName = '/esp-camera';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ESP Camera'),
+      ),
+      body: Center(
+        child: Mjpeg(
+          stream: 'http://dtu.ddns.net:81/stream',
+          isLive: true,
+        ),
+      ),
+    );
+  }
+}
+
 // import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 // import 'package:http/http.dart' as http;
 // import 'package:intl/intl.dart';
@@ -123,24 +145,33 @@
 //   }
 // }
 
-import 'package:flutter/material.dart';
-import 'package:flutter_mjpeg/flutter_mjpeg.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_mjpeg/flutter_mjpeg.dart';
 
-class EspCameraScreen extends StatelessWidget {
-  static const String routeName = '/esp-camera';
+// class EspCameraScreen extends StatelessWidget {
+//   static const String routeName = '/esp-camera';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('ESP Camera'),
-      ),
-      body: Center(
-        child: Mjpeg(
-          stream: 'http://dtu.ddns.net:81/stream',
-          isLive: true,
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('ESP Camera'),
+//       ),
+//       body: Center(
+//         child: _buildMjpegWidget(),
+//       ),
+//     );
+//   }
+
+//   Widget _buildMjpegWidget() {
+//     try {
+//       return Mjpeg(
+//         stream: 'http://dtu.ddns.net:81/stream',
+//         isLive: true,
+//       );
+//     } catch (e) {
+//       // Handle the exception here
+//       return Text('Error loading MJPEG stream.');
+//     }
+//   }
+// }
