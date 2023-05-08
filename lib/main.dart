@@ -14,6 +14,8 @@ import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 
 import 'package:test2/start.dart';
+import 'package:test2/team/screens/home_screen.dart';
+import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
@@ -51,14 +53,9 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        // home: OnbodingScreen(),
-        home: AdvancedSplashScreen(
-          child: WifiCheck(),
-          seconds: 3,
-          colorList: [Color(0xff0088e2), Color(0xff0075cd), Color(0xff0063b8)],
-          appTitle: "Dash Cam",
-          // appIcon: "images/dashcam_white.png",
-        ));
+      debugShowCheckedModeBanner: false,
+      // home: OnbodingScreen(),
+      home: TeamScreen(),
+    );
   }
 }
