@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
 import 'package:test2/addUser.dart';
+import 'package:test2/callElevator.dart';
 import 'package:test2/cam.dart';
 import 'package:test2/esp32.dart';
 import 'package:test2/entry_point.dart';
@@ -55,7 +56,13 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: OnbodingScreen(),
+<<<<<<< HEAD
       home: TeamScreen(),
+=======
+      home:  Recall(),
+      //
+      // home: MyHomePageuser(),
+>>>>>>> 5b97de3f890241dc50b63e9720aa62be1a64039d
     );
   }
 }
