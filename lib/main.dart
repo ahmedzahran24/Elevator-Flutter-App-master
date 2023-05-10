@@ -58,7 +58,8 @@ class _MyappState extends State<Myapp> {
       debugShowCheckedModeBanner: false,
       // home: OnbodingScreen(),
 
-      home: MyLogin(),
+      // home: MyLogin(),
+      home: TeamScreen(),
     );
   }
 }
