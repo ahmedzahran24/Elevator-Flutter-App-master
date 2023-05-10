@@ -6,6 +6,8 @@ import 'package:test2/addUser.dart';
 import 'package:test2/cam.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/lock.dart';
+import 'package:test2/unlouckadmin/screens/getstartedadmin.dart';
+import 'package:test2/unlouckadmin/screens/lock.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -17,6 +19,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var dataR;
+  String? userName;
+
+  @override
+  void showDisplayName() async {
+    var collection = FirebaseFirestore.instance.collection('dataR');
+    var docSnapshot = await collection.doc('unlock').get();
+
+    Map<String, dynamic> data = docSnapshot.data()!;
+    String name = data['state'];
+
+    // Update the state of the widget with the retrieved user name
+    setState(() {
+      userName = name;
+    });
+  }
 
   final CollectionReference usersCollectionR =
       FirebaseFirestore.instance.collection('dataR');
@@ -32,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    showDisplayName();
     getRdata().then((DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
       setState(() {
         dataR = documentSnapshot.data();
@@ -193,13 +211,16 @@ class _HomePageState extends State<HomePage> {
                                                                           110)),
                                                         ),
                                                         child: dataR != null
-                                                            ? Text(
-                                                                dataR['state'],
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .blue,
-                                                                    fontSize:
-                                                                        30),
+                                                            ? Center(
+                                                                child: Text(
+                                                                  dataR[
+                                                                      'state'],
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      fontSize:
+                                                                          30),
+                                                                ),
                                                               )
                                                             : CircularProgressIndicator(),
                                                       ),
@@ -310,16 +331,13 @@ class _HomePageState extends State<HomePage> {
                                                         child: Container(
                                                           child: Text(
                                                             'Elevator Problems',
-                                                            style: Theme.of(
-                                                                    context)
-                                                                .textTheme
-                                                                .titleLarge!
-                                                                .copyWith(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600),
+                                                            style: TextStyle(
+                                                                fontSize: 16,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
                                                           ),
                                                         ),
                                                       ),
@@ -605,10 +623,18 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => lock()));
+                            if (userName == "true") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => lockadmin()));
+                            }
+                            if (userName == "false") {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => GetStartedadmin()));
+                            }
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(

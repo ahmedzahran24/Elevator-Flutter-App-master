@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:test2/team/screens/custom_app_bar.dart';
 import 'package:test2/team/screens/text.dart';
-import 'package:test2/team/utility/app_colors.dart';
-
-import '../models/team.dart';
-import '../utility/data_api.dart';
-import '../widgets/background_widget.dart';
-import '../widgets/custom_app_bar.dart';
-import '../widgets/team_widget.dart';
 
 class TeamScreen extends StatelessWidget {
   const TeamScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         titleText: 'Teams',
       ),
       body: ListView(children: [
@@ -22,28 +16,25 @@ class TeamScreen extends StatelessWidget {
           child: Column(
             children: [
               teext(
-                vimage: 'assets/images/it.png',
+                vimage: 'assets/images/Abdallah.png',
                 vname: 'Abdallah Zahran',
+                vimage2: 'assets/images/It2.png',
+                vname2: 'IT - NetWork',
+                hi: 1.5,
               ),
               teext(
-                vimage: 'assets/images/it.png',
-                vname: ' Ahmed Rashad ',
+                vimage: 'assets/images/Abdallah.png',
+                vname: 'Abdrahman yonias',
+                vimage2: 'assets/images/it.png',
+                vname2: 'IT - NetWork',
+                hi: 1,
               ),
               teext(
-                vimage: 'assets/images/mec.png',
-                vname: 'Abdalrahman Youins',
-              ),
-              teext(
-                vimage: 'assets/images/mec.png',
-                vname: 'zahran',
-              ),
-              teext(
-                vimage: 'assets/images/unlock2.png',
-                vname: 'zahran',
-              ),
-              teext(
-                vimage: 'assets/images/unlock2.png',
-                vname: 'zahran',
+                vimage: 'assets/images/Abdallah.png',
+                vname: 'Adel mosen moktar',
+                vimage2: 'assets/images/it.png',
+                vname2: 'IT - NetWork',
+                hi: 0.8,
               ),
             ],
           ),
