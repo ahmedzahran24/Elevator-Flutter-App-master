@@ -35,8 +35,6 @@ void main() async {
   print('here we go u mfs >>>');
   //hello
   
-  
-
   runApp(Myapp());
 }
 
@@ -55,7 +53,7 @@ class _MyappState extends State<Myapp> {
       // home: OnbodingScreen(),
 
       // home: MyLogin(),
-      home: TeamScreen(),
+      home: LoginWidget(),
     );
   }
 }
