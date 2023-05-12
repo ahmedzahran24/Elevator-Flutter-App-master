@@ -26,7 +26,7 @@ class teext extends StatelessWidget {
       final fontSize =
           containerWidth / 18; // Adjust the multiplier to your preference
       return Container(
-        height: 150,
+        height: 155,
         margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
@@ -66,15 +66,28 @@ class teext extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FittedBox(
-                              fit: BoxFit.fitWidth,
-                              child: Text(
-                                vname,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: fontSize,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                            Row(
+                              children: [
+                                FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    vname,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: fontSize,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Image.asset(
+                                  vimage2,
+                                  width: fontSize * 1.5,
+                                  height: fontSize * 1.5,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
                             ),
                             SizedBox(
                               height: fontSize / 6,
@@ -98,18 +111,13 @@ class teext extends StatelessWidget {
                     ),
 
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                            child: Image.asset(
-                              vimage2,
-                              width: fontSize * 2.5,
-                              height: fontSize * 2.5,
-                              fit: BoxFit.cover,
-                            )),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                        ),
                       ],
                     ),
 
@@ -129,28 +137,14 @@ class teext extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
                         child: Text(
-                      "******* TO Communicate *******",
+                      "_____________________________________________________",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: fontSize / 1.6,
                           fontWeight: FontWeight.bold),
                     )),
                   ),
-                  height: fontSize * 1.5,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color.fromARGB(255, 27, 224, 155),
-                        Color.fromARGB(255, 85, 206, 78),
-                      ],
-                    ),
-                    boxShadow: [
-                      BoxShadow(color: Colors.black26, blurRadius: 5),
-                    ],
-                  ),
+                  height: fontSize * 2,
                 )
               ],
             ),
@@ -175,7 +169,7 @@ class teext extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: fontSize,
+                  width: fontSize / 2,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +179,7 @@ class teext extends StatelessWidget {
                         'assets/images/facebook.png',
                       ),
                       width: fontSize * 8,
-                      height: fontSize * 1.5,
+                      height: fontSize * 1.7,
                     )
                   ],
                 ),

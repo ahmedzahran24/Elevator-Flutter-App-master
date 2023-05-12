@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/entry_point.dart';
+import 'package:test2/home_screen.dart';
+import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
@@ -41,6 +44,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
 
   @override
   Widget build(BuildContext context) {
+    final ism1 = MediaQuery.of(context).size.width >= 350;
     return Scaffold(
       body: ListView(
         padding: EdgeInsets.zero,
@@ -57,7 +61,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                 const SizedBox(height: 50),
                 ListTile(
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  title: Text('Hello $userName Zahran !',
+                  title: Text('Hello Zahran !',
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall
@@ -147,22 +151,36 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/loading.png',
-                                    height: 80,
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/loading.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/loading.png',
+                                            height: 60,
+                                          )),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Center(
-                                    child: Text(
-                                      'Elevator Status ',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: ism1
+                                        ? Text(
+                                            'Elevator Status ',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'Elevator Status ',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                   ),
                                 ),
                               ],
@@ -212,22 +230,36 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/unlock2.png',
-                                    height: 80,
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/unlock2.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/unlock2.png',
+                                            height: 60,
+                                          )),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Center(
-                                    child: Text(
-                                      'Unlock Elevator ',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: ism1
+                                        ? Text(
+                                            'Unlock Elevator',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'Unlock Elevator',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                   ),
                                 ),
                               ],
@@ -269,22 +301,107 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/sort.png',
-                                    height: 80,
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/sort.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/sort.png',
+                                            height: 60,
+                                          )),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Center(
-                                    child: Text(
-                                      'Elevator Request ',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: ism1
+                                        ? Text(
+                                            'Elevator Request',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'Elevator Request',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                      Container(
+                        width: 130,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [
+                              Color.fromARGB(255, 27, 224, 198),
+                              Color.fromARGB(255, 57, 159, 227),
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(color: Colors.black26, blurRadius: 5),
+                          ],
+                        ),
+                        child: MaterialButton(
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
+                          shape: StadiumBorder(),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Emergency()));
+                          },
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/emergency.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/emergency.png',
+                                            height: 60,
+                                          )),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 20),
+                                  child: Center(
+                                    child: ism1
+                                        ? Text(
+                                            'Emergency',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'Emergency',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                   ),
                                 ),
                               ],
@@ -326,22 +443,36 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/emergency.png',
-                                    height: 80,
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/community.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/community.png',
+                                            height: 60,
+                                          )),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Center(
-                                    child: Text(
-                                      'Emergency',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: ism1
+                                        ? Text(
+                                            'About',
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'About',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                   ),
                                 ),
                               ],
@@ -376,86 +507,43 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => HomeScreen()));
                           },
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/community.png',
-                                    height: 80,
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: ism1
+                                        ? Image.asset(
+                                            'assets/images/left.png',
+                                            height: 80,
+                                          )
+                                        : Image.asset(
+                                            'assets/images/left.png',
+                                            height: 60,
+                                          )),
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
                                   child: Center(
-                                    child: Text(
-                                      'About ',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                      Container(
-                        width: 130,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromARGB(255, 27, 224, 198),
-                              Color.fromARGB(255, 57, 159, 227),
-                            ],
-                          ),
-                          boxShadow: [
-                            BoxShadow(color: Colors.black26, blurRadius: 5),
-                          ],
-                        ),
-                        child: MaterialButton(
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                          shape: StadiumBorder(),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
-                          },
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Image.asset(
-                                    'assets/images/left.png',
-                                    height: 80,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 20),
-                                  child: Center(
-                                    child: Text(
-                                      'Back ',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                    child: ism1
+                                        ? Text(
+                                            'Exit',
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        : Text(
+                                            'Eixt',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Color.fromARGB(
+                                                    255, 0, 0, 0),
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                   ),
                                 ),
                               ],

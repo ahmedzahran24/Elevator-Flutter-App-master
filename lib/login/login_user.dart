@@ -5,54 +5,44 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
+import 'package:test2/userMain.dart';
 
 //zahran
 
-class MyLogin extends StatefulWidget {
+class MyLoginuser extends StatefulWidget {
   @override
-  _MyLoginState createState() => _MyLoginState();
+  _MyLoginuserState createState() => _MyLoginuserState();
 }
 
-class _MyLoginState extends State<MyLogin> {
-  final TextEditingController emailCont = TextEditingController();
-  final TextEditingController passCont = TextEditingController();
-  String _message = '';
-  var userData;
+class _MyLoginuserState extends State<MyLoginuser> {
+  TextEditingController emailCont = TextEditingController();
+  TextEditingController passCont = TextEditingController();
+  String errorMessage = '';
 
-  final CollectionReference usersCollection =
-      FirebaseFirestore.instance.collection('users');
+  void getUsers() async {
+    final CollectionReference usersRef =
+        FirebaseFirestore.instance.collection('users');
+    final QuerySnapshot querySnapshot = await usersRef.get();
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> getUserData() async {
-    final DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
-        await usersCollection.doc('admin').get()
-            as DocumentSnapshot<Map<String, dynamic>>;
-
-    return documentSnapshot;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getUserData()
-        .then((DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
-      setState(() {
-        userData = documentSnapshot.data();
-      });
-    });
-  }
-
-  void _completeLogin() {
-    if (userData != null &&
-        passCont.text == userData['password'] &&
-        emailCont.text == userData['username']) {
-      debugPrint("if is True ");
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => EntryPoint()));
-    } else {
-      setState(() {
-        _message = 'Invalid Username or Ppassword.';
-      });
+    for (final QueryDocumentSnapshot documentSnapshot in querySnapshot.docs) {
+      final data = documentSnapshot.data() as Map<String, dynamic>?;
+      if (data != null &&
+          data.containsKey('email') &&
+          data.containsKey('password') &&
+          data['email'] == emailCont.text &&
+          data['password'] == passCont.text) {
+        setState(() {
+          errorMessage = '';
+        });
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MyHomePageuser()));
+        return;
+      }
     }
+
+    setState(() {
+      errorMessage = 'Invalid email or password';
+    });
   }
 
   @override
@@ -70,7 +60,7 @@ class _MyLoginState extends State<MyLogin> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
-                'Welcome\nBack (Admin)',
+                'Welcome\nBack',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -90,7 +80,7 @@ class _MyLoginState extends State<MyLogin> {
                             right: 1,
                           ),
                           child: Image.asset(
-                            'image/11.png',
+                            'image/1.png',
                             height: 150,
                           ),
                         ),
@@ -101,7 +91,7 @@ class _MyLoginState extends State<MyLogin> {
                               Column(
                                 children: [
                                   Text(
-                                    _message,
+                                    errorMessage,
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 20),
                                   )
@@ -162,7 +152,7 @@ class _MyLoginState extends State<MyLogin> {
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
                                         onPressed: () {
-                                          _completeLogin();
+                                          getUsers();
                                         },
                                         icon: Icon(
                                           Icons.arrow_forward,
@@ -197,7 +187,6 @@ class _MyLoginState extends State<MyLogin> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       HomeScreen()));
-                                          ;
                                         },
                                         icon: Icon(
                                           Icons.arrow_back,

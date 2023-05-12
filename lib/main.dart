@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
+import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/callElevator.dart';
 import 'package:test2/cam.dart';
@@ -50,10 +51,10 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: OnbodingScreen(),
+      home: OnbodingScreen(),
 
       // home: MyLogin(),
-      home: LoginWidget(),
+      home: TeamScreen(),
     );
   }
 }

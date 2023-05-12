@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test2/login/login.dart';
+import 'package:test2/login/login_user.dart';
 
 import 'package:test2/login_admin.dart';
 
@@ -186,8 +188,7 @@ class HomeScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          LoginScreenAdmin()));
+                                      builder: (context) => MyLogin()));
                             },
                             child: Container(
                               height: 200,
@@ -357,7 +358,7 @@ class HomeScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginWidget()));
+                                      builder: (context) => MyLoginuser()));
                             },
                             child: Container(
                               height: 200,
