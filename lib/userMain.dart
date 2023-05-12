@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/home_screen.dart';
+import 'package:test2/satat%20user.dart';
 import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
@@ -144,7 +145,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => stateuser()));
                           },
                           child: Center(
                             child: Column(
