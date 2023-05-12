@@ -25,7 +25,6 @@ class _addUser extends State<addUser> {
   @override
   void initState() {
     super.initState();
-    _getCounter();
     firestore = FirebaseFirestore.instance;
     emailCont = TextEditingController();
     passCont = TextEditingController();
