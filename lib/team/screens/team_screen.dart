@@ -6,6 +6,7 @@ class TeamScreen extends StatelessWidget {
   const TeamScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final ism1 = MediaQuery.of(context).size.width >= 350;
     return Scaffold(
       appBar: CustomAppBar(
         titleText: 'Teams',
@@ -20,21 +21,21 @@ class TeamScreen extends StatelessWidget {
                 vname: 'Abdallah Zahran',
                 vimage2: 'assets/images/It2.png',
                 vname2: 'IT - NetWork',
-                hi: 1.5,
+                hi: 1,
               ),
               teext(
                 vimage: 'assets/images/Abdallah.png',
                 vname: 'Abdrahman yonias',
-                vimage2: 'assets/images/it.png',
+                vimage2: 'assets/images/It2.png',
                 vname2: 'IT - NetWork',
-                hi: 1,
+                hi: .5,
               ),
               teext(
                 vimage: 'assets/images/Abdallah.png',
                 vname: 'Adel mosen moktar',
                 vimage2: 'assets/images/it.png',
                 vname2: 'IT - NetWork',
-                hi: 0.8,
+                hi: 0.5,
               ),
             ],
           ),
