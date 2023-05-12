@@ -8,15 +8,19 @@ class Recall extends StatefulWidget {
 }
 
 class _RecallState extends State<Recall> {
-  int currentFloor = 0;
+  String currentFloor ='0' ;
   var databaseval;
   String? incom;
   String? callpo;
+
+StreamSubscription<DocumentSnapshot>? subscription;
+
 
   @override
   void initState() {
     super.initState();
     showData();
+    subscribeToUpdates();
   }
 
   void showData() async {
@@ -33,7 +37,7 @@ class _RecallState extends State<Recall> {
     });
   }
 
-  void updateFloor(int floorNumber) {
+  void updateFloor(String floorNumber) {
     setState(() {
       currentFloor = floorNumber;
     });
@@ -44,17 +48,34 @@ class _RecallState extends State<Recall> {
     return isValueOne;
   }
 
-  void processIncomingValue(String val) {
-    showData();
-    if (incom != '1') {
-      final CollectionReference collectionReference =
-          FirebaseFirestore.instance.collection('dataR');
-      final DocumentReference documentReference =
-          collectionReference.doc('recallStatee');
-      documentReference.update({
-        'callPosition': val,
+void subscribeToUpdates() {
+  final collection = FirebaseFirestore.instance.collection('dataR');
+  final document = collection.doc('recallStatee');
+
+    subscription = document.snapshots().listen((snapshot) {
+    if (snapshot.exists) {
+      // Retrieve the updated value from the document snapshot
+      String fieldValue = snapshot.get('incomingValue');
+
+      // Update the state of the widget with the new value
+      setState(() {
+        // Assign the retrieved value to your state variable
+        currentFloor = fieldValue;
       });
     }
+  });
+}
+
+
+  void processIncomingValue(String val) {
+    showData();
+      final CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection('dataR');
+      final DocumentReference documentReference =
+      collectionReference.doc('recallStatee');
+      documentReference.update({
+      'callPosition': val,
+      });
   }
 
   @override
