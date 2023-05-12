@@ -14,11 +14,9 @@ import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login/login.dart';
-<<<<<<< HEAD
+
 import 'package:test2/satat%20user.dart';
 
-=======
->>>>>>> 346dd3d166dd5fea4df1b4f3d921c3b29e2290ee
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/unlock.dart';
@@ -36,11 +34,7 @@ void main() async {
   );
   print('here we go u mfs >>>');
   //hello
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 346dd3d166dd5fea4df1b4f3d921c3b29e2290ee
   runApp(Myapp());
 }
 
@@ -56,19 +50,12 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      // home: OnbodingScreen(),
 
-      // home: LoginWidget(),
-      home: stateuser(),
-=======
+      // home: stateuser(),
 
-        home: Recall(),
+      home: Recall(),
 
-      // home: MyLogin(),
       //home: TeamScreen(),
-      
->>>>>>> 346dd3d166dd5fea4df1b4f3d921c3b29e2290ee
     );
   }
 }
