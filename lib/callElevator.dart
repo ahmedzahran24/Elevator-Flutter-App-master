@@ -10,8 +10,8 @@ class Recall extends StatefulWidget {
 class _RecallState extends State<Recall> {
   int currentFloor = 0;
   var databaseval;
-    String? incom;
-    String? callpo;
+  String? incom;
+  String? callpo;
 
   @override
   void initState() {
@@ -26,14 +26,12 @@ class _RecallState extends State<Recall> {
     String icom = data['incomingValue'];
     String callp = data['callPosition'];
 
-    // Update the state of the widget with the retrieved user name
+    // Update the state of the widget with the retrieved values
     setState(() {
       incom = icom;
       callpo = callp;
-    });   
+    });
   }
-
-
 
   void updateFloor(int floorNumber) {
     setState(() {
@@ -43,18 +41,19 @@ class _RecallState extends State<Recall> {
 
   Future<bool> checkIncomingValue() async {
     bool isValueOne = false;
-
-
     return isValueOne;
   }
 
-  void processIncomingValue() async {
-    bool isValueOne = await checkIncomingValue();
-
-    if (isValueOne) {
-      print('The incoming value is 1.');
-    } else {
-      print('The incoming value is not 1.');
+  void processIncomingValue(String val) {
+    showData();
+    if (incom != '1') {
+      final CollectionReference collectionReference =
+          FirebaseFirestore.instance.collection('dataR');
+      final DocumentReference documentReference =
+          collectionReference.doc('recallStatee');
+      documentReference.update({
+        'callPosition': val,
+      });
     }
   }
 
@@ -62,7 +61,7 @@ class _RecallState extends State<Recall> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$callpo Recall$incom'),
+        title: Text('Recall $callpo $incom'),
       ),
       body: Center(
         child: Column(
@@ -77,17 +76,17 @@ class _RecallState extends State<Recall> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => processIncomingValue(),
+                  onPressed: () => processIncomingValue('1'),
                   child: Text('1'),
                 ),
                 SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => updateFloor(2),
+                  onPressed: () => processIncomingValue('2'),
                   child: Text('2'),
                 ),
                 SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => updateFloor(3),
+                  onPressed: () => processIncomingValue('3'),
                   child: Text('3'),
                 ),
               ],

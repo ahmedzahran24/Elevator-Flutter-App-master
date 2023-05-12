@@ -47,13 +47,9 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      // home: OnbodingScreen(),
-        home: Recall(),
-=======
-      home: OnbodingScreen(),
 
->>>>>>> 66f616c3c028b08ee328ced645541ec55e9a746c
+        home: Recall(),
+
       // home: MyLogin(),
       //home: TeamScreen(),
       
