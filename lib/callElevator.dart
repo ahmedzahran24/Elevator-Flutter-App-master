@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -9,16 +8,36 @@ class Recall extends StatefulWidget {
 }
 
 class _RecallState extends State<Recall> {
-  int currentFloor = 0;
+  String currentFloor ='0' ;
   var databaseval;
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  String? incom;
+  String? callpo;
+
+StreamSubscription<DocumentSnapshot>? subscription;
+
+
   @override
   void initState() {
     super.initState();
-   
+    showData();
+    subscribeToUpdates();
   }
 
-  void updateFloor(int floorNumber) {
+  void showData() async {
+    var collection = FirebaseFirestore.instance.collection('dataR');
+    var docSnapshot = await collection.doc('recallStatee').get();
+    Map<String, dynamic> data = docSnapshot.data()!;
+    String icom = data['incomingValue'];
+    String callp = data['callPosition'];
+
+    // Update the state of the widget with the retrieved values
+    setState(() {
+      incom = icom;
+      callpo = callp;
+    });
+  }
+
+  void updateFloor(String floorNumber) {
     setState(() {
       currentFloor = floorNumber;
     });
@@ -26,26 +45,44 @@ class _RecallState extends State<Recall> {
 
   Future<bool> checkIncomingValue() async {
     bool isValueOne = false;
-
-
     return isValueOne;
   }
 
-  void processIncomingValue() async {
-    bool isValueOne = await checkIncomingValue();
+void subscribeToUpdates() {
+  final collection = FirebaseFirestore.instance.collection('dataR');
+  final document = collection.doc('recallStatee');
 
-    if (isValueOne) {
-      print('The incoming value is 1.');
-    } else {
-      print('The incoming value is not 1.');
+    subscription = document.snapshots().listen((snapshot) {
+    if (snapshot.exists) {
+      // Retrieve the updated value from the document snapshot
+      String fieldValue = snapshot.get('incomingValue');
+
+      // Update the state of the widget with the new value
+      setState(() {
+        // Assign the retrieved value to your state variable
+        currentFloor = fieldValue;
+      });
     }
+  });
+}
+
+
+  void processIncomingValue(String val) {
+    showData();
+      final CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection('dataR');
+      final DocumentReference documentReference =
+      collectionReference.doc('recallStatee');
+      documentReference.update({
+      'callPosition': val,
+      });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recall'),
+        title: Text('Recall $callpo $incom'),
       ),
       body: Center(
         child: Column(
@@ -60,17 +97,17 @@ class _RecallState extends State<Recall> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () => processIncomingValue(),
+                  onPressed: () => processIncomingValue('1'),
                   child: Text('1'),
                 ),
                 SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => updateFloor(2),
+                  onPressed: () => processIncomingValue('2'),
                   child: Text('2'),
                 ),
                 SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => updateFloor(3),
+                  onPressed: () => processIncomingValue('3'),
                   child: Text('3'),
                 ),
               ],
