@@ -182,7 +182,11 @@ class _MyLoginuserState extends State<MyLoginuser> {
                                     child: IconButton(
                                         color: Colors.white,
                                         onPressed: () {
-                                          getUsers();
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomeScreen()));
                                         },
                                         icon: Icon(
                                           Icons.arrow_back,

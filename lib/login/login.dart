@@ -192,7 +192,12 @@ class _MyLoginState extends State<MyLogin> {
                                     child: IconButton(
                                         color: Colors.white,
                                         onPressed: () {
-                                          _completeLogin();
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      HomeScreen()));
+                                          ;
                                         },
                                         icon: Icon(
                                           Icons.arrow_back,
