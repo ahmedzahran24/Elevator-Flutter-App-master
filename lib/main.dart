@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
+import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/callElevator.dart';
 import 'package:test2/cam.dart';
@@ -31,8 +32,6 @@ void main() async {
   print('here we go u mfs >>>');
   //hello
   
-  
-
   runApp(Myapp());
 }
 
@@ -48,8 +47,13 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
       // home: OnbodingScreen(),
         home: Recall(),
+=======
+      home: OnbodingScreen(),
+
+>>>>>>> 66f616c3c028b08ee328ced645541ec55e9a746c
       // home: MyLogin(),
       //home: TeamScreen(),
       
