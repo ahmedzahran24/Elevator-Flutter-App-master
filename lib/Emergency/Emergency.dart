@@ -8,6 +8,7 @@ import 'package:test2/unlouck/screens/lock.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:test2/userMain.dart';
 
 class Emergency extends StatefulWidget {
   const Emergency({super.key});
@@ -414,7 +415,7 @@ class _EmergencyState extends State<Emergency> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => MyHomePageuser()));
                           },
                           child: Center(
                             child: Column(

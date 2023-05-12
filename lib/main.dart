@@ -15,6 +15,7 @@ import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login/login.dart';
+import 'package:test2/satat%20user.dart';
 
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
@@ -35,8 +36,6 @@ void main() async {
   );
   print('here we go u mfs >>>');
   //hello
-  
-  
 
   runApp(Myapp());
 }
@@ -53,10 +52,10 @@ class _MyappState extends State<Myapp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnbodingScreen(),
+      // home: OnbodingScreen(),
 
       // home: LoginWidget(),
-      // home: Emergency(),
+      home: stateuser(),
     );
   }
 }

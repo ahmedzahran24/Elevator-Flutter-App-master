@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
+import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/home_screen.dart';
 
@@ -163,6 +164,57 @@ class _SideBarState extends State<SideBar> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
+                                  builder: (context) => Emergency()));
+                        },
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(left: 24),
+                              child: Divider(color: Colors.white24, height: 1),
+                            ),
+                            Stack(
+                              children: [
+                                AnimatedPositioned(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.fastOutSlowIn,
+                                  width: 280,
+                                  height: 56,
+                                  left: 0,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFF6792FF),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                  ),
+                                ),
+                                ListTile(
+                                  leading: SizedBox(
+                                    height: 30,
+                                    width: 36,
+                                    child: Image.asset(
+                                      'assets/images/emergency.png',
+                                    ),
+                                  ),
+                                  title: Text(
+                                    'Emergency',
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
                                   builder: (context) => TeamScreen()));
                         },
                         child: Column(
@@ -206,6 +258,7 @@ class _SideBarState extends State<SideBar> {
                         ),
                       ),
                     ),
+                    // #######################################
                   ],
                 ),
               ),
