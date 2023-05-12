@@ -2,7 +2,6 @@
 
 import 'package:advanced_splashscreen/advanced_splashscreen.dart';
 import 'package:flutter/material.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
@@ -14,17 +13,14 @@ import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login/login.dart';
-
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
-
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/userMain.dart';
 import 'firebase_options.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-
 import 'normal_userLogin.dart';
 
 void main() async {
@@ -53,9 +49,10 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: OnbodingScreen(),
-
+        home: Recall(),
       // home: MyLogin(),
-      home: TeamScreen(),
+      //home: TeamScreen(),
+      
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -11,12 +10,30 @@ class Recall extends StatefulWidget {
 class _RecallState extends State<Recall> {
   int currentFloor = 0;
   var databaseval;
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    String? incom;
+    String? callpo;
+
   @override
   void initState() {
     super.initState();
-   
+    showData();
   }
+
+  void showData() async {
+    var collection = FirebaseFirestore.instance.collection('dataR');
+    var docSnapshot = await collection.doc('recallStatee').get();
+    Map<String, dynamic> data = docSnapshot.data()!;
+    String icom = data['incomingValue'];
+    String callp = data['callPosition'];
+
+    // Update the state of the widget with the retrieved user name
+    setState(() {
+      incom = icom;
+      callpo = callp;
+    });   
+  }
+
+
 
   void updateFloor(int floorNumber) {
     setState(() {
@@ -45,7 +62,7 @@ class _RecallState extends State<Recall> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recall'),
+        title: Text('$callpo Recall$incom'),
       ),
       body: Center(
         child: Column(
