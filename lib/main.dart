@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:test2/1.dart';
 import 'package:test2/Emergency/Emergency.dart';
 import 'package:test2/addUser.dart';
+import 'package:test2/blinkingTimer.dart';
 import 'package:test2/callElevator.dart';
 import 'package:test2/cam.dart';
 import 'package:test2/esp32.dart';
