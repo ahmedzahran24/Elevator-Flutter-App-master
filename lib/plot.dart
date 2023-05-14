@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class plotter extends StatefulWidget {
   @override
   _plotter createState() => _plotter();
@@ -12,9 +13,6 @@ class _plotter extends State<plotter> {
   void initState() {
     super.initState();
   }
-
-
-
 
 
 
