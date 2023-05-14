@@ -14,6 +14,7 @@ import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/login/login.dart';
+import 'package:test2/plot.dart';
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/unlock.dart';
@@ -48,7 +49,7 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-        home: Recall(),
+        home: plotter(),
 
       // home: MyLogin(),
       //home: TeamScreen(),
