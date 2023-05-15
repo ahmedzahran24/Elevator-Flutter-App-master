@@ -23,7 +23,7 @@ class _RecallState extends State<Recall> {
     super.initState();
     showData();
     subscribeToUpdates();
-    _getCounter();
+    
   }
 
   void showData() async {
@@ -39,38 +39,14 @@ class _RecallState extends State<Recall> {
     });
   }
 
-  void handleFloorChange(String newFloor) {
-    ////////////////////  store data
-    DateTime now = DateTime.now();
-    String formattedDate = DateFormat('yyyy-MM-dd').format(now);
-    print(formattedDate);
-    DateTime now2 = DateTime.now();
-    String formattedTime = DateFormat('HH:mm').format(now2);
-    print(formattedTime);
-    _getCounter();
-    print('Current floor changed: $newFloor');
 
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference users =
-        FirebaseFirestore.instance.collection('analysis');
-    final dataRef = users.doc('appointments$_counterVal');
-
-    dataRef.set({
-      'date': formattedDate,
-      'time': formattedTime,
-      'floor': newFloor,
-    });
-
-    _setCounter();
-    print("function done");
-  }
 
   void updateFloor(String floorNumber) {
     if (currentFloor != floorNumber) {
       setState(() {
         currentFloor = floorNumber;
       });
-      handleFloorChange(floorNumber);
+      
     }
   }
 
@@ -97,24 +73,9 @@ class _RecallState extends State<Recall> {
     });
   }
 
-  void _getCounter() async {
-    DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-        .collection('analysis')
-        .doc('counter')
-        .get();
-    setState(() {
-      _counterVal =
-          (documentSnapshot.data() as Map<String, dynamic>)['counterVal'] ?? 0;
-    });
-    print(_counterVal);
-  }
 
-  Future<void> _setCounter() async {
-    final DocumentReference<Map<String, dynamic>> documentReference =
-        FirebaseFirestore.instance.collection('analysis').doc('counter');
-    await documentReference.set({'counterVal': _counterVal + 1});
-    print("counter have been set ");
-  }
+
+
 
   Widget keyField(numb) {
     return InkWell(

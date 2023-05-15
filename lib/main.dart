@@ -10,6 +10,7 @@ import 'package:test2/addUser.dart';
 import 'package:test2/blinkingTimer.dart';
 import 'package:test2/callElevator.dart';
 import 'package:test2/cam.dart';
+import 'package:test2/change_listener.dart';
 import 'package:test2/esp32.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/homePage.dart';
@@ -32,6 +33,8 @@ void main() async {
   );
   print('here we go u mfs >>>');
   //hello
+  
+  DatabaseChangeListener().startListening();
   runApp(Myapp());
 }
 
@@ -48,7 +51,7 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-        home: Recall(),
+        home: OnbodingScreen(),
 
       //home: TeamScreen(),
     );
