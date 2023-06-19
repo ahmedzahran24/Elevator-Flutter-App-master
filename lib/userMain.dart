@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test2/Emergency/Emergency.dart';
+import 'package:test2/callElevator.dart';
 import 'package:test2/entry_point.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/satat%20user.dart';
@@ -295,7 +296,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => Recall()));
                           },
                           child: Center(
                             child: Column(
@@ -437,7 +438,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                                    builder: (context) => TeamScreen()));
                           },
                           child: Center(
                             child: Column(

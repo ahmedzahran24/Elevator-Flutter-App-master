@@ -411,12 +411,7 @@ class _EmergencyState extends State<Emergency> {
                           materialTapTargetSize:
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePageuser()));
-                          },
+                          onPressed: () => Navigator.of(context).pop(true),
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

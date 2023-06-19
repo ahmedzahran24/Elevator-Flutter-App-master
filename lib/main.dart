@@ -34,7 +34,7 @@ void main() async {
   );
   print('here we go u mfs >>>');
   //hello
-  
+
   DatabaseChangeListener().startListening();
   runApp(Myapp());
 }
@@ -52,7 +52,7 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-        home: AnalysisScreen(),
+      home: Recall(),
 
       //home: TeamScreen(),
     );

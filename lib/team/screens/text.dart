@@ -3,6 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:test2/team/screens/app_colors.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<void> _launchUrl(String url) async {
+  final Uri uri = Uri(scheme: "http", host: url);
+  if (!await launchUrl(
+    uri,
+    mode: LaunchMode.externalApplication,
+  )) {
+    throw Exception('Could not launch $url');
+  }
+}
 
 class teext extends StatelessWidget {
   const teext(
@@ -11,12 +22,14 @@ class teext extends StatelessWidget {
       required this.vname,
       required this.vimage2,
       required this.vname2,
-      required this.hi});
+      required this.hi,
+      required this.fb});
   final String vimage;
   final String vname;
   final String vimage2;
   final String vname2;
   final double hi;
+  final String fb;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -157,7 +170,9 @@ class teext extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _launchUrl(fb);
+                      },
                       child: Container(
                         child: Image.asset(
                           'assets/images/whatsapp.png',

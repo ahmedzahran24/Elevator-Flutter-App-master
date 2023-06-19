@@ -23,7 +23,6 @@ class _RecallState extends State<Recall> {
     super.initState();
     showData();
     subscribeToUpdates();
-    
   }
 
   void showData() async {
@@ -35,18 +34,15 @@ class _RecallState extends State<Recall> {
 
     setState(() {
       incom = icom;
-      callpo = callp;
+      callpo;
     });
   }
-
-
 
   void updateFloor(String floorNumber) {
     if (currentFloor != floorNumber) {
       setState(() {
         currentFloor = floorNumber;
       });
-      
     }
   }
 
@@ -63,6 +59,7 @@ class _RecallState extends State<Recall> {
   }
 
   void processIncomingValue(String val) {
+    callpo = val;
     showData();
     final CollectionReference collectionReference =
         FirebaseFirestore.instance.collection('dataR');
@@ -72,10 +69,6 @@ class _RecallState extends State<Recall> {
       'callPosition': val,
     });
   }
-
-
-
-
 
   Widget keyField(numb) {
     return InkWell(

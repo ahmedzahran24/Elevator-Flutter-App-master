@@ -22,6 +22,7 @@ class TeamScreen extends StatelessWidget {
                 vimage2: 'assets/images/It2.png',
                 vname2: 'IT - NetWork',
                 hi: 1,
+                fb: 'www.google.com',
               ),
               teext(
                 vimage: 'assets/images/Abdallah.png',
@@ -29,6 +30,7 @@ class TeamScreen extends StatelessWidget {
                 vimage2: 'assets/images/It2.png',
                 vname2: 'IT - NetWork',
                 hi: .5,
+                fb: 'www.facebook.com',
               ),
               teext(
                 vimage: 'assets/images/Abdallah.png',
@@ -36,6 +38,7 @@ class TeamScreen extends StatelessWidget {
                 vimage2: 'assets/images/it.png',
                 vname2: 'IT - NetWork',
                 hi: 0.5,
+                fb: 'www.facebook.com',
               ),
             ],
           ),
