@@ -20,6 +20,7 @@ import 'package:test2/plot.dart';
 import 'package:test2/problems.dart';
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
+import 'package:test2/timer.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
@@ -53,7 +54,7 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: problems(),
+      home: AlarmApp(),
 
       //home: TeamScreen(),
     );
