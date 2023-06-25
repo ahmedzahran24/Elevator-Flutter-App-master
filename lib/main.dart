@@ -55,7 +55,7 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: AlarmPage(),
+      home: Floor1(),
 
       //home: TeamScreen(),
     );
