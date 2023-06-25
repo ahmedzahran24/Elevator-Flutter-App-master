@@ -1,211 +1,131 @@
-// ignore_for_file: depend_on_referenced_packages, deprecated_member_use
-
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+import 'package:intl/intl.dart';
 
 void main() {
-  runApp(AlarmApp());
+  runApp(MyApp());
 }
 
-class AlarmApp extends StatelessWidget {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sanmays Alarm App',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: AlarmScreen(flutterLocalNotificationsPlugin),
-    );
-  }
-}
-
-class AlarmScreen extends StatefulWidget {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-
-  AlarmScreen(this.flutterLocalNotificationsPlugin);
-
-  @override
-  _AlarmScreenState createState() => _AlarmScreenState();
-}
-
-class _AlarmScreenState extends State<AlarmScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  TimeOfDay _selectedTime = TimeOfDay.now();
-
-  Future<void> _selectTime(BuildContext context) async {
-    final TimeOfDay? picked = await showTimePicker(
-      context: context,
-      initialTime: _selectedTime,
-    );
-
-    if (picked != null && picked != _selectedTime) {
-      setState(() {
-        _selectedTime = picked;
-      });
-    }
-  }
-
-  DateTime _selectedDate = DateTime.now();
-
-  Future<void> _selectTDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      firstDate: DateTime(2020),
-      initialDate: _selectedDate,
-      lastDate: DateTime(2100),
-    );
-
-    if (picked != null && picked != _selectedDate) {
-      setState(() {
-        _selectedDate = picked;
-      });
-    }
-  }
-
-  Future<void> _scheduleAlarm() async {
-    final now = tz.TZDateTime.now(tz.local);
-    final selectedDateTime = tz.TZDateTime(
-      tz.local,
-      _selectedDate.year,
-      _selectedDate.month,
-      _selectedDate.day,
-      _selectedTime.hour,
-      _selectedTime.minute,
-    );
-
-    final androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'Alarm App Notification Channel',
-      '',
-      importance: Importance.max,
-      priority: Priority.high,
-    );
-    final platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-    );
-
-    await widget.flutterLocalNotificationsPlugin.zonedSchedule(
-      0,
-      'Alarm',
-      'Wake up Bhai !',
-      selectedDateTime,
-      platformChannelSpecifics,
-      androidAllowWhileIdle: true,
-      matchDateTimeComponents: DateTimeComponents.time,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Alarm set for ${selectedDateTime.toString()} Bro'),
+      title: 'Time Loop App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: TimeLoopPage(),
     );
   }
+}
 
-  var con;
-  cm1() {
-    con = 5;
-  }
-
-  cm2() {
-    con = 7;
-  }
-
-  var time = DateTime.now();
-  Future<void> loop() async {}
-
+class TimeLoopPage extends StatefulWidget {
   @override
-  void initState() {
-    super.initState();
-    tz.initializeTimeZones();
-    final initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-    final initializationSettings = InitializationSettings(
-      android: initializationSettingsAndroid,
-      iOS: null,
-    );
+  _TimeLoopPageState createState() => _TimeLoopPageState();
+}
 
-    widget.flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-    );
-  }
+class _TimeLoopPageState extends State<TimeLoopPage> {
+  List<DateTime> selectedDateTimes = [];
+  bool variableChanged = false;
+  bool isLooping = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Sanmay Alarm App'),
+        title: Text('Time Loop'),
       ),
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
-              'conunt: ${con} ',
-              style: TextStyle(fontSize: 20),
+              'Select time(s):',
+              style: TextStyle(fontSize: 18),
             ),
-            Text(
-              'Selected Date: ${time.day} ',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              'Selected Date: ${_selectedDate.year}-${_selectedDate.month}-${_selectedDate.day} ',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              'Selected Time: ${_selectedTime.format(context)}',
-              style: TextStyle(fontSize: 20),
-            ),
+            SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () => {
-                _selectTime(context),
-                _selectTDate(context),
-              },
-              child: const Text('Select Time'),
+              child: Text('Select Time'),
+              onPressed: _showTimePicker,
             ),
-            InkWell(
-              child: Container(
-                width: 130,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color.fromARGB(255, 27, 224, 198),
-                      Color.fromARGB(255, 57, 159, 227),
-                    ],
-                  ),
-                  boxShadow: [
-                    BoxShadow(color: Colors.black26, blurRadius: 5),
-                  ],
-                ),
-                child: MaterialButton(
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  shape: StadiumBorder(),
-                  onPressed: () {
-                    for (var i = 0; i < 99999999; i++) {
-                      if (_selectedDate.day == time.day)
-                        cm1();
-                      else
-                        cm2();
-
-                      i++;
-                    }
-                  },
-                ),
-              ),
-            )
+            SizedBox(height: 16),
+            ElevatedButton(
+              child: Text(isLooping ? 'Stop Loop' : 'Start Loop'),
+              onPressed: _toggleLoop,
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Variable Status:',
+              style: TextStyle(fontSize: 18),
+            ),
+            Text(
+              variableChanged
+                  ? 'Variable is changed'
+                  : 'Variable is not changed',
+              style: TextStyle(fontSize: 16),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void _showTimePicker() async {
+    final TimeOfDay currentTime = TimeOfDay.now();
+    final TimeOfDay? selectedTime = await showTimePicker(
+      context: context,
+      initialTime:
+          TimeOfDay(hour: currentTime.hour, minute: currentTime.minute),
+    );
+
+    if (selectedTime != null) {
+      setState(() {
+        final selectedDateTime = DateTime(
+          DateTime.now().year,
+          DateTime.now().month,
+          DateTime.now().day,
+          selectedTime.hour,
+          selectedTime.minute,
+        );
+
+        selectedDateTimes.add(selectedDateTime);
+        variableChanged = false;
+      });
+    }
+  }
+
+  void _toggleLoop() {
+    setState(() {
+      isLooping = !isLooping;
+    });
+
+    if (isLooping) {
+      _startLoop();
+    }
+  }
+
+  void _startLoop() {
+    final currentDateTime = DateTime.now();
+
+    for (final selectedDateTime in selectedDateTimes) {
+      if (currentDateTime.year == selectedDateTime.year &&
+          currentDateTime.month == selectedDateTime.month &&
+          currentDateTime.day == selectedDateTime.day &&
+          currentDateTime.hour == selectedDateTime.hour &&
+          currentDateTime.minute == selectedDateTime.minute) {
+        setState(() {
+          variableChanged = true;
+        });
+        break;
+      }
+    }
+
+    Future.delayed(Duration(seconds: 1), () {
+      setState(() {
+        variableChanged = false;
+      });
+
+      _startLoop(); // Continue the loop
+    });
   }
 }
