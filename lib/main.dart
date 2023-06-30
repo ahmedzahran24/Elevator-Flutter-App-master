@@ -18,9 +18,11 @@ import 'package:test2/home_screen.dart';
 import 'package:test2/login/login.dart';
 import 'package:test2/plot.dart';
 import 'package:test2/problems.dart';
+import 'package:test2/satat%20user.dart';
 import 'package:test2/start.dart';
 import 'package:test2/team/screens/team_screen.dart';
 import 'package:test2/time.dart';
+import 'package:test2/time/selected.dart';
 import 'package:test2/timer.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
@@ -55,9 +57,9 @@ class _MyappState extends State<Myapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: Floor1(),
+      // home: Floor1(),
 
-      //home: TeamScreen(),
+      home: MyHomePageuser(),
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:test2/entry_point.dart';
 import 'package:test2/home_screen.dart';
 import 'package:test2/satat%20user.dart';
 import 'package:test2/team/screens/team_screen.dart';
+import 'package:test2/time/selected.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/getstarted.dart';
 import 'package:test2/unlouck/screens/lock.dart';
@@ -438,7 +439,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => TeamScreen()));
+                                    builder: (context) => selected()));
                           },
                           child: Center(
                             child: Column(
@@ -448,11 +449,11 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                                     padding: const EdgeInsets.only(top: 15),
                                     child: ism1
                                         ? Image.asset(
-                                            'assets/images/community.png',
+                                            'assets/images/stopwatch.png',
                                             height: 80,
                                           )
                                         : Image.asset(
-                                            'assets/images/community.png',
+                                            'assets/images/stopwatch.png',
                                             height: 60,
                                           )),
                                 Padding(
@@ -460,7 +461,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                                   child: Center(
                                     child: ism1
                                         ? Text(
-                                            'About',
+                                            'Timer',
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 color: Color.fromARGB(
@@ -468,7 +469,7 @@ class _MyHomePageuserState extends State<MyHomePageuser> {
                                                 fontWeight: FontWeight.bold),
                                           )
                                         : Text(
-                                            'About',
+                                            'Timer',
                                             style: TextStyle(
                                                 fontSize: 10,
                                                 color: Color.fromARGB(
