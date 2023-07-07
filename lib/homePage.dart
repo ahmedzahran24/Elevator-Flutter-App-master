@@ -73,8 +73,9 @@ class _HomePageState extends State<HomePage> {
     }
 
     // #######################33
-    final x = 0;
+    final v = 1;
     final x2 = 1;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 125, 119, 255),
@@ -109,642 +110,215 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 20),
-
-                                    // color: course.color,
+                      if (v == 1)
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 200,
+                            width: 250,
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 130,
+                                    width: 230,
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 168, 206, 231),
+                                            Color.fromARGB(255, 129, 135, 227),
+                                            Color.fromARGB(255, 74, 95, 229),
+                                            Color.fromARGB(255, 92, 85, 222)
+                                          ],
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
                                   ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              child: Row(
-                                children: [
-                                  if (x == 1)
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 24),
-                                        height: 280,
-                                        width: 260,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(
-                                                    255, 168, 206, 231),
-                                                Color.fromARGB(
-                                                    255, 129, 135, 227),
-                                                Color.fromARGB(
-                                                    255, 74, 95, 229),
-                                                Color.fromARGB(255, 92, 85, 222)
-                                                //add more colors for gradient
-                                              ],
-                                              begin: Alignment
-                                                  .topLeft, //begin of the gradient color
-                                              end: Alignment
-                                                  .bottomRight, //end of the gradient color
-                                              stops: [
-                                                0,
-                                                0.2,
-                                                0.5,
-                                                0.8
-                                              ] //stops for individual color
-                                              //set the stops number equal to numbers of color
-                                              ),
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 6, right: 8),
-                                                child: GestureDetector(
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        'Elevator Status',
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .titleLarge!
-                                                            .copyWith(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                top: 12,
-                                                                bottom: 8),
-                                                        child: Text(
-                                                          "******************",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Colors.white38,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      // database ############################33#3#3####33##############
-                                                      // Padding(
-                                                      //   padding:
-                                                      //       const EdgeInsets.only(
-                                                      //           left: 60),
-                                                      //   child: Container(
-                                                      //     height: 100.0,
-                                                      //     width: double.infinity,
-                                                      //     decoration:
-                                                      //         BoxDecoration(
-                                                      //       color: Colors.green,
-                                                      //       borderRadius:
-                                                      //           const BorderRadius
-                                                      //                   .all(
-                                                      //               Radius
-                                                      //                   .circular(
-                                                      //                       110)),
-                                                      //     ),
-                                                      //     child: dataR != null
-                                                      //         ? Center(
-                                                      //             child: Text(
-                                                      //               dataR[
-                                                      //                   'state'],
-                                                      //               style: TextStyle(
-                                                      //                   color: Colors
-                                                      //                       .blue,
-                                                      //                   fontSize:
-                                                      //                       30),
-                                                      //             ),
-                                                      //           )
-                                                      //         : CircularProgressIndicator(),
-                                                      //   ),
-                                                      // ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 80,
-                                                        child: Container(
-                                                          height: 150,
-                                                          width: 100,
-                                                          decoration: BoxDecoration(
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      0,
-                                                                      193,
-                                                                      35),
-                                                              shape: BoxShape
-                                                                  .circle),
-                                                          child: Image.asset(
-                                                              'assets/images/checked.png'),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Row(
-                                                        children: List.generate(
-                                                          3,
-                                                          (index) => Transform
-                                                              .translate(
-                                                            offset: Offset(
-                                                                (-10 * index)
-                                                                    .toDouble(),
-                                                                0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // color: course.color,
-                                    )
-                                  else
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 24),
-                                        height: 280,
-                                        width: 260,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(
-                                                    255, 168, 206, 231),
-                                                Color.fromARGB(
-                                                    255, 129, 135, 227),
-                                                Color.fromARGB(
-                                                    255, 74, 95, 229),
-                                                Color.fromARGB(255, 92, 85, 222)
-                                                //add more colors for gradient
-                                              ],
-                                              begin: Alignment
-                                                  .topLeft, //begin of the gradient color
-                                              end: Alignment
-                                                  .bottomRight, //end of the gradient color
-                                              stops: [
-                                                0,
-                                                0.2,
-                                                0.5,
-                                                0.8
-                                              ] //stops for individual color
-                                              //set the stops number equal to numbers of color
-                                              ),
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 6, right: 8),
-                                                child: GestureDetector(
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        'Elevator Status',
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .titleLarge!
-                                                            .copyWith(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                top: 12,
-                                                                bottom: 8),
-                                                        child: Text(
-                                                          "******************",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Colors.white38,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      // database ############################33#3#3####33##############
-                                                      // Padding(
-                                                      //   padding:
-                                                      //       const EdgeInsets.only(
-                                                      //           left: 60),
-                                                      //   child: Container(
-                                                      //     height: 100.0,
-                                                      //     width: double.infinity,
-                                                      //     decoration:
-                                                      //         BoxDecoration(
-                                                      //       color: Colors.green,
-                                                      //       borderRadius:
-                                                      //           const BorderRadius
-                                                      //                   .all(
-                                                      //               Radius
-                                                      //                   .circular(
-                                                      //                       110)),
-                                                      //     ),
-                                                      //     child: dataR != null
-                                                      //         ? Center(
-                                                      //             child: Text(
-                                                      //               dataR[
-                                                      //                   'state'],
-                                                      //               style: TextStyle(
-                                                      //                   color: Colors
-                                                      //                       .blue,
-                                                      //                   fontSize:
-                                                      //                       30),
-                                                      //             ),
-                                                      //           )
-                                                      //         : CircularProgressIndicator(),
-                                                      //   ),
-                                                      // ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 80,
-                                                        child: Container(
-                                                          height: 150,
-                                                          width: 100,
-                                                          decoration: BoxDecoration(
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      0,
-                                                                      193,
-                                                                      35),
-                                                              shape: BoxShape
-                                                                  .circle),
-                                                          child: Image.asset(
-                                                              'assets/images/cross.png'),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Row(
-                                                        children: List.generate(
-                                                          3,
-                                                          (index) => Transform
-                                                              .translate(
-                                                            offset: Offset(
-                                                                (-10 * index)
-                                                                    .toDouble(),
-                                                                0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // color: course.color,
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // ############################################
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 20),
-
-                                    // color: course.color,
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 30,
+                                  child: Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration:
+                                        BoxDecoration(shape: BoxShape.circle),
+                                    child: Image.asset(
+                                        'assets/images/checked.png'),
                                   ),
-                                ],
-                              ),
+                                ),
+                                Positioned(
+                                  top: 80,
+                                  left: 20,
+                                  child: Text(
+                                    "The Elevator is \n Working Now",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Container(
-                              child: Row(
-                                children: [
-                                  if (x2 == 1)
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 24),
-                                        height: 280,
-                                        width: 260,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(
-                                                    255, 168, 206, 231),
-                                                Color.fromARGB(
-                                                    255, 129, 135, 227),
-                                                Color.fromARGB(
-                                                    255, 74, 95, 229),
-                                                Color.fromARGB(255, 92, 85, 222)
-                                                //add more colors for gradient
-                                              ],
-                                              begin: Alignment
-                                                  .topLeft, //begin of the gradient color
-                                              end: Alignment
-                                                  .bottomRight, //end of the gradient color
-                                              stops: [
-                                                0,
-                                                0.2,
-                                                0.5,
-                                                0.8
-                                              ] //stops for individual color
-                                              //set the stops number equal to numbers of color
-                                              ),
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 6, right: 8),
-                                                child: GestureDetector(
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        'Elevator Status',
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .titleLarge!
-                                                            .copyWith(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                top: 12,
-                                                                bottom: 8),
-                                                        child: Text(
-                                                          "******************",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Colors.white38,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      // database ############################33#3#3####33##############
-                                                      // Padding(
-                                                      //   padding:
-                                                      //       const EdgeInsets.only(
-                                                      //           left: 60),
-                                                      //   child: Container(
-                                                      //     height: 100.0,
-                                                      //     width: double.infinity,
-                                                      //     decoration:
-                                                      //         BoxDecoration(
-                                                      //       color: Colors.green,
-                                                      //       borderRadius:
-                                                      //           const BorderRadius
-                                                      //                   .all(
-                                                      //               Radius
-                                                      //                   .circular(
-                                                      //                       110)),
-                                                      //     ),
-                                                      //     child: dataR != null
-                                                      //         ? Center(
-                                                      //             child: Text(
-                                                      //               dataR[
-                                                      //                   'state'],
-                                                      //               style: TextStyle(
-                                                      //                   color: Colors
-                                                      //                       .blue,
-                                                      //                   fontSize:
-                                                      //                       30),
-                                                      //             ),
-                                                      //           )
-                                                      //         : CircularProgressIndicator(),
-                                                      //   ),
-                                                      // ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 80,
-                                                        child: Container(
-                                                          height: 150,
-                                                          width: 100,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle),
-                                                          child: Image.asset(
-                                                              'assets/images/shield.png'),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Row(
-                                                        children: List.generate(
-                                                          3,
-                                                          (index) => Transform
-                                                              .translate(
-                                                            offset: Offset(
-                                                                (-10 * index)
-                                                                    .toDouble(),
-                                                                0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                          ),
+                        )
+                      else
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 200,
+                            width: 250,
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 130,
+                                    width: 230,
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 168, 206, 231),
+                                            Color.fromARGB(255, 129, 135, 227),
+                                            Color.fromARGB(255, 74, 95, 229),
+                                            Color.fromARGB(255, 92, 85, 222)
                                           ],
                                         ),
-                                      ),
-                                      // color: course.color,
-                                    )
-                                  else
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20),
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 24),
-                                        height: 280,
-                                        width: 260,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(
-                                                    255, 168, 206, 231),
-                                                Color.fromARGB(
-                                                    255, 129, 135, 227),
-                                                Color.fromARGB(
-                                                    255, 74, 95, 229),
-                                                Color.fromARGB(255, 92, 85, 222)
-                                                //add more colors for gradient
-                                              ],
-                                              begin: Alignment
-                                                  .topLeft, //begin of the gradient color
-                                              end: Alignment
-                                                  .bottomRight, //end of the gradient color
-                                              stops: [
-                                                0,
-                                                0.2,
-                                                0.5,
-                                                0.8
-                                              ] //stops for individual color
-                                              //set the stops number equal to numbers of color
-                                              ),
-                                          borderRadius:
-                                              BorderRadius.circular(40),
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 6, right: 8),
-                                                child: GestureDetector(
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        'Elevator Problems',
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .titleLarge!
-                                                            .copyWith(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                top: 12,
-                                                                bottom: 8),
-                                                        child: Text(
-                                                          "******************",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Colors.white38,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      // database ############################33#3#3####33##############
-                                                      // Padding(
-                                                      //   padding:
-                                                      //       const EdgeInsets.only(
-                                                      //           left: 60),
-                                                      //   child: Container(
-                                                      //     height: 100.0,
-                                                      //     width: double.infinity,
-                                                      //     decoration:
-                                                      //         BoxDecoration(
-                                                      //       color: Colors.green,
-                                                      //       borderRadius:
-                                                      //           const BorderRadius
-                                                      //                   .all(
-                                                      //               Radius
-                                                      //                   .circular(
-                                                      //                       110)),
-                                                      //     ),
-                                                      //     child: dataR != null
-                                                      //         ? Center(
-                                                      //             child: Text(
-                                                      //               dataR[
-                                                      //                   'state'],
-                                                      //               style: TextStyle(
-                                                      //                   color: Colors
-                                                      //                       .blue,
-                                                      //                   fontSize:
-                                                      //                       30),
-                                                      //             ),
-                                                      //           )
-                                                      //         : CircularProgressIndicator(),
-                                                      //   ),
-                                                      // ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 80,
-                                                        child: Container(
-                                                          height: 150,
-                                                          width: 100,
-                                                          decoration: BoxDecoration(
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      0,
-                                                                      193,
-                                                                      35),
-                                                              shape: BoxShape
-                                                                  .circle),
-                                                          child: Image.asset(
-                                                              'assets/images/cross.png'),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Row(
-                                                        children: List.generate(
-                                                          3,
-                                                          (index) => Transform
-                                                              .translate(
-                                                            offset: Offset(
-                                                                (-10 * index)
-                                                                    .toDouble(),
-                                                                0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // color: course.color,
-                                    ),
-                                ],
-                              ),
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 30,
+                                  child: Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration:
+                                        BoxDecoration(shape: BoxShape.circle),
+                                    child:
+                                        Image.asset('assets/images/cross.png'),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 80,
+                                  left: 20,
+                                  child: Text(
+                                    "The Elevator is \n not working",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                      // #########################################
+                      if (v == 1)
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 200,
+                            width: 250,
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 130,
+                                    width: 230,
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 168, 206, 231),
+                                            Color.fromARGB(255, 129, 135, 227),
+                                            Color.fromARGB(255, 74, 95, 229),
+                                            Color.fromARGB(255, 92, 85, 222)
+                                          ],
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 30,
+                                  child: Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration:
+                                        BoxDecoration(shape: BoxShape.circle),
+                                    child:
+                                        Image.asset('assets/images/shield.png'),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 80,
+                                  left: 20,
+                                  child: Text(
+                                    "No Problems \nWith The Elevator",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      else
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 200,
+                            width: 250,
+                            child: Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 130,
+                                    width: 230,
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(255, 168, 206, 231),
+                                            Color.fromARGB(255, 129, 135, 227),
+                                            Color.fromARGB(255, 74, 95, 229),
+                                            Color.fromARGB(255, 92, 85, 222)
+                                          ],
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 30,
+                                  child: Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration:
+                                        BoxDecoration(shape: BoxShape.circle),
+                                    child:
+                                        Image.asset('assets/images/cross.png'),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 80,
+                                  left: 20,
+                                  child: Text(
+                                    "There are Problems \nWith The Elevator",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
@@ -1095,6 +669,560 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container bbb(int x2, BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          Container(
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 20),
+
+                  // color: course.color,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              children: [
+                if (x2 == 1)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, bottom: 20),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      height: 280,
+                      width: 260,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 168, 206, 231),
+                              Color.fromARGB(255, 129, 135, 227),
+                              Color.fromARGB(255, 74, 95, 229),
+                              Color.fromARGB(255, 92, 85, 222)
+                              //add more colors for gradient
+                            ],
+                            begin:
+                                Alignment.topLeft, //begin of the gradient color
+                            end: Alignment
+                                .bottomRight, //end of the gradient color
+                            stops: [
+                              0,
+                              0.2,
+                              0.5,
+                              0.8
+                            ] //stops for individual color
+                            //set the stops number equal to numbers of color
+                            ),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 6, right: 8),
+                              child: GestureDetector(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Elevator Status',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge!
+                                          .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12, bottom: 8),
+                                      child: Text(
+                                        "******************",
+                                        style: TextStyle(
+                                          color: Colors.white38,
+                                        ),
+                                      ),
+                                    ),
+                                    // database ############################33#3#3####33##############
+                                    // Padding(
+                                    //   padding:
+                                    //       const EdgeInsets.only(
+                                    //           left: 60),
+                                    //   child: Container(
+                                    //     height: 100.0,
+                                    //     width: double.infinity,
+                                    //     decoration:
+                                    //         BoxDecoration(
+                                    //       color: Colors.green,
+                                    //       borderRadius:
+                                    //           const BorderRadius
+                                    //                   .all(
+                                    //               Radius
+                                    //                   .circular(
+                                    //                       110)),
+                                    //     ),
+                                    //     child: dataR != null
+                                    //         ? Center(
+                                    //             child: Text(
+                                    //               dataR[
+                                    //                   'state'],
+                                    //               style: TextStyle(
+                                    //                   color: Colors
+                                    //                       .blue,
+                                    //                   fontSize:
+                                    //                       30),
+                                    //             ),
+                                    //           )
+                                    //         : CircularProgressIndicator(),
+                                    //   ),
+                                    // ),
+                                    Positioned(
+                                      top: 0,
+                                      left: 80,
+                                      child: Container(
+                                        height: 150,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle),
+                                        child: Image.asset(
+                                            'assets/images/shield.png'),
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: List.generate(
+                                        3,
+                                        (index) => Transform.translate(
+                                          offset: Offset(
+                                              (-10 * index).toDouble(), 0),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // color: course.color,
+                  )
+                else
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, bottom: 20),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      height: 280,
+                      width: 260,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 168, 206, 231),
+                              Color.fromARGB(255, 129, 135, 227),
+                              Color.fromARGB(255, 74, 95, 229),
+                              Color.fromARGB(255, 92, 85, 222)
+                              //add more colors for gradient
+                            ],
+                            begin:
+                                Alignment.topLeft, //begin of the gradient color
+                            end: Alignment
+                                .bottomRight, //end of the gradient color
+                            stops: [
+                              0,
+                              0.2,
+                              0.5,
+                              0.8
+                            ] //stops for individual color
+                            //set the stops number equal to numbers of color
+                            ),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 6, right: 8),
+                              child: GestureDetector(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Elevator Problems',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge!
+                                          .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12, bottom: 8),
+                                      child: Text(
+                                        "******************",
+                                        style: TextStyle(
+                                          color: Colors.white38,
+                                        ),
+                                      ),
+                                    ),
+                                    // database ############################33#3#3####33##############
+                                    // Padding(
+                                    //   padding:
+                                    //       const EdgeInsets.only(
+                                    //           left: 60),
+                                    //   child: Container(
+                                    //     height: 100.0,
+                                    //     width: double.infinity,
+                                    //     decoration:
+                                    //         BoxDecoration(
+                                    //       color: Colors.green,
+                                    //       borderRadius:
+                                    //           const BorderRadius
+                                    //                   .all(
+                                    //               Radius
+                                    //                   .circular(
+                                    //                       110)),
+                                    //     ),
+                                    //     child: dataR != null
+                                    //         ? Center(
+                                    //             child: Text(
+                                    //               dataR[
+                                    //                   'state'],
+                                    //               style: TextStyle(
+                                    //                   color: Colors
+                                    //                       .blue,
+                                    //                   fontSize:
+                                    //                       30),
+                                    //             ),
+                                    //           )
+                                    //         : CircularProgressIndicator(),
+                                    //   ),
+                                    // ),
+                                    Positioned(
+                                      top: 0,
+                                      left: 80,
+                                      child: Container(
+                                        height: 150,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Color.fromARGB(255, 0, 193, 35),
+                                            shape: BoxShape.circle),
+                                        child: Image.asset(
+                                            'assets/images/cross.png'),
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: List.generate(
+                                        3,
+                                        (index) => Transform.translate(
+                                          offset: Offset(
+                                              (-10 * index).toDouble(), 0),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // color: course.color,
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container bb(int x, BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          Container(
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 20),
+
+                  // color: course.color,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              children: [
+                if (x == 1)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, bottom: 20),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      height: 280,
+                      width: 260,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 168, 206, 231),
+                              Color.fromARGB(255, 129, 135, 227),
+                              Color.fromARGB(255, 74, 95, 229),
+                              Color.fromARGB(255, 92, 85, 222)
+                              //add more colors for gradient
+                            ],
+                            begin:
+                                Alignment.topLeft, //begin of the gradient color
+                            end: Alignment
+                                .bottomRight, //end of the gradient color
+                            stops: [
+                              0,
+                              0.2,
+                              0.5,
+                              0.8
+                            ] //stops for individual color
+                            //set the stops number equal to numbers of color
+                            ),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 6, right: 8),
+                              child: GestureDetector(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Elevator Status',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge!
+                                          .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12, bottom: 8),
+                                      child: Text(
+                                        "******************",
+                                        style: TextStyle(
+                                          color: Colors.white38,
+                                        ),
+                                      ),
+                                    ),
+                                    // database ############################33#3#3####33##############
+                                    // Padding(
+                                    //   padding:
+                                    //       const EdgeInsets.only(
+                                    //           left: 60),
+                                    //   child: Container(
+                                    //     height: 100.0,
+                                    //     width: double.infinity,
+                                    //     decoration:
+                                    //         BoxDecoration(
+                                    //       color: Colors.green,
+                                    //       borderRadius:
+                                    //           const BorderRadius
+                                    //                   .all(
+                                    //               Radius
+                                    //                   .circular(
+                                    //                       110)),
+                                    //     ),
+                                    //     child: dataR != null
+                                    //         ? Center(
+                                    //             child: Text(
+                                    //               dataR[
+                                    //                   'state'],
+                                    //               style: TextStyle(
+                                    //                   color: Colors
+                                    //                       .blue,
+                                    //                   fontSize:
+                                    //                       30),
+                                    //             ),
+                                    //           )
+                                    //         : CircularProgressIndicator(),
+                                    //   ),
+                                    // ),
+                                    Positioned(
+                                      top: 0,
+                                      left: 80,
+                                      child: Container(
+                                        height: 150,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Color.fromARGB(255, 0, 193, 35),
+                                            shape: BoxShape.circle),
+                                        child: Image.asset(
+                                            'assets/images/checked.png'),
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: List.generate(
+                                        3,
+                                        (index) => Transform.translate(
+                                          offset: Offset(
+                                              (-10 * index).toDouble(), 0),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // color: course.color,
+                  )
+                else
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, bottom: 20),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      height: 280,
+                      width: 260,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 168, 206, 231),
+                              Color.fromARGB(255, 129, 135, 227),
+                              Color.fromARGB(255, 74, 95, 229),
+                              Color.fromARGB(255, 92, 85, 222)
+                              //add more colors for gradient
+                            ],
+                            begin:
+                                Alignment.topLeft, //begin of the gradient color
+                            end: Alignment
+                                .bottomRight, //end of the gradient color
+                            stops: [
+                              0,
+                              0.2,
+                              0.5,
+                              0.8
+                            ] //stops for individual color
+                            //set the stops number equal to numbers of color
+                            ),
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 6, right: 8),
+                              child: GestureDetector(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Elevator Status',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge!
+                                          .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12, bottom: 8),
+                                      child: Text(
+                                        "******************",
+                                        style: TextStyle(
+                                          color: Colors.white38,
+                                        ),
+                                      ),
+                                    ),
+                                    // database ############################33#3#3####33##############
+                                    // Padding(
+                                    //   padding:
+                                    //       const EdgeInsets.only(
+                                    //           left: 60),
+                                    //   child: Container(
+                                    //     height: 100.0,
+                                    //     width: double.infinity,
+                                    //     decoration:
+                                    //         BoxDecoration(
+                                    //       color: Colors.green,
+                                    //       borderRadius:
+                                    //           const BorderRadius
+                                    //                   .all(
+                                    //               Radius
+                                    //                   .circular(
+                                    //                       110)),
+                                    //     ),
+                                    //     child: dataR != null
+                                    //         ? Center(
+                                    //             child: Text(
+                                    //               dataR[
+                                    //                   'state'],
+                                    //               style: TextStyle(
+                                    //                   color: Colors
+                                    //                       .blue,
+                                    //                   fontSize:
+                                    //                       30),
+                                    //             ),
+                                    //           )
+                                    //         : CircularProgressIndicator(),
+                                    //   ),
+                                    // ),
+                                    Positioned(
+                                      top: 0,
+                                      left: 80,
+                                      child: Container(
+                                        height: 150,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Color.fromARGB(255, 0, 193, 35),
+                                            shape: BoxShape.circle),
+                                        child: Image.asset(
+                                            'assets/images/cross.png'),
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: List.generate(
+                                        3,
+                                        (index) => Transform.translate(
+                                          offset: Offset(
+                                              (-10 * index).toDouble(), 0),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // color: course.color,
+                  ),
               ],
             ),
           ),

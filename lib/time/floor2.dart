@@ -117,7 +117,7 @@ class _Floor2State extends State<Floor2> {
           final String alarmStatus;
           if (alarm.triggered) {
             alarmStatus = 'Done';
-            // processIncomingValue('2');
+            processIncomingValue('2');
           } else {
             alarmStatus = 'Processing';
           }
