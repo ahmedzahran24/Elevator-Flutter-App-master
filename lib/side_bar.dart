@@ -56,7 +56,7 @@ class _SideBarState extends State<SideBar> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.fromLTRB(4, 15, 4, 15),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -108,7 +108,7 @@ class _SideBarState extends State<SideBar> {
                     ),
                     //#########################################
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.fromLTRB(4, 15, 4, 15),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -159,7 +159,7 @@ class _SideBarState extends State<SideBar> {
                     ),
                     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.fromLTRB(4, 15, 4, 15),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -210,7 +210,7 @@ class _SideBarState extends State<SideBar> {
                     ),
                     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.fromLTRB(4, 15, 4, 15),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -262,7 +262,7 @@ class _SideBarState extends State<SideBar> {
                     // #######################################
                     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.fromLTRB(4, 15, 4, 15),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -318,16 +318,6 @@ class _SideBarState extends State<SideBar> {
 
               // ######################################3#3#
 
-              Padding(
-                padding: const EdgeInsets.only(left: 24, top: 40, bottom: 16),
-                child: Text(
-                  "History".toUpperCase(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: Colors.white70),
-                ),
-              ),
               //   ...sidebarMenus2
               //       .map((menu) => SideMenu(
               //             menu: menu,
