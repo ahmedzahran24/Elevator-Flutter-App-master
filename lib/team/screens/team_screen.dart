@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:test2/home_screen.dart';
 import 'package:test2/team/screens/custom_app_bar.dart';
 import 'package:test2/team/screens/text.dart';
 
@@ -269,14 +271,18 @@ class TeamScreen extends StatelessWidget {
                 Icons.arrow_back,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
             IconButton(
               icon: const Icon(
                 Icons.exit_to_app,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                SystemNavigator.pop();
+              },
             ),
           ],
         ),
@@ -294,7 +300,10 @@ class TeamScreen extends StatelessWidget {
             ),
             child: InkWell(
               borderRadius: BorderRadius.circular(500.0),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
               child: Icon(
                 Icons.home_filled,
                 //size: 50,

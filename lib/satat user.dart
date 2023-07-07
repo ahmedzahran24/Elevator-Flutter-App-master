@@ -24,6 +24,8 @@ class _stateuserState extends State<stateuser> {
   @override
   Widget build(BuildContext context) {
     final ism1 = MediaQuery.of(context).size.width >= 350;
+    final v = 1;
+    final x = 0;
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(1, 50, 73, 1),
@@ -76,94 +78,186 @@ class _stateuserState extends State<stateuser> {
             child: Center(
               child: Column(
                 children: [
-                  Container(
-                    height: 250,
-                    width: 350,
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 180,
-                            width: 330,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.teal,
-                                    Color.fromARGB(255, 128, 5, 108),
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(40)),
+                  if (v == 1)
+                    Container(
+                      height: 250,
+                      width: 350,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 180,
+                              width: 330,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.teal,
+                                      Color.fromARGB(255, 128, 5, 108),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(40)),
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          top: 0,
-                          right: 40,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 0, 193, 35),
-                                shape: BoxShape.circle),
-                            child: Image.asset('assets/images/checked.png'),
+                          Positioned(
+                            top: 0,
+                            right: 40,
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 0, 193, 35),
+                                  shape: BoxShape.circle),
+                              child: Image.asset('assets/images/checked.png'),
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          top: 90,
-                          left: 40,
-                          child: Text(
-                            "The Elevator\n is Working",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 27,
-                                fontWeight: FontWeight.w700),
+                          Positioned(
+                            top: 90,
+                            left: 40,
+                            child: Text(
+                              "The Elevator\n is Working",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    )
+                  else
+                    Container(
+                      height: 250,
+                      width: 350,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 180,
+                              width: 330,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.teal,
+                                      Color.fromARGB(255, 128, 5, 108),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(40)),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            right: 40,
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 0, 193, 35),
+                                  shape: BoxShape.circle),
+                              child: Image.asset('assets/images/cross.png'),
+                            ),
+                          ),
+                          Positioned(
+                            top: 90,
+                            left: 40,
+                            child: Text(
+                              "The elevator\n stopped",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 250,
-                    width: 350,
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 180,
-                            width: 330,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.teal,
-                                    Color.fromARGB(255, 128, 5, 108),
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(40)),
+                  if (x == 1)
+                    Container(
+                      height: 250,
+                      width: 350,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 180,
+                              width: 330,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.teal,
+                                      Color.fromARGB(255, 128, 5, 108),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(40)),
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          top: 0,
-                          right: 40,
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(shape: BoxShape.circle),
-                            child: Image.asset('assets/images/shield.png'),
+                          Positioned(
+                            top: 0,
+                            right: 40,
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: Image.asset('assets/images/shield.png'),
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          top: 90,
-                          left: 40,
-                          child: Text(
-                            "There are \n No Problems",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 27,
-                                fontWeight: FontWeight.w700),
+                          Positioned(
+                            top: 90,
+                            left: 40,
+                            child: Text(
+                              "There are \n No Problems",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
+                        ],
+                      ),
+                    )
+                  else
+                    Container(
+                      height: 250,
+                      width: 350,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 180,
+                              width: 330,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.teal,
+                                      Color.fromARGB(255, 128, 5, 108),
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(40)),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            right: 40,
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: Image.asset('assets/images/cross.png'),
+                            ),
+                          ),
+                          Positioned(
+                            top: 100,
+                            left: 40,
+                            child: Text(
+                              "There are Problems \n With the Elevator",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
                 ],
               ),
             ),

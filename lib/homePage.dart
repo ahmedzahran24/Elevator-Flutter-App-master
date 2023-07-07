@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test2/addUser.dart';
 import 'package:test2/cam.dart';
+import 'package:test2/problems.dart';
 import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/unlouckadmin/screens/getstartedadmin.dart';
@@ -72,6 +73,8 @@ class _HomePageState extends State<HomePage> {
     }
 
     // #######################33
+    final x = 0;
+    final x2 = 1;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 125, 119, 255),
@@ -124,167 +127,10 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               child: Row(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 20),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 16, vertical: 24),
-                                      height: 280,
-                                      width: 260,
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                            colors: [
-                                              Color.fromARGB(
-                                                  255, 168, 206, 231),
-                                              Color.fromARGB(
-                                                  255, 129, 135, 227),
-                                              Color.fromARGB(255, 74, 95, 229),
-                                              Color.fromARGB(255, 92, 85, 222)
-                                              //add more colors for gradient
-                                            ],
-                                            begin: Alignment
-                                                .topLeft, //begin of the gradient color
-                                            end: Alignment
-                                                .bottomRight, //end of the gradient color
-                                            stops: [
-                                              0,
-                                              0.2,
-                                              0.5,
-                                              0.8
-                                            ] //stops for individual color
-                                            //set the stops number equal to numbers of color
-                                            ),
-                                        borderRadius: BorderRadius.circular(40),
-                                      ),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 6, right: 8),
-                                              child: GestureDetector(
-                                                child: Column(
-                                                  children: [
-                                                    Text(
-                                                      'Elevator Status',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .titleLarge!
-                                                          .copyWith(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 12,
-                                                              bottom: 8),
-                                                      child: Text(
-                                                        "******************",
-                                                        style: TextStyle(
-                                                          color: Colors.white38,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    // database ############################33#3#3####33##############
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 60),
-                                                      child: Container(
-                                                        height: 100.0,
-                                                        width: double.infinity,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.green,
-                                                          borderRadius:
-                                                              const BorderRadius
-                                                                      .all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          110)),
-                                                        ),
-                                                        child: dataR != null
-                                                            ? Center(
-                                                                child: Text(
-                                                                  dataR[
-                                                                      'state'],
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      fontSize:
-                                                                          30),
-                                                                ),
-                                                              )
-                                                            : CircularProgressIndicator(),
-                                                      ),
-                                                    ),
-                                                    Spacer(),
-                                                    Row(
-                                                      children: List.generate(
-                                                        3,
-                                                        (index) =>
-                                                            Transform.translate(
-                                                          offset: Offset(
-                                                              (-10 * index)
-                                                                  .toDouble(),
-                                                              0),
-                                                          child: CircleAvatar(
-                                                            radius: 20,
-                                                            backgroundImage:
-                                                                AssetImage(
-                                                              "assets/avaters/Avatar ${index + 1}.jpg",
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          SvgPicture.asset(
-                                              'assets/icons/ios.svg'),
-                                        ],
-                                      ),
-                                    ),
-                                    // color: course.color,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, bottom: 20),
-
-                                    // color: course.color,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SingleChildScrollView(
-                              child: Container(
-                                child: Row(
-                                  children: [
+                                  if (x == 1)
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 20, bottom: 20, right: 20),
+                                          left: 20, bottom: 20),
                                       child: Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 16, vertical: 24),
@@ -300,6 +146,7 @@ class _HomePageState extends State<HomePage> {
                                                 Color.fromARGB(
                                                     255, 74, 95, 229),
                                                 Color.fromARGB(255, 92, 85, 222)
+                                                //add more colors for gradient
                                               ],
                                               begin: Alignment
                                                   .topLeft, //begin of the gradient color
@@ -327,19 +174,17 @@ class _HomePageState extends State<HomePage> {
                                                 child: GestureDetector(
                                                   child: Column(
                                                     children: [
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            'Elevator Problems',
-                                                            style: TextStyle(
-                                                                fontSize: 16,
+                                                      Text(
+                                                        'Elevator Status',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .titleLarge!
+                                                            .copyWith(
                                                                 color: Colors
                                                                     .white,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600),
-                                                          ),
-                                                        ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -351,54 +196,62 @@ class _HomePageState extends State<HomePage> {
                                                           "******************",
                                                           style: TextStyle(
                                                             color:
-                                                                Color.fromARGB(
-                                                                    96,
-                                                                    255,
-                                                                    255,
-                                                                    255),
+                                                                Colors.white38,
                                                           ),
                                                         ),
                                                       ),
                                                       // database ############################33#3#3####33##############
-
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .only(
-                                                                left: 60,
-                                                                right: 1),
-                                                        child: SizedBox(
-                                                          child: Container(
-                                                            height: 100.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color:
-                                                                  Colors.green,
-                                                              borderRadius:
-                                                                  const BorderRadius
-                                                                          .all(
-                                                                      Radius.circular(
-                                                                          100)),
-                                                            ),
-                                                            width: 200,
-                                                            child: Center(
-                                                              child: const Text(
-                                                                'Good',
-                                                                style: TextStyle(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            0,
-                                                                            0,
-                                                                            0),
-                                                                    fontSize:
-                                                                        30),
-                                                              ),
-                                                            ),
-                                                          ),
+                                                      // Padding(
+                                                      //   padding:
+                                                      //       const EdgeInsets.only(
+                                                      //           left: 60),
+                                                      //   child: Container(
+                                                      //     height: 100.0,
+                                                      //     width: double.infinity,
+                                                      //     decoration:
+                                                      //         BoxDecoration(
+                                                      //       color: Colors.green,
+                                                      //       borderRadius:
+                                                      //           const BorderRadius
+                                                      //                   .all(
+                                                      //               Radius
+                                                      //                   .circular(
+                                                      //                       110)),
+                                                      //     ),
+                                                      //     child: dataR != null
+                                                      //         ? Center(
+                                                      //             child: Text(
+                                                      //               dataR[
+                                                      //                   'state'],
+                                                      //               style: TextStyle(
+                                                      //                   color: Colors
+                                                      //                       .blue,
+                                                      //                   fontSize:
+                                                      //                       30),
+                                                      //             ),
+                                                      //           )
+                                                      //         : CircularProgressIndicator(),
+                                                      //   ),
+                                                      // ),
+                                                      Positioned(
+                                                        top: 0,
+                                                        left: 80,
+                                                        child: Container(
+                                                          height: 150,
+                                                          width: 100,
+                                                          decoration: BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      0,
+                                                                      193,
+                                                                      35),
+                                                              shape: BoxShape
+                                                                  .circle),
+                                                          child: Image.asset(
+                                                              'assets/images/checked.png'),
                                                         ),
                                                       ),
-
                                                       Spacer(),
                                                       Row(
                                                         children: List.generate(
@@ -409,13 +262,6 @@ class _HomePageState extends State<HomePage> {
                                                                 (-10 * index)
                                                                     .toDouble(),
                                                                 0),
-                                                            child: CircleAvatar(
-                                                              radius: 20,
-                                                              backgroundImage:
-                                                                  AssetImage(
-                                                                "assets/avaters/Avatar ${index + 1}.jpg",
-                                                              ),
-                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -424,15 +270,476 @@ class _HomePageState extends State<HomePage> {
                                                 ),
                                               ),
                                             ),
-                                            SvgPicture.asset(
-                                                'assets/icons/ios.svg'),
+                                          ],
+                                        ),
+                                      ),
+                                      // color: course.color,
+                                    )
+                                  else
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, bottom: 20),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 24),
+                                        height: 280,
+                                        width: 260,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color.fromARGB(
+                                                    255, 168, 206, 231),
+                                                Color.fromARGB(
+                                                    255, 129, 135, 227),
+                                                Color.fromARGB(
+                                                    255, 74, 95, 229),
+                                                Color.fromARGB(255, 92, 85, 222)
+                                                //add more colors for gradient
+                                              ],
+                                              begin: Alignment
+                                                  .topLeft, //begin of the gradient color
+                                              end: Alignment
+                                                  .bottomRight, //end of the gradient color
+                                              stops: [
+                                                0,
+                                                0.2,
+                                                0.5,
+                                                0.8
+                                              ] //stops for individual color
+                                              //set the stops number equal to numbers of color
+                                              ),
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 6, right: 8),
+                                                child: GestureDetector(
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        'Elevator Status',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .titleLarge!
+                                                            .copyWith(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 12,
+                                                                bottom: 8),
+                                                        child: Text(
+                                                          "******************",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.white38,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // database ############################33#3#3####33##############
+                                                      // Padding(
+                                                      //   padding:
+                                                      //       const EdgeInsets.only(
+                                                      //           left: 60),
+                                                      //   child: Container(
+                                                      //     height: 100.0,
+                                                      //     width: double.infinity,
+                                                      //     decoration:
+                                                      //         BoxDecoration(
+                                                      //       color: Colors.green,
+                                                      //       borderRadius:
+                                                      //           const BorderRadius
+                                                      //                   .all(
+                                                      //               Radius
+                                                      //                   .circular(
+                                                      //                       110)),
+                                                      //     ),
+                                                      //     child: dataR != null
+                                                      //         ? Center(
+                                                      //             child: Text(
+                                                      //               dataR[
+                                                      //                   'state'],
+                                                      //               style: TextStyle(
+                                                      //                   color: Colors
+                                                      //                       .blue,
+                                                      //                   fontSize:
+                                                      //                       30),
+                                                      //             ),
+                                                      //           )
+                                                      //         : CircularProgressIndicator(),
+                                                      //   ),
+                                                      // ),
+                                                      Positioned(
+                                                        top: 0,
+                                                        left: 80,
+                                                        child: Container(
+                                                          height: 150,
+                                                          width: 100,
+                                                          decoration: BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      0,
+                                                                      193,
+                                                                      35),
+                                                              shape: BoxShape
+                                                                  .circle),
+                                                          child: Image.asset(
+                                                              'assets/images/cross.png'),
+                                                        ),
+                                                      ),
+                                                      Spacer(),
+                                                      Row(
+                                                        children: List.generate(
+                                                          3,
+                                                          (index) => Transform
+                                                              .translate(
+                                                            offset: Offset(
+                                                                (-10 * index)
+                                                                    .toDouble(),
+                                                                0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
                                       // color: course.color,
                                     ),
-                                  ],
-                                ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // ############################################
+                      Container(
+                        child: Row(
+                          children: [
+                            Container(
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 20, bottom: 20),
+
+                                    // color: course.color,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Row(
+                                children: [
+                                  if (x2 == 1)
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, bottom: 20),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 24),
+                                        height: 280,
+                                        width: 260,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color.fromARGB(
+                                                    255, 168, 206, 231),
+                                                Color.fromARGB(
+                                                    255, 129, 135, 227),
+                                                Color.fromARGB(
+                                                    255, 74, 95, 229),
+                                                Color.fromARGB(255, 92, 85, 222)
+                                                //add more colors for gradient
+                                              ],
+                                              begin: Alignment
+                                                  .topLeft, //begin of the gradient color
+                                              end: Alignment
+                                                  .bottomRight, //end of the gradient color
+                                              stops: [
+                                                0,
+                                                0.2,
+                                                0.5,
+                                                0.8
+                                              ] //stops for individual color
+                                              //set the stops number equal to numbers of color
+                                              ),
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 6, right: 8),
+                                                child: GestureDetector(
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        'Elevator Status',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .titleLarge!
+                                                            .copyWith(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 12,
+                                                                bottom: 8),
+                                                        child: Text(
+                                                          "******************",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.white38,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // database ############################33#3#3####33##############
+                                                      // Padding(
+                                                      //   padding:
+                                                      //       const EdgeInsets.only(
+                                                      //           left: 60),
+                                                      //   child: Container(
+                                                      //     height: 100.0,
+                                                      //     width: double.infinity,
+                                                      //     decoration:
+                                                      //         BoxDecoration(
+                                                      //       color: Colors.green,
+                                                      //       borderRadius:
+                                                      //           const BorderRadius
+                                                      //                   .all(
+                                                      //               Radius
+                                                      //                   .circular(
+                                                      //                       110)),
+                                                      //     ),
+                                                      //     child: dataR != null
+                                                      //         ? Center(
+                                                      //             child: Text(
+                                                      //               dataR[
+                                                      //                   'state'],
+                                                      //               style: TextStyle(
+                                                      //                   color: Colors
+                                                      //                       .blue,
+                                                      //                   fontSize:
+                                                      //                       30),
+                                                      //             ),
+                                                      //           )
+                                                      //         : CircularProgressIndicator(),
+                                                      //   ),
+                                                      // ),
+                                                      Positioned(
+                                                        top: 0,
+                                                        left: 80,
+                                                        child: Container(
+                                                          height: 150,
+                                                          width: 100,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle),
+                                                          child: Image.asset(
+                                                              'assets/images/shield.png'),
+                                                        ),
+                                                      ),
+                                                      Spacer(),
+                                                      Row(
+                                                        children: List.generate(
+                                                          3,
+                                                          (index) => Transform
+                                                              .translate(
+                                                            offset: Offset(
+                                                                (-10 * index)
+                                                                    .toDouble(),
+                                                                0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      // color: course.color,
+                                    )
+                                  else
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20, bottom: 20),
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 24),
+                                        height: 280,
+                                        width: 260,
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color.fromARGB(
+                                                    255, 168, 206, 231),
+                                                Color.fromARGB(
+                                                    255, 129, 135, 227),
+                                                Color.fromARGB(
+                                                    255, 74, 95, 229),
+                                                Color.fromARGB(255, 92, 85, 222)
+                                                //add more colors for gradient
+                                              ],
+                                              begin: Alignment
+                                                  .topLeft, //begin of the gradient color
+                                              end: Alignment
+                                                  .bottomRight, //end of the gradient color
+                                              stops: [
+                                                0,
+                                                0.2,
+                                                0.5,
+                                                0.8
+                                              ] //stops for individual color
+                                              //set the stops number equal to numbers of color
+                                              ),
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                        ),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 6, right: 8),
+                                                child: GestureDetector(
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        'Elevator Problems',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .titleLarge!
+                                                            .copyWith(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                top: 12,
+                                                                bottom: 8),
+                                                        child: Text(
+                                                          "******************",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.white38,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      // database ############################33#3#3####33##############
+                                                      // Padding(
+                                                      //   padding:
+                                                      //       const EdgeInsets.only(
+                                                      //           left: 60),
+                                                      //   child: Container(
+                                                      //     height: 100.0,
+                                                      //     width: double.infinity,
+                                                      //     decoration:
+                                                      //         BoxDecoration(
+                                                      //       color: Colors.green,
+                                                      //       borderRadius:
+                                                      //           const BorderRadius
+                                                      //                   .all(
+                                                      //               Radius
+                                                      //                   .circular(
+                                                      //                       110)),
+                                                      //     ),
+                                                      //     child: dataR != null
+                                                      //         ? Center(
+                                                      //             child: Text(
+                                                      //               dataR[
+                                                      //                   'state'],
+                                                      //               style: TextStyle(
+                                                      //                   color: Colors
+                                                      //                       .blue,
+                                                      //                   fontSize:
+                                                      //                       30),
+                                                      //             ),
+                                                      //           )
+                                                      //         : CircularProgressIndicator(),
+                                                      //   ),
+                                                      // ),
+                                                      Positioned(
+                                                        top: 0,
+                                                        left: 80,
+                                                        child: Container(
+                                                          height: 150,
+                                                          width: 100,
+                                                          decoration: BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      0,
+                                                                      193,
+                                                                      35),
+                                                              shape: BoxShape
+                                                                  .circle),
+                                                          child: Image.asset(
+                                                              'assets/images/cross.png'),
+                                                        ),
+                                                      ),
+                                                      Spacer(),
+                                                      Row(
+                                                        children: List.generate(
+                                                          3,
+                                                          (index) => Transform
+                                                              .translate(
+                                                            offset: Offset(
+                                                                (-10 * index)
+                                                                    .toDouble(),
+                                                                0),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      // color: course.color,
+                                    ),
+                                ],
                               ),
                             ),
                           ],
@@ -461,6 +768,85 @@ class _HomePageState extends State<HomePage> {
                         height: 30,
                       ),
                       // con1####################################################3#3
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => problems()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 20),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(255, 74, 95, 229),
+                                      Color.fromARGB(255, 92, 85, 222),
+                                      Color.fromARGB(255, 129, 135, 227),
+                                      Color.fromARGB(255, 129, 145, 209),
+                                    ],
+                                    begin: Alignment
+                                        .topLeft, //begin of the gradient color
+                                    end: Alignment
+                                        .bottomRight, //end of the gradient color
+                                    stops: [
+                                      0,
+                                      0.2,
+                                      0.5,
+                                      0.8
+                                    ] //stops for individual color
+                                    //set the stops number equal to numbers of color
+                                    ),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(20))),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Problems',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall!
+                                            .copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 4),
+                                      const Text(
+                                        "Admin can create accounts",
+                                        style: TextStyle(
+                                          color: Colors.white60,
+                                          fontSize: 16,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                  child: VerticalDivider(
+                                    // thickness: 5,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                SvgPicture.asset(
+                                    'assets/icons/maths8-svgrepo-com.svg',
+                                    height: 28)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // con1################################################################
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: GestureDetector(

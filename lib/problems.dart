@@ -76,8 +76,7 @@ class _problemsState extends State<problems> {
           buttonBackgroundColor: Colors.white,
           animationDuration: Duration(milliseconds: 300),
           onTap: (index) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MyHomePageuser()));
+            Navigator.of(context).pop();
           },
           items: const [
             Icon(Icons.exit_to_app_sharp),
