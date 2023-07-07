@@ -10,6 +10,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:test2/userMain.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'dart:async';
+
 
 class stateuser extends StatefulWidget {
   const stateuser({super.key});
@@ -20,6 +22,42 @@ class stateuser extends StatefulWidget {
 
 class _stateuserState extends State<stateuser> {
   String? userName;
+ String error1Value = ' ';
+   StreamSubscription<DocumentSnapshot>? subscription1;
+
+
+  @override
+  void initState() {
+    super.initState();
+    subscribeToUpdates2();
+  }
+
+
+
+  void updateFloor1(String floorNumber) {
+    
+      setState(() {
+        error1Value = floorNumber;
+      });
+    
+  }
+
+  void subscribeToUpdates2() {
+    final collection = FirebaseFirestore.instance.collection('dataR');
+    final document = collection.doc('recallStatee');
+
+    subscription1 = document.snapshots().listen((snapshot) {
+      if (snapshot.exists) {
+        String fieldValue = snapshot.get('error1');
+        updateFloor1(fieldValue);
+      }
+    });
+  }
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +94,7 @@ class _stateuserState extends State<stateuser> {
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 1),
                   title: Center(
-                    child: Text('Elevator State ',
+                    child: Text('Elevator State : $error1Value ',
                         style: Theme.of(context)
                             .textTheme
                             .headlineSmall
