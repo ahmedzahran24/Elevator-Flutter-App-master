@@ -1,6 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:test2/team/screens/custom_app_bar.dart';
 import 'package:test2/team/screens/text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class teams extends StatelessWidget {
   const teams({
@@ -109,12 +112,17 @@ class teams extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Container(
-                      child: Image.asset(
-                        'assets/images/facebook.png',
+                    InkWell(
+                      onTap: () {
+                        _facebook();
+                      },
+                      child: Container(
+                        child: Image.asset(
+                          'assets/images/facebook.png',
+                        ),
+                        width: 40,
+                        height: 40,
                       ),
-                      width: 40,
-                      height: 40,
                     ),
                     SizedBox(
                       width: 30,
@@ -157,5 +165,25 @@ class teams extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _facebook() async {
+    String _face = 'https://www.facebook.com/MAS10Delta?mibextid=ZbWKwL';
+
+    if (await canLaunch(_face)) {
+      await launch(_face);
+    } else {
+      throw 'Could not launch $_face';
+    }
+  }
+
+  Future<void> _whatsapp() async {
+    String _face = 'https://api.whatsapp.com/send?phone=+201094956568';
+
+    if (await canLaunch(_face)) {
+      await launch(_face);
+    } else {
+      throw 'Could not launch $_face';
+    }
   }
 }

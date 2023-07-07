@@ -370,7 +370,7 @@ class _Floor2State extends State<Floor2> {
       });
 
       showNotification(
-          alarm.id, 'Alert', 'The Elevator has been Started to Floor 1');
+          alarm.id, 'Alert', 'The Elevator has been Started to Floor 2');
     });
   }
 }

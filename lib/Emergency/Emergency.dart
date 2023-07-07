@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +11,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:test2/userMain.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://chat.openai.com');
 
 class Emergency extends StatefulWidget {
   const Emergency({super.key});
@@ -202,10 +207,7 @@ class _EmergencyState extends State<Emergency> {
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                            _whatsapp();
                           },
                           child: Center(
                             child: Column(
@@ -278,10 +280,7 @@ class _EmergencyState extends State<Emergency> {
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                            _facebook();
                           },
                           child: Center(
                             child: Column(
@@ -340,10 +339,7 @@ class _EmergencyState extends State<Emergency> {
                               MaterialTapTargetSize.shrinkWrap,
                           shape: StadiumBorder(),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EntryPoint()));
+                            _launchUrl();
                           },
                           child: Center(
                             child: Column(
@@ -485,4 +481,30 @@ class _EmergencyState extends State<Emergency> {
           ],
         ),
       );
+
+  Future<void> _facebook() async {
+    String _face = 'https://www.facebook.com/MAS10Delta?mibextid=ZbWKwL';
+
+    if (await canLaunch(_face)) {
+      await launch(_face);
+    } else {
+      throw 'Could not launch $_face';
+    }
+  }
+
+  Future<void> _whatsapp() async {
+    String _face = 'https://api.whatsapp.com/send?phone=+201094956568';
+
+    if (await canLaunch(_face)) {
+      await launch(_face);
+    } else {
+      throw 'Could not launch $_face';
+    }
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
 }
