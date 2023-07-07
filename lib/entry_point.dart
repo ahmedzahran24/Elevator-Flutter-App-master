@@ -63,7 +63,7 @@ class _EntryPointState extends State<EntryPoint>
             duration: const Duration(milliseconds: 200),
             curve: Curves.fastOutSlowIn,
             left: isSideBarOpen ? 0 : -288,
-            top: 0,
+            top: 25,
             child: const SideBar(),
           ),
           Transform(

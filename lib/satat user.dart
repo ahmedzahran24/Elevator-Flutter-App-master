@@ -63,7 +63,7 @@ class _stateuserState extends State<stateuser> {
   Widget build(BuildContext context) {
     final ism1 = MediaQuery.of(context).size.width >= 350;
     final v = 1;
-    final x = 0;
+    final x = 1;
 
     return Scaffold(
       backgroundColor: Color.fromRGBO(1, 50, 73, 1),

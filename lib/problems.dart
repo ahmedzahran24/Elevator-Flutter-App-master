@@ -1,22 +1,55 @@
-import 'dart:ui';
-
+import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:test2/userMain.dart';
+
+
+
+
+
 
 class problems extends StatefulWidget {
+
+  
   const problems({super.key});
 
   @override
   State<problems> createState() => _problemsState();
 }
 
+
 class _problemsState extends State<problems> {
-  var p1 = 0;
-  var p2 = 1;
-  var p3 = 0;
+    @override
+  void initState() {
+    super.initState();
+    subscribeToUpdates();
+  }
+  
+    StreamSubscription<DocumentSnapshot>? subscription;
+      String currentError ="0";
+
+      void updateFloor(String upError) {
+    if (currentError !=upError) {
+      setState(() {
+        currentError = upError;
+      });
+    }
+  }
+    void subscribeToUpdates() {
+    final collection = FirebaseFirestore.instance.collection('dataR');
+    final document = collection.doc('recallStatee');
+
+    subscription = document.snapshots().listen((snapshot) {
+      if (snapshot.exists) {
+        String fieldValue = snapshot.get('error1');
+        updateFloor(fieldValue);
+      }
+    });
+  }
+
+  var p1 = "0";
+  var p2 = "0";
+  var p3 = "0";
   @override
   Widget build(BuildContext context) {
     bool cust = true;
@@ -65,9 +98,9 @@ class _problemsState extends State<problems> {
               ],
             ),
           ),
-          if (p1 == 0) cm1(cust, 'NO Problem 1') else cm2(cust, 'Problem 1'),
-          if (p2 == 0) cm1(cust, 'NO Problem 2') else cm2(cust, 'Problem 2'),
-          if (p3 == 0) cm1(cust, 'NO problem 3') else cm2(cust, 'Problem 1'),
+          if (p1 == currentError) cm1(cust, 'NO Problem 1') else cm2(cust, 'Problem  1'),
+          if (p2 == currentError) cm1(cust, 'NO Problem 2') else cm2(cust, 'Problem 2'),
+          if (p3 == currentError) cm1(cust, 'NO problem 3') else cm2(cust, 'Problem 1'),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -139,7 +172,7 @@ class _problemsState extends State<problems> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ListTile(
-                      title: Text('The solution is'),
+                      title: Text('The solution is $currentError '),
                     ),
                   ),
                 )
@@ -209,7 +242,7 @@ class _problemsState extends State<problems> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ListTile(
-                      title: Text('not proplem'),
+                      title: Text('not proplem $currentError '),
                     ),
                   ),
                 )

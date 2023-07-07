@@ -117,7 +117,7 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
                                   width: 8,
                                 ),
                                 Text(
-                                  "get started",
+                                  "Get Started",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Color.fromARGB(209, 156, 6, 6)),

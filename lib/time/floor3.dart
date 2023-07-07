@@ -117,7 +117,7 @@ class _Floor3State extends State<Floor3> {
           final String alarmStatus;
           if (alarm.triggered) {
             alarmStatus = 'Done';
-            // processIncomingValue('3');
+            processIncomingValue('3');
           } else {
             alarmStatus = 'Processing';
           }
@@ -370,7 +370,7 @@ class _Floor3State extends State<Floor3> {
       });
 
       showNotification(
-          alarm.id, 'Alert', 'The Elevator has been Started to Floor 1');
+          alarm.id, 'Alert', 'The Elevator has been Started to Floor 3');
     });
   }
 }
