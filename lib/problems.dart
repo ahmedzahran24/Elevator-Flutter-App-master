@@ -24,14 +24,22 @@ class _problemsState extends State<problems> {
     super.initState();
     subscribeToUpdates();
   }
-  
+    @override
     StreamSubscription<DocumentSnapshot>? subscription;
       String currentError ="0";
+      String powerError = "0";
 
       void updateFloor(String upError) {
     if (currentError !=upError) {
       setState(() {
         currentError = upError;
+      });
+    }
+  }
+    void updatepowerError(String power1) {
+    if (powerError  !=power1) {
+      setState(() {
+        powerError  = power1;
       });
     }
   }
@@ -42,14 +50,14 @@ class _problemsState extends State<problems> {
     subscription = document.snapshots().listen((snapshot) {
       if (snapshot.exists) {
         String fieldValue = snapshot.get('error1');
+        String powerError55 =   snapshot.get('errorPower');
         updateFloor(fieldValue);
+        updatepowerError(powerError55 );
       }
     });
   }
 
-  var p1 = "0";
-  var p2 = "0";
-  var p3 = "0";
+
   @override
   Widget build(BuildContext context) {
     bool cust = true;
@@ -98,9 +106,9 @@ class _problemsState extends State<problems> {
               ],
             ),
           ),
-          if (p1 == currentError) cm1(cust, 'NO Problem 1') else cm2(cust, 'Problem  1'),
-          if (p2 == currentError) cm1(cust, 'NO Problem 2') else cm2(cust, 'Problem 2'),
-          if (p3 == currentError) cm1(cust, 'NO problem 3') else cm2(cust, 'Problem 1'),
+          if ("0" == powerError) cm1(cust, 'NO Power Problem') else cm2(cust, 'Power Problem','The solution is Check the power'),
+          if ("0" == currentError) cm1(cust, 'Safty OFF') else cm2(cust, 'Safty ON','The solution is Check the fork'),
+          if ("0" == "0") cm1(cust, 'NO problem 3') else cm2(cust, 'Problem 3','The solution is '),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -117,7 +125,7 @@ class _problemsState extends State<problems> {
     );
   }
 
-  Padding cm2(bool cust, String t1) {
+  Padding cm2(bool cust, String t1,String t2) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -172,7 +180,7 @@ class _problemsState extends State<problems> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ListTile(
-                      title: Text('The solution is $currentError '),
+                      title: Text( t2 ),
                     ),
                   ),
                 )
@@ -242,7 +250,7 @@ class _problemsState extends State<problems> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ListTile(
-                      title: Text('not proplem $currentError '),
+                      title: Text('not proplem '),
                     ),
                   ),
                 )
