@@ -41,7 +41,7 @@ class _MyLoginuserState extends State<MyLoginuser> {
     }
 
     setState(() {
-      errorMessage = 'Invalid email or password';
+      errorMessage = 'Invalid email or password :)';
     });
   }
 
@@ -152,7 +152,13 @@ class _MyLoginuserState extends State<MyLoginuser> {
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
                                         onPressed: () {
+                                            if (emailCont.text.trim().isEmpty || passCont.text.trim().isEmpty) {
+                                            setState(() {
+                                             errorMessage = 'Please enter email and password';
+                                                  });
+                                           } else {
                                           getUsers();
+                                          }
                                         },
                                         icon: Icon(
                                           Icons.arrow_forward,
