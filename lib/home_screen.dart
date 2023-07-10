@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test2/login/login.dart';
 import 'package:test2/login/login_user.dart';
-
 import 'package:test2/login_admin.dart';
-
 import 'normal_userLogin.dart';
 
 class HomeScreen extends StatelessWidget {

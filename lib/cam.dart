@@ -13,7 +13,7 @@ class EspCameraScreen extends StatelessWidget {
       ),
       body: Center(
         child: Mjpeg(
-          stream: 'http://dtu.ddns.net:81/stream',
+          stream: 'http://192.168.1.15:81/stream',
           isLive: true,
         ),
       ),

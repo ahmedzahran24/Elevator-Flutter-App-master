@@ -9,7 +9,7 @@ import 'package:test2/unlock.dart';
 import 'package:test2/unlouck/screens/lock.dart';
 import 'package:test2/unlouckadmin/screens/getstartedadmin.dart';
 import 'package:test2/unlouckadmin/screens/lock.dart';
-
+import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -19,6 +19,51 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+    @override
+  void initState() {
+    super.initState();
+    showDisplayName();
+    subscribeToUpdates();
+    getRdata().then((DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
+      setState(() {
+        dataR = documentSnapshot.data();
+      });
+    });
+  }
+   @override
+   StreamSubscription<DocumentSnapshot>? subscription;
+      String power ="0";
+      String error1 ="0";
+
+      void updateFloor(String upError) {
+    if (power !=upError) {
+      setState(() {
+        power = upError;
+      });
+    }
+  }
+  
+      void updateerror1(String error11){
+    if (error1 !=error11) {
+      setState(() {
+        error1 = error11;
+      });
+    }
+  }
+    void subscribeToUpdates() {
+    final collection = FirebaseFirestore.instance.collection('dataR');
+    final document = collection.doc('recallStatee');
+
+    subscription = document.snapshots().listen((snapshot) {
+      if (snapshot.exists) {
+        String fieldValue = snapshot.get('errorPower');
+        String  error15 = snapshot.get('error1');
+        updateFloor(fieldValue);
+        updateerror1(error15);
+      }
+    });
+  }
+
   var dataR;
   String? userName;
 
@@ -47,16 +92,6 @@ class _HomePageState extends State<HomePage> {
     return documentSnapshotR;
   }
 
-  @override
-  void initState() {
-    super.initState();
-    showDisplayName();
-    getRdata().then((DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
-      setState(() {
-        dataR = documentSnapshot.data();
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      if (v == 1)
+                      if (power == "0")
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -215,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       // #########################################
-                      if (v == 1)
+                      if (power == "0" && error1 == "0")
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
